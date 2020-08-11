@@ -43,6 +43,26 @@ export class WebpageComponent implements OnInit {
     '../assets/images/gifs/idee/Idee unterstuetzer.gif'
   ];
 
+  argumentImages: string[] = [
+    '../assets/images/gifs/group/Group erstellen.gif',
+    '../assets/images/gifs/group/Group wiki.gif',
+    '../assets/images/gifs/group/Group wiki administrators.gif',
+    '../assets/images/gifs/group/Group ideen.gif',
+    '../assets/images/gifs/group/Group events.gif'
+  ];
+
+  eventsImages: string[] = [
+    '../assets/images/gifs/events/Event erstellen.gif',
+    '../assets/images/gifs/events/Event thema erstellen.gif',
+    '../assets/images/gifs/events/Event waehlen.gif',
+    '../assets/images/gifs/events/Event aufgaben und protokolle.gif'
+  ];
+
+  communicationImages: string[] = [
+    '../assets/images/gifs/kommunikation/Chat.gif',
+    '../assets/images/gifs/kommunikation/Chat group.gif'
+  ];
+
   groupsHeadline = 'Gruppen';
   groupsBrick: Brick[] = [
     {
