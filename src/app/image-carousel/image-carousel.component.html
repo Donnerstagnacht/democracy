@@ -1,6 +1,6 @@
 <div *ngIf="imageList && (imageList.length > 0)" class="carousel carousel-slider min toast-swipe-mich z-depth-3">
   <a class="carousel-item" *ngFor="let image of imageList; let last = last">
-    <img src="{{image}}">
+    <img [src]="image">
     <ng-container *ngIf="last">{{initCarousel()}}</ng-container>
   </a>
 </div>
