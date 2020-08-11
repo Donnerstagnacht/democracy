@@ -19,4 +19,4 @@ Depending on your knowledge, you can either contribute to the source code or adv
 4. Describe what is not working so far (the issue itself)
 5. Describe how you already tried to fix it
 
-Read the Code of Conduduct for more information on basic behavior: (code-of-conduct.md)
+Read the Code of Conduduct for more information on basic behavior: [Code of Conduct](code-of-conduct.md)
