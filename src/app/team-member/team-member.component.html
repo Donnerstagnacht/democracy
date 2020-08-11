@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-image card-image-round waves-effect waves-block waves-light">
+    <img class="activator" src="{{teamMember.image}}">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">{{teamMember.name}}</span>
+    <p>Motivation & Ausbildung</p>
+  </div>
+  <div class="card-reveal justify">
+    <span class="card-title grey-text text-darken-4">Motivation<i class="material-icons right">close</i></span>
+    <p *ngFor="let motivation of teamMember.motivationArguments">
+      {{motivation}}
+    </p>
+    <table class="highlight centered">
+      <thead>
+        <tr>
+          <th>Ausildung</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let education of teamMember.educationArguments">
+          <td>{{education}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="center absatz">
+      <img class="rocket" src="../assets/images/rocket.svg" type="svg" alt="rocket">
+    </div>
+  </div>
+</div>

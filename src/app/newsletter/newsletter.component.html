@@ -1,0 +1,47 @@
+<div class="card white">
+  <div class="card-content">
+    <table class="highlight centered">
+      <tbody>
+        <tr>
+          <td>Klick Dummy</td>
+          <td class="green-text">Live</td>
+        </tr>
+        <tr>
+          <td>Beta Version</td>
+          <td class="red-text">01.03.2021</td>
+        </tr>
+      </tbody>
+    </table>
+    <h5 class="center">Newsletter</h5>
+    <p>Gespannt auf Neuigkeiten? Bleibe mit unserem Newsletter immer auf dem neusten Stand.</p>
+    <form id="subscribeform" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+      <div class="input-field">
+        <input required id="email-subscribe" type="email" class="validate" formControlName="email">
+        <label for="email-subscribe">Email</label>
+        <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
+      </div>
+      <div class="center">
+        <button
+          id="subscribeButton"
+          type="text"
+          class="waves-effect waves-light btn red lighten-3 black-text"
+          target=""
+          data-target="subscribed"
+          type="submit"
+          [disabled]="!subscribeForm.valid"
+        >ABONNIEREN</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- Modal Subsribe -->
+  <div id="subscribed" class="modal">
+    <div class="modal-content">
+      <h4>Willkommen in unserem Aboservice!</h4>
+      <p>Wir freuen uns das du dabei. Falls du Fragen oder Anregungen hast, zögere nicht uns zu kontaktieren! </p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" id="resetSubscribe" class="center modal-close waves-effect waves-green btn-flat">FERTIG</a>
+    </div>
+  </div>

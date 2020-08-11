@@ -1,0 +1,10 @@
+<ul class="collapsible popout">
+  <li *ngFor="let question of questions">
+    <div class="collapsible-header">
+      <h6 class="black-text">{{question.question}}</h6>
+    </div>
+    <div class="collapsible-body">
+      <p>{{question.answer}}</p>
+    </div>
+  </li>
+</ul>

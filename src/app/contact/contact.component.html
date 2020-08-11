@@ -1,0 +1,78 @@
+<form id="contact" class="col s12" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="input-field col s6">
+      <input required id="vorname" type="text" class="validate" formControlName="firstName">
+      <label for="vorname">Vorname</label>
+      <span id="vorname-helper" class="helper-text" data-error="Bitte einen Voramen eingeben."></span>
+    </div>
+    <div class="input-field col s6">
+      <input required id="nachname" type="text" class="validate" formControlName="lastName">
+      <label for="nachname">Nachname</label>
+      <span id="nachname-helper" class="helper-text" data-error="Bitte einen Nachnamen eingeben."></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input required id="email" type="email" class="validate" formControlName="email">
+      <label for="email">Email</label>
+      <span id="email-helper" class="helper-text" data-error="Bitte eine gültige Email eingeben."></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <select required class="fake-valid validate black-text" id="thema" formControlName="topic">
+        <option class="black-text" value="Wähle ein Thema" disabled selected>Wähle ein Thema</option>
+        <option class="black-text" value="Fragen zur Idee">Fragen zur Idee</option>
+        <option class="black-text" value="Erzähl von uns">Erzähl von uns</option>
+        <option class="black-text" value="Spenden">Spenden</option>
+        <option class="black-text" value="Design">Design</option>
+        <option class="black-text" value="Programmierung">Programmierung</option>
+        <option class="black-text" value="sonstiges">sonstiges</option>
+      </select>
+      <label for="thema">Thema</label>
+      <span id="thema-helper" class="helper-text"></span>
+    </div>
+    <div class="input-field col s12">
+      <input required id="betreff" type="text" class="validate" formControlName="subject">
+      <label for="betreff">Betreff</label>
+      <span id="betreff-helper" class="helper-text" data-error="Bitte einen Betreff eingeben"></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea required id="nachricht" class="materialize-textarea validate" formControlName="message"></textarea>
+      <label for="nachricht">Textarea</label>
+      <span id="nachricht-helper" class="helper-text" data-error="wrong" ></span>
+    </div>
+  </div>
+
+  <div class="center">
+    <button
+      id="kontaktButton"
+      type="text"
+      class="waves-effect black-text waves-light red lighten-3 btn "
+      target=""
+      type="submit"
+      [disabled]="!contactForm.valid"
+      >SENDEN</button>
+  </div>
+</form>
+
+<!--modal-trigger-->
+  <!-- Modal Kontakt -->
+  <div id="modalKontakt" class="modal">
+    <div class="modal-content">
+      <h4>Danke für deine Nachricht {{contactForm.value.firstName}}!</h4>
+      <p>Wir melden uns sobald wie möglich!</p>
+      <p>Thema: {{contactForm.value.topic}}</p>
+      <p>Kontaktemail: {{contactForm.value.email}}</p>
+      <h5>{{contactForm.value.subject}}</h5>
+      <p>{{contactForm.value.message}}</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="center modal-close waves-effect waves-green btn-flat">FERTIG</a>
+    </div>
+  </div>

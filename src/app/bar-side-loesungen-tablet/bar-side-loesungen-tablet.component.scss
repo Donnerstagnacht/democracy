@@ -1,0 +1,19 @@
+.sticky-mobile {
+  position: fixed!important;
+  top: 0px!important;
+  z-index: 1000!important;
+  background-color: white;
+  width: 100%!important;
+  margin-top: 0px;
+  padding-bottom: 12px;
+  padding-top: 12px;
+}
+
+.loesung-menu-mobile-child {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.loesung-menu-mobile-child:focus {
+  outline: none!important;
+}

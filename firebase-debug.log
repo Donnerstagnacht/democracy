@@ -1,0 +1,56 @@
+[debug] [2020-08-11T14:16:29.184Z] ----------------------------------------------------------------------
+[debug] [2020-08-11T14:16:29.186Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Tobi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2020-08-11T14:16:29.186Z] CLI Version:   8.7.0
+[debug] [2020-08-11T14:16:29.186Z] Platform:      win32
+[debug] [2020-08-11T14:16:29.186Z] Node Version:  v10.15.3
+[debug] [2020-08-11T14:16:29.188Z] Time:          Tue Aug 11 2020 16:16:29 GMT+0200 (Central European Summer Time)
+[debug] [2020-08-11T14:16:29.188Z] ----------------------------------------------------------------------
+[debug] [2020-08-11T14:16:29.188Z] 
+[debug] [2020-08-11T14:16:29.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-11T14:16:29.195Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Tobi\Desktop\DemocracyLife\democracy-life
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using democracy-life. 
+[debug] [2020-08-11T14:16:36.352Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/democracy-life  
+ 
+[debug] [2020-08-11T14:16:36.700Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 11 Aug 2020 14:16:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Firestore Setup
+[debug] [2020-08-11T14:16:36.704Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/democracy-life/services/firestore.googleapis.com  
+ 
+[debug] [2020-08-11T14:16:37.716Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 11 Aug 2020 14:16:38 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-11T14:16:37.719Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/democracy-life  
+ 
+[debug] [2020-08-11T14:16:38.334Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 11 Aug 2020 14:16:38 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-08-11T14:16:38.336Z] database_type: CLOUD_FIRESTORE
+[debug] [2020-08-11T14:16:38.339Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-11T14:16:38.342Z] > authorizing via signed-in user
+[debug] [2020-08-11T14:16:38.344Z] [iam] checking project democracy-life for permissions ["firebase.projects.get"]
+[debug] [2020-08-11T14:16:38.350Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/democracy-life:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-08-11T14:16:38.651Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 11 Aug 2020 14:16:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=133","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
