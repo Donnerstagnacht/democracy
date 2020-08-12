@@ -1,9 +1,9 @@
   <!--Mobile Nav-->
-  <app-bar-bot></app-bar-bot>
-  <app-bar-bot-curtain></app-bar-bot-curtain>
+  <app-bar-bot [menuTabList]="menuTabList"></app-bar-bot>
+  <app-bar-bot-curtain [menuTabList]="menuTabList"></app-bar-bot-curtain>
 
   <!-- Desktop side nav-->
-  <app-bar-side></app-bar-side>
+  <app-bar-side [menuTablList]="menuTabList"></app-bar-side>
 
   <!--Landing Page-->
   <app-landing-page></app-landing-page>
@@ -22,8 +22,16 @@
   </div>
 
   <!--Loesung navs mobile & tablet-->
-  <app-bar-side-loesungen-mobile></app-bar-side-loesungen-mobile>
-  <app-bar-side-loesungen-tablet></app-bar-side-loesungen-tablet>
+  <app-bar-side-submenu-mobile
+    [menuTabList]="menuLoesungTabList"
+    [stickyStart]="offSetTopLoesungen"
+    [stickyEnd]="offSetTopPrototyp-100"
+  ></app-bar-side-submenu-mobile>
+  <app-bar-side-submenu-tablet
+    [menuTabList]="menuLoesungTabList"
+    [stickyStart]="offSetTopLoesungen"
+    [stickyEnd]="offSetTopPrototyp-100"
+  ></app-bar-side-submenu-tablet>
 
   <div id="" class="row">
     <div class="col l2">
@@ -31,80 +39,102 @@
     <div class="col s12 m12 l8">
       <div class="container">
         <!-- Arument 1: Ideen & Anträge -->
-        <div id="ideen" class="scrollspy">
-          <div class="row">
-            <div class="col s12 m6">
-              <app-argument [headline]="ideasHeadline" [bricks]="ideasBrick"></app-argument>
-            </div>
-            <div class="col s12 m6">
-              <app-image-carousel [imageList]="ideasImages"></app-image-carousel>
-            </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <app-argument
+              id="ideen"
+              class="scrollspy"
+              [headline]="ideasHeadline"
+              [bricks]="ideasBrick">
+            </app-argument>
+          </div>
+          <div class="col s12 m6">
+            <app-image-carousel [imageList]="ideasImages"></app-image-carousel>
           </div>
         </div>
 
         <!-- Argument 2: Gruppen -->
-        <div id="gruppen" class="scrollspy">
-          <div class="row switch-container">
-            <div class="col s12 m6 switch-zwei">
-              <app-argument [headline]="groupsHeadline" [bricks]="groupsBrick"></app-argument>
-            </div>
-            <div class="col s12 m6 switch-eins">
-              <app-image-carousel [imageList]="argumentImages"></app-image-carousel>
-            </div>
+        <div class="row switch-container">
+          <div class="col s12 m6 switch-zwei">
+            <app-argument
+              id="gruppen"
+              class="scrollspy"
+              [headline]="groupsHeadline"
+              [bricks]="groupsBrick">
+            </app-argument>
+          </div>
+          <div class="col s12 m6 switch-eins">
+            <app-image-carousel [imageList]="argumentImages"></app-image-carousel>
           </div>
         </div>
 
         <!-- Argument 3: Events -->
-        <div id="events" class="scrollspy">
-          <div class="row">
-            <div class="col s12 m6">
-              <app-argument [headline]="eventsHeadline" [bricks]="eventsBrick"></app-argument>
-            </div>
-            <div class="col s12 m6">
-              <app-image-carousel [imageList]="eventsImages"></app-image-carousel>
-            </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <app-argument
+              id="events"
+              class="scrollspy"
+              [headline]="eventsHeadline"
+              [bricks]="eventsBrick">
+            </app-argument>
+          </div>
+          <div class="col s12 m6">
+            <app-image-carousel [imageList]="eventsImages"></app-image-carousel>
           </div>
         </div>
 
         <!-- Argument 4: Smart Search -->
-        <div id="search" class="scrollspy">
-          <div class="row switch-container">
-            <div class="col s12 m6 switch-zwei">
-              <app-argument [headline]="searchHeadline" [bricks]="searchBrick"></app-argument>
-            </div>
-            <div class="col s12 m6 switch-eins toast-swipe-mich ">
-              <img class="gif min z-depth-3" src="../assets/images/gifs/Suche.gif" alt="group-event">
-            </div>
+        <div class="row switch-container">
+          <div class="col s12 m6 switch-zwei">
+            <app-argument
+            id="search"
+            class="scrollspy"
+            [headline]="searchHeadline"
+            [bricks]="searchBrick">
+          </app-argument>
+          </div>
+          <div class="col s12 m6 switch-eins toast-swipe-mich ">
+            <img class="gif min z-depth-3" src="../assets/images/gifs/Suche.gif" alt="group-event">
           </div>
         </div>
 
         <!-- Argument 5: Kommunikation -->
-        <div id="kommunikation" class="scrollspy">
-          <div class="row">
-            <div class="col s12 m6">
-              <app-argument [headline]="communicationHeadline" [bricks]="communicationBrick"></app-argument>
-            </div>
-            <div class="col s12 m6">
-              <app-image-carousel [imageList]="communicationImages"></app-image-carousel>
-            </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <app-argument
+              id="kommunikation"
+              class="scrollspy"
+              [headline]="communicationHeadline"
+              [bricks]="communicationBrick">
+            </app-argument>
+          </div>
+          <div class="col s12 m6">
+            <app-image-carousel [imageList]="communicationImages"></app-image-carousel>
           </div>
         </div>
 
         <!-- Argument 6: Daten & Inklusion -->
-        <div id="daten" class="scrollspy">
-          <div class="row switch-container">
-            <div class="col s12 m6 switch-zwei">
-              <app-argument [headline]="dataHeadline" [bricks]="dataBrick"></app-argument>
-            </div>
-            <div class="col s12 m6  switch-eins toast-swipe-mich ">
-              <img class="gif min z-depth-3" src="../assets/images/gifs/registrierung.gif" alt="group-event">
-            </div>
+        <div class="row switch-container">
+          <div class="col s12 m6 switch-zwei">
+            <app-argument
+              id="daten"
+              class="scrollspy"
+              [headline]="dataHeadline"
+              [bricks]="dataBrick">
+          </app-argument>
+          </div>
+          <div class="col s12 m6  switch-eins toast-swipe-mich ">
+            <img class="gif min z-depth-3" src="../assets/images/gifs/registrierung.gif" alt="group-event">
           </div>
         </div>
       </div>
     </div>
     <!--loesung menu desktop-->
-    <app-bar-side-loesungen></app-bar-side-loesungen>
+    <app-bar-side-submenu
+     [menuTabList]="menuLoesungTabList"
+     [stickyStart]="offSetTopLoesungen"
+     [stickyEnd]="offSetTopPrototyp-100">
+    </app-bar-side-submenu>
   </div>
 
   <!-- Prototype -->
@@ -113,8 +143,8 @@
     </div>
     <div class="col s12 m12 l8">
       <div class="container">
-        <div id="prototyp" class="row scrollspy">
-          <h3 class="center">Prototyp</h3>
+        <div class="row scrollspy">
+          <h3 id="prototyp" class="center">Prototyp</h3>
           <div class="col s12 m6">
             <h6>Visualisieren</h6>
             <p class="justify">
@@ -139,7 +169,7 @@
           </div>
         </div>
         <h4 class="center">Klick Dummy</h4>
-       <!-- <div class=" center margin-top toast-klick-mich">
+        <!--<div class=" center margin-top toast-klick-mich">
           <iframe class="iframe round center z-depth-3 round" src="https://xd.adobe.com/embed/9e081b15-b13d-4217-4cf9-8838d58e1ce9-e839/"
             frameborder="0" allowfullscreen></iframe>
         </div>-->

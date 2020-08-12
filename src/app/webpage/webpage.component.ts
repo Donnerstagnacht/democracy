@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { Brick } from '../argument/brick';
 import M from 'materialize-css';
+import { MenuTab } from '../bar-side/menuTab';
 
 @Component({
   selector: 'app-webpage',
@@ -161,11 +162,88 @@ export class WebpageComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  menuTabList: MenuTab[] = [
+    {
+      tabName: 'HOME',
+      tabLink: '#'
+    },
+    {
+      tabName: 'LÖSUNGEN',
+      tabLink: '#loesungen'
+    },
+    {
+      tabName: 'PROTOTPY',
+      tabLink: '#prototyp'
+    },
+    {
+      tabName: 'SUPPORT',
+      tabLink: '#support'
+    },
+    {
+      tabName: 'KONTAKT',
+      tabLink: '#kontakt'
+    },
+    {
+      tabName: 'TEAM',
+      tabLink: '#team'
+    },
+    {
+      tabName: 'FAQ',
+      tabLink: '#faq'
+    },
+    {
+      tabName: 'IMPRESSUM',
+      tabLink: '#impressum'
+    },
+  ];
+
+  menuLoesungTabList: MenuTab[] = [
+    {
+      tabName: 'Ideen',
+      tabLink: '#ideen'
+    },
+    {
+      tabName: 'Gruppen',
+      tabLink: '#gruppen'
+    },
+    {
+      tabName: 'Events',
+      tabLink: '#events'
+    },
+    {
+      tabName: 'Smart Search',
+      tabLink: '#search'
+    },
+    {
+      tabName: 'Kommunikation',
+      tabLink: '#kommunikation'
+    },
+    {
+      tabName: 'Daten & Inklusion',
+      tabLink: '#daten'
+    },
+  ];
+
+  htmlElement: HTMLElement;
+  offSetTopLoesungen: number;
+  offSetTopPrototyp: number;
+
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
     M.AutoInit();
+  }
 
+  @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
+    this.getOffSetTop('#loesungen');
+    this.offSetTopLoesungen = this.htmlElement.offsetTop;
+
+    this.getOffSetTop('#prototyp');
+    this.offSetTopPrototyp = this.htmlElement.offsetTop;
+   }
+
+  getOffSetTop(id: string): void {
+    this.htmlElement = this.elementRef.nativeElement.querySelector(id);
   }
 
 }

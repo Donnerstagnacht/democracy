@@ -1,0 +1,7 @@
+<div class="col hide-on-med-and-down l2">
+  <ul id="submenu" class="section no-background table-of-contents" [class.sticky]="sticky === true">
+    <li class="side" *ngFor="let menuTab of menuTabList">
+      <a href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+    </li>
+  </ul>
+</div>

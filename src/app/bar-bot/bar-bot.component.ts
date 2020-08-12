@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BarBotCurtainService } from '../bar-bot-curtain.service';
+import { MenuTab } from '../bar-side/menuTab';
 
 @Component({
   selector: 'app-bar-bot',
@@ -7,6 +8,7 @@ import { BarBotCurtainService } from '../bar-bot-curtain.service';
   styleUrls: ['./bar-bot.component.scss']
 })
 export class BarBotComponent implements OnInit {
+  @Input() menuTabList: MenuTab[];
   open = false;
 
 
@@ -21,7 +23,9 @@ export class BarBotComponent implements OnInit {
 
 /* Closes the curtain menu on mobile*/
  closeNav(): void {
-  this.barBotCurtainService.closeNav();
+   if (this.menuTabList.length > 3) {
+    this.barBotCurtainService.closeNav();
+   }
  }
 
 }

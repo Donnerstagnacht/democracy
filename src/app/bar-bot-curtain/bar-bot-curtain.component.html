@@ -1,11 +1,10 @@
   <!--Mobile Curtain nav-->
-  <div id="bot-nav" class="overlay">
+  <div id="bot-nav" class="overlay valign-wrapper">
     <div class="overlay-content">
       <ul>
-        <li class="curtain-hover"><a (click)="closeNav()" class="black-text" href="#">HOME</a></li>
-        <li class="curtain-hover"><a (click)="closeNav()" class="black-text" href="#support">SUPPORT</a></li>
-        <li class="curtain-hover"><a (click)="closeNav()" class="black-text" href="#team">TEAM</a></li>
-        <li class="curtain-hover"><a (click)="closeNav()" class="black-text" href="#impressum">IMPRESSUM</a></li>
+        <li class="curtain-hover" *ngFor=" let last = last; let menuTab of menuTabList | slice:3 ">
+          <a (click)="closeNav()" class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+        </li>
       </ul>
     </div>
   </div>

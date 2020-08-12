@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MenuTab } from './menuTab';
 
 @Component({
   selector: 'app-bar-side',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bar-side.component.scss']
 })
 export class BarSideComponent implements OnInit {
-
+  @Input() menuTablList: MenuTab[];
   constructor() { }
 
   ngOnInit(): void {

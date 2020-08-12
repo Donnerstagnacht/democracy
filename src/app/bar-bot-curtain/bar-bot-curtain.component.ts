@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BarBotCurtainService } from '../bar-bot-curtain.service';
+import { MenuTab } from '../bar-side/menuTab';
 
 @Component({
   selector: 'app-bar-bot-curtain',
@@ -7,6 +8,7 @@ import { BarBotCurtainService } from '../bar-bot-curtain.service';
   styleUrls: ['./bar-bot-curtain.component.scss']
 })
 export class BarBotCurtainComponent implements OnInit {
+  @Input() menuTabList: MenuTab[];
 
   constructor(private barBotCurtainService: BarBotCurtainService) { }
 

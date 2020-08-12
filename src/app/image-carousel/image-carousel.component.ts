@@ -21,8 +21,8 @@ export class ImageCarouselComponent {
   ) { }
 
   initCarousel() {
-    if (!this.carousel) {     
-      this.carousel = Carousel.init(this.hostElement.nativeElement.querySelector('.carousel'), this.options);;
+    if (!this.carousel) {
+      this.carousel = Carousel.init(this.hostElement.nativeElement.querySelector('.carousel'), this.options);
     }
   }
 

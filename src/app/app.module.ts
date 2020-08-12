@@ -27,9 +27,9 @@ import { BarBotComponent } from './bar-bot/bar-bot.component';
 import { BotBarCurtainComponent } from './bot-bar-curtain/bot-bar-curtain.component';
 import { BarBotCurtainComponent } from './bar-bot-curtain/bar-bot-curtain.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { BarSideLoesungenComponent } from './bar-side-loesungen/bar-side-loesungen.component';
-import { BarSideLoesungenTabletComponent } from './bar-side-loesungen-tablet/bar-side-loesungen-tablet.component';
-import { BarSideLoesungenMobileComponent } from './bar-side-loesungen-mobile/bar-side-loesungen-mobile.component';
+import { BarSideSubmenuComponent } from './bar-side-submenu/bar-side-submenu.component';
+import { BarSideSubmenuTabletComponent } from './bar-side-submenu-tablet/bar-side-submenu-tablet.component';
+import { BarSideSubmenuMobileComponent } from './bar-side-submenu-mobile/bar-side-submenu-mobile.component';
 import { AdminComponent } from './admin/admin.component';
 import { WebpageComponent } from './webpage/webpage.component';
 
@@ -55,9 +55,9 @@ import { WebpageComponent } from './webpage/webpage.component';
     BotBarCurtainComponent,
     BarBotCurtainComponent,
     LandingPageComponent,
-    BarSideLoesungenComponent,
-    BarSideLoesungenTabletComponent,
-    BarSideLoesungenMobileComponent,
+    BarSideSubmenuComponent,
+    BarSideSubmenuTabletComponent,
+    BarSideSubmenuMobileComponent,
     AdminComponent,
     WebpageComponent
   ],

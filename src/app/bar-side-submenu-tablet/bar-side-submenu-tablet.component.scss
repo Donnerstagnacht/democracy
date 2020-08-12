@@ -1,13 +1,3 @@
-.flex-container-overflow {
-  display: flex;
-  overflow-x: auto;
-  align-items: center;
-  white-space: nowrap;
-}
-
-.flex-container-overflow::-webkit-scrollbar {    display: none;}
-
-
 .sticky-mobile {
   position: fixed!important;
   top: 0px!important;
@@ -19,11 +9,11 @@
   padding-top: 12px;
 }
 
-.loesung-menu-mobile-child {
+.submenu-tablet-child {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.loesung-menu-mobile-child:focus {
+.submenu-tablet-child:focus {
   outline: none!important;
 }

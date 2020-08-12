@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarSideLoesungenTabletComponent } from './bar-side-loesungen-tablet.component';
+import { BarSideSubmenuTabletComponent } from './bar-side-submenu-tablet.component';
 
 describe('BarSideLoesungenTabletComponent', () => {
-  let component: BarSideLoesungenTabletComponent;
-  let fixture: ComponentFixture<BarSideLoesungenTabletComponent>;
+  let component: BarSideSubmenuTabletComponent;
+  let fixture: ComponentFixture<BarSideSubmenuTabletComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BarSideLoesungenTabletComponent ]
+      declarations: [ BarSideSubmenuTabletComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarSideLoesungenTabletComponent);
+    fixture = TestBed.createComponent(BarSideSubmenuTabletComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

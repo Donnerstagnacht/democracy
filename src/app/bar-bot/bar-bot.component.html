@@ -1,8 +1,10 @@
 <nav id="t-hide" class="menu-bar z-depth-3 white hide-on-large-only">
   <ul class="flex-row">
-    <li><a class="black-text padding" (click)="closeNav()" href="#loesungen">LÖSUNGEN</a></li>
-    <li><a class="black-text padding" (click)="closeNav()" href="#prototyp">PROTOTYP</a></li>
-    <li><a class="black-text padding" (click)="closeNav()" href="#kontakt">KONTAKT</a></li>
-    <li><a id="mehr" class="black-text padding" (click)="openNav()">MEHR</a></li>
+    <li *ngFor="let menuTab of menuTabList | slice:0:3">
+      <a class="black-text padding" (click)="closeNav()" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+    </li>
+    <li>
+      <a id="mehr" class="black-text padding" (click)="openNav()" *ngIf="menuTabList.length > 3">MEHR</a>
+    </li>
   </ul>
 </nav>

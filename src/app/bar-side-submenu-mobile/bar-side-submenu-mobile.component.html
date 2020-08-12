@@ -1,0 +1,8 @@
+<ul
+  class="hide-on-med-and-up flex-container-overflow"
+  [class.sticky-mobile]="sticky === true"
+  [class.z-depth-3]="sticky === true">
+  <li *ngFor="let menuTab of menuTabList">
+    <a class="submenu-mobile-child black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+  </li>
+</ul>
