@@ -1,0 +1,34 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="input-field">
+    <input id="email" type="email" class="validate" formControlName="email">
+    <label for="email">Email</label>
+    <span id="email-helper" class="helper-text" data-error="Bitte eine gültige Email eingeben" ></span>
+  </div>
+  <div class="input-field">
+    <input id="password" type="password" class="validate" formControlName="password">
+    <label for="password">Password</label>
+    <span id="password-helper" class="helper-text" data-error="Bitte eine gültiges Passwort eingeben" ></span>
+  </div>
+  <div class="flex-container" *ngIf="loginMode">
+    <button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      class="margin waves-effect black-text waves-light red lighten-3 btn "
+    >LOGIN</button>
+    <button
+      (click)="changeLoginMode()"
+      class="margin black-text white lighten-3 btn"
+    >REGISTER FIRST</button>
+  </div>
+  <div class="flex-container" *ngIf="!loginMode">
+    <button
+      type="submit"
+      [disabled]="!loginForm.valid"
+      class="margin waves-effect black-text waves-light red lighten-3 btn "
+    >REGISTER</button>
+    <button
+      (click)="changeLoginMode()"
+      class="margin black-text white lighten-3 btn"
+    >LOGIN</button>
+  </div>
+</form>

@@ -1,43 +1,43 @@
-  <!--Mobile Nav-->
-  <app-bar-bot [menuTabList]="menuTabList"></app-bar-bot>
-  <app-bar-bot-curtain [menuTabList]="menuTabList"></app-bar-bot-curtain>
+<!--Mobile Nav-->
+<app-bar-bot
+  [menuTabList]="menuTabList"
+  [logoutButton]="true">
+</app-bar-bot>
+<app-bar-bot-curtain
+  [menuTabList]="menuTabList"
+  [logoutButton]="true">
+</app-bar-bot-curtain>
 
-  <!-- Desktop side nav-->
-  <app-bar-side [menuTablList]="menuTabList"></app-bar-side>
+<!-- Desktop side nav-->
+<app-bar-side
+  [menuTablList]="menuTabList"
+  [logoutButton]="true">
+</app-bar-side>
 
-<div id="" class="row">
+<div class="row">
   <div class="col l2">
   </div>
   <div class="col s12 m12 l8">
-    <div class="container loesung-margin">
-      <h3 class="center">Hello Admins</h3>
-    </div>
-    <h3
-      class="center scrollspy"
+    <app-admin-subscribers
       id="subscribers"
-      >Subscribers</h3>
-    <ul>
-      <li class="text" *ngFor="let subscriber of subscribers | async">
-        {{subscriber.email}}
-      </li>
-    </ul>
-
-    <h3
-      class="center scrollspy"
-      id="messages"
-
-      >Messages</h3>
-    <div class="text" *ngFor="let message of messsagesWebpage | async">
-      <p>Name: {{message.firstName}} {{message.lastName}}</p>
-      <p>Email: {{message.email}}</p>
-      <p>Thema: {{message.topic}}</p>
-      <p>Betreff: {{message.subject}}</p>
-      <p>Nachricht: {{message.message}}</p>
-    </div>
+      class="scrollspy"
+      [subscribers]="subscribers"
+    ></app-admin-subscribers>
   </div>
   <div class="col l2">
   </div>
 </div>
 
-<p>Hello Admins</p>
-
+<div class="row margin-for-bot-bar">
+  <div class="col l2">
+  </div>
+  <div class="col s12 m12 l8">
+    <app-admin-messages
+      id="messages"
+      class="scrollspy"
+      [messsagesWebpage]="messsagesWebpage"
+    ></app-admin-messages>
+  </div>
+  <div class="col l2">
+  </div>
+</div>

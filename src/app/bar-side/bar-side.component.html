@@ -2,7 +2,11 @@
   <div class="valign-wrapper nav-wrapper">
     <ul>
       <li class="app-width" *ngFor="let menuTab of menuTablList">
-        <a class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+        <a *ngIf="menuTab.tabLink" class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
+       <!-- <a *ngIf="menuTab.tabRouterLink" class="black-text" [routerLink]="[menuTab.tabRouterLink]">{{menuTab.tabName}}</a>-->
+      </li>
+      <li class="app-width">
+        <a *ngIf="logoutButton" class="black-text" (click)="logout()">LOGOUT</a>
       </li>
     </ul>
   </div>

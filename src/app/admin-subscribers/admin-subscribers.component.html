@@ -1,0 +1,16 @@
+<h3 class="center" >
+  Subscribers
+</h3>
+<table class="highlight centered">
+  <thead>
+    <tr>
+      <th>Email</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let subscriber of subscribers | async">
+      <td>{{subscriber.email}}</td>
+    </tr>
+  </tbody>
+</table>

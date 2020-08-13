@@ -5,6 +5,9 @@
         <li class="curtain-hover" *ngFor=" let last = last; let menuTab of menuTabList | slice:3 ">
           <a (click)="closeNav()" class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
         </li>
+        <li class="curtain-hover" *ngIf="logoutButton">
+          <a (click)="closeNav(); logout()" class="black-text">LOGOUT</a>
+        </li>
       </ul>
     </div>
   </div>

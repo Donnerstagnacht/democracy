@@ -4,7 +4,7 @@
       <a class="black-text padding" (click)="closeNav()" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
     </li>
     <li>
-      <a id="mehr" class="black-text padding" (click)="openNav()" *ngIf="menuTabList.length > 3">MEHR</a>
+      <a id="mehr" class="black-text padding" (click)="openNav()" *ngIf="menuTabList.length > 3 || logoutButton">MEHR</a>
     </li>
   </ul>
 </nav>

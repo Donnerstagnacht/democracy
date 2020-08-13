@@ -9,6 +9,7 @@ import { MenuTab } from '../bar-side/menuTab';
 })
 export class BarBotComponent implements OnInit {
   @Input() menuTabList: MenuTab[];
+  @Input() logoutButton: boolean;
   open = false;
 
 

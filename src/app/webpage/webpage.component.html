@@ -6,7 +6,10 @@
   <app-bar-side [menuTablList]="menuTabList"></app-bar-side>
 
   <!--Landing Page-->
-  <app-landing-page></app-landing-page>
+  <app-landing-page
+    id=""
+    class="scrollspy"
+  ></app-landing-page>
 
   <!-- List of arguments / solutions -->
   <div id="" class="row">
@@ -14,7 +17,7 @@
     </div>
     <div class="col s12 m12 l8">
       <div class="container loesung-margin">
-        <h3 id="loesungen" class="center scrollspy">Lösungen</h3>
+        <h3 id="loesungen" class="center scrollspy">Lösungen</h3> <!-- id="loesungen" und class="scrollspy here => side nav scrollspy for loesungen is not working correctly -->
       </div>
     </div>
     <div class="col l2">
@@ -33,7 +36,7 @@
     [stickyEnd]="offSetTopPrototyp-100"
   ></app-bar-side-submenu-tablet>
 
-  <div id="" class="row">
+  <div class="row"> <!-- id="loesungen" und class="scrollspy here => subnav scrollspy is not working anymore -->
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
@@ -143,8 +146,8 @@
     </div>
     <div class="col s12 m12 l8">
       <div class="container">
-        <div class="row scrollspy">
-          <h3 id="prototyp" class="center">Prototyp</h3>
+        <div id="prototyp" class="row scrollspy">
+          <h3 class="center">Prototyp</h3>
           <div class="col s12 m6">
             <h6>Visualisieren</h6>
             <p class="justify">
@@ -184,8 +187,8 @@
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
-      <div class="container">
-        <h3 id="support" class="center scrollspy">Unterstütz uns!</h3>
+      <div id="support" class="container scrollspy">
+        <h3 class="center">Unterstütz uns!</h3>
         <app-highlight [highlight]="highlight"></app-highlight>
         <app-card-controller></app-card-controller>
       </div>
@@ -199,9 +202,9 @@
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
-      <div class="container">
+      <div id="kontakt" class="scrollspy container">
         <div class="center">
-          <h5 id="kontakt" class="scrollspy">
+          <h5>
             Fragen? Interesse?
           </h5>
           <p>

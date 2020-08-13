@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { EmailSubscriber } from './emailSubscriber';
 import { MessageWebpage } from './messageWebpage';
 import { MenuTab } from '../bar-side/menuTab';
+import { AuthService } from '../auth.service';
+import M from 'materialize-css';
 
 @Component({
   selector: 'app-admin',
@@ -16,21 +18,28 @@ export class AdminComponent implements OnInit {
 
   menuTabList: MenuTab[] = [
     {
-      tabName: 'Subscribers',
+      tabName: 'SUBSCRIBERS',
       tabLink: '/admin#subscribers'
     },
     {
-      tabName: 'Messages',
+      tabName: 'MESSAGES',
       tabLink: '/admin#messages'
     },
   ];
 
-  constructor(private firestore: AngularFirestore) {
+  constructor(
+    private firestore: AngularFirestore,
+    private authService: AuthService
+    ) {
     this.subscribers = this.firestore.collection<EmailSubscriber>('subscribers').valueChanges();
     this.messsagesWebpage = this.firestore.collection<MessageWebpage>('messagesWebpage').valueChanges();
    }
 
   ngOnInit(): void {
+    // M.AutoInit();
+  }
 
+  logout(): void {
+    this.authService.logoutUser();
   }
 }

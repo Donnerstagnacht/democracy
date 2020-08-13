@@ -32,6 +32,10 @@ import { BarSideSubmenuTabletComponent } from './bar-side-submenu-tablet/bar-sid
 import { BarSideSubmenuMobileComponent } from './bar-side-submenu-mobile/bar-side-submenu-mobile.component';
 import { AdminComponent } from './admin/admin.component';
 import { WebpageComponent } from './webpage/webpage.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { AdminSubscribersComponent } from './admin-subscribers/admin-subscribers.component';
+import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,11 @@ import { WebpageComponent } from './webpage/webpage.component';
     BarSideSubmenuTabletComponent,
     BarSideSubmenuMobileComponent,
     AdminComponent,
-    WebpageComponent
+    WebpageComponent,
+    RegisterComponent,
+    LoginComponent,
+    AdminSubscribersComponent,
+    AdminMessagesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 export interface MenuTab {
   tabName: string;
-  tabLink: string;
+  tabLink?: string;
+  tabRouterLink?: string;
 }
