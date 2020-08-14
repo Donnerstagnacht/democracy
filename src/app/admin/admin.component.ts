@@ -59,14 +59,18 @@ export class AdminComponent implements OnInit {
       );
 
       this.subscribersCollection = firestore.collection<EmailSubscriber>('subscribers');
-      this.subscribers = this.subscribersCollection.snapshotChanges().pipe(
-        map((actions) => actions.map( a => {
-          console.log('in subscribers');
-          const data = a.payload.doc.data() as EmailSubscriber;
-          const id = a.payload.doc.id;
-          return {id, ...data};
-        }))
-      );
+      this.getSubscribers();
+  }
+
+  getSubscribers(): void {
+    this.subscribers = this.subscribersCollection.snapshotChanges().pipe(
+      map((actions) => actions.map( a => {
+        console.log('in subscribers');
+        const data = a.payload.doc.data() as EmailSubscriber;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      }))
+    );
   }
 
   ngOnInit(): void {
@@ -88,6 +92,11 @@ export class AdminComponent implements OnInit {
 
   addSubscriber(subscriber: EmailSubscriber) {
     this.subscribersCollection.add(subscriber);
+  }
+
+  filterSubscriber(filterString: string) {
+    this.subscribersCollection = this.firestore.collection('subscribers', ref => ref.where('email', '>=', filterString));
+    this.getSubscribers();
   }
 
   logout(): void {

@@ -2,9 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
 import { Observable } from 'rxjs';
 import { EmailSubscriberID, EmailSubscriber } from '../admin/emailSubscriber';
 
-import { Modal } from 'materialize-css';
+import { Modal, Tabs } from 'materialize-css';
 import { FormBuilder, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-admin-subscribers',
@@ -16,6 +15,7 @@ export class AdminSubscribersComponent implements OnInit {
   @Output() deleteSubscriberEvent = new EventEmitter<EmailSubscriberID>();
   @Output() editSubscriberEvent = new EventEmitter<EmailSubscriberID>();
   @Output() addSubscriberEvent = new EventEmitter<EmailSubscriber>();
+  @Output() filterEmailEvent = new EventEmitter<string>();
 
   editEmailForm = this.fb.group({
     editEmail: ['', [Validators.required]]
@@ -32,17 +32,26 @@ export class AdminSubscribersComponent implements OnInit {
   editModal: Modal;
   clickedSubscriber: EmailSubscriberID;
 
+  tabsTableRef: HTMLElement;
+  tabsTable: Tabs;
+
+  filterString: string;
+
   constructor(
     private elRef: ElementRef,
     private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+    this.filterString = '';
     this.deleteModalRef = this.elRef.nativeElement.querySelector('#deleteModal');
     this.deleteModal = Modal.init(this.deleteModalRef);
 
     this.editModalRef = this.elRef.nativeElement.querySelector('#editModal');
     this.editModal = Modal.init(this.editModalRef);
+
+    this.tabsTableRef = this.elRef.nativeElement.querySelector('#tabsTable');
+    this.tabsTable = Tabs.init(this.tabsTableRef);
   }
 
   openEditModal(subscriber: EmailSubscriberID) {
@@ -70,4 +79,8 @@ export class AdminSubscribersComponent implements OnInit {
     this.addEmailForm.reset();
   }
 
+  filterEmail(): void {
+    console.log(this.filterString);
+    this.filterEmailEvent.emit(this.filterString);
+  }
 }
