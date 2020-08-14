@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { Dropdown } from 'materialize-css';
 
 @Component({
   selector: 'app-button-share',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonShareComponent implements OnInit {
 
-  constructor() { }
+  dropdownRef: HTMLElement;
+  dropDown: Dropdown;
+
+  constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.dropdownRef = this.elRef.nativeElement.querySelector('#share-button');
+    this.dropDown = Dropdown.init(this.dropdownRef);
   }
 
 }

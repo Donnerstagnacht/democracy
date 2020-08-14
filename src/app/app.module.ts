@@ -36,6 +36,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AdminSubscribersComponent } from './admin-subscribers/admin-subscribers.component';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
+import { VideoCarouselComponent } from './video-carousel/video-carousel.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AdminMessagesComponent } from './admin-messages/admin-messages.componen
     RegisterComponent,
     LoginComponent,
     AdminSubscribersComponent,
-    AdminMessagesComponent
+    AdminMessagesComponent,
+    VideoCarouselComponent
   ],
   imports: [
     BrowserModule,

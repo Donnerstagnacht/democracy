@@ -44,6 +44,12 @@ export class WebpageComponent implements OnInit, AfterViewInit {
     '../assets/images/gifs/idee/Idee unterstuetzer.gif'
   ];
 
+  ideasVideos: string[] = [
+    '../assets/videos/Group Aufgaben-5.m4v',
+    '../assets/videos/Event Erstellen-2.m4v',
+    '../assets/videos/Event Themen Hinzufügen-1.m4v',
+  ];
+
   argumentImages: string[] = [
     '../assets/images/gifs/group/Group erstellen.gif',
     '../assets/images/gifs/group/Group wiki.gif',

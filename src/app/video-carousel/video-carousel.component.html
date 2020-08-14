@@ -1,0 +1,6 @@
+<div *ngIf="imageList && (imageList.length > 0)" class="carousel carousel-slider min toast-swipe-mich "> <!-- z-depth-3 -->
+  <div *ngFor="let image of imageList; let last = last">
+    <video class="carousel-item" autoplay loop [src]="image"></video>
+    <ng-container *ngIf="last">{{initCarousel()}}</ng-container>
+  </div>
+</div>
