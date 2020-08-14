@@ -6,3 +6,7 @@ export interface MessageWebpage {
     subject: string;
     message: string;
 }
+
+export interface MessageWebpageID extends MessageWebpage {
+  id: string;
+}

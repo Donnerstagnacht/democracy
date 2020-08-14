@@ -8,7 +8,7 @@ import { Card } from './card-argument';
 })
 export class CardTextComponent implements OnInit {
   @Input() card: Card;
-
+  @Input() github: boolean;
 
   constructor() { }
 

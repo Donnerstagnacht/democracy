@@ -46,7 +46,7 @@
           <div class="col s12 m6">
             <app-argument
               id="ideen"
-              class="scrollspy"
+              class="scrollspy2"
               [headline]="ideasHeadline"
               [bricks]="ideasBrick">
             </app-argument>
@@ -61,7 +61,7 @@
           <div class="col s12 m6 switch-zwei">
             <app-argument
               id="gruppen"
-              class="scrollspy"
+              class="scrollspy2"
               [headline]="groupsHeadline"
               [bricks]="groupsBrick">
             </app-argument>
@@ -76,7 +76,7 @@
           <div class="col s12 m6">
             <app-argument
               id="events"
-              class="scrollspy"
+              class="scrollspy2"
               [headline]="eventsHeadline"
               [bricks]="eventsBrick">
             </app-argument>
@@ -91,7 +91,7 @@
           <div class="col s12 m6 switch-zwei">
             <app-argument
             id="search"
-            class="scrollspy"
+            class="scrollspy2"
             [headline]="searchHeadline"
             [bricks]="searchBrick">
           </app-argument>
@@ -106,7 +106,7 @@
           <div class="col s12 m6">
             <app-argument
               id="kommunikation"
-              class="scrollspy"
+              class="scrollspy2"
               [headline]="communicationHeadline"
               [bricks]="communicationBrick">
             </app-argument>
@@ -121,7 +121,7 @@
           <div class="col s12 m6 switch-zwei">
             <app-argument
               id="daten"
-              class="scrollspy"
+              class="scrollspy2"
               [headline]="dataHeadline"
               [bricks]="dataBrick">
           </app-argument>
@@ -189,6 +189,10 @@
     <div class="col s12 m12 l8">
       <div id="support" class="container scrollspy">
         <h3 class="center">Unterstütz uns!</h3>
+        <div class="center">
+          <h5>Entwickler? Besuche uns auf GitHub</h5>
+          <a href="https://github.com/Donnerstagnacht/democracy" class=""><i class="fa fa-github hover center black-text"></i></a>
+        </div>
         <app-highlight [highlight]="highlight"></app-highlight>
         <app-card-controller></app-card-controller>
       </div>
@@ -234,7 +238,3 @@
   <!-- Impressum -->
   <app-impressum id="impressum" class="scrollspy"></app-impressum>
 
-  <!--JavaScript at end of body for optimized loading-->
-
-  <!--Scrollover Toasts-->
-  <script type="text/javascript" src="js/toast.js"></script>

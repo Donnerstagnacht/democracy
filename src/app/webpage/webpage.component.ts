@@ -1,6 +1,6 @@
-import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 import { Brick } from '../argument/brick';
-import M from 'materialize-css';
+import { ScrollSpy } from 'materialize-css';
 import { MenuTab } from '../bar-side/menuTab';
 
 @Component({
@@ -8,7 +8,7 @@ import { MenuTab } from '../bar-side/menuTab';
   templateUrl: './webpage.component.html',
   styleUrls: ['./webpage.component.scss']
 })
-export class WebpageComponent implements OnInit {
+export class WebpageComponent implements OnInit, AfterViewInit {
   highlight = 'Wir können jederzeit Unterstützung gebrauchen!';
 
   ideasHeadline = 'Ideen & Anträge';
@@ -228,10 +228,26 @@ export class WebpageComponent implements OnInit {
   offSetTopLoesungen: number;
   offSetTopPrototyp: number;
 
+  elem: HTMLElement;
+  instance: ScrollSpy;
+
+  elem2: HTMLElement;
+  instance2: ScrollSpy;
+
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    M.AutoInit();
+    // M.AutoInit();
+    this.elem = this.elementRef.nativeElement.querySelectorAll('.scrollspy');
+    this.instance = ScrollSpy.init(this.elem);
+
+    this.elem2 = this.elementRef.nativeElement.querySelectorAll('.scrollspy2');
+    this.instance2 = ScrollSpy.init(this.elem2);
+  }
+
+  ngAfterViewInit(): void {
+    // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {

@@ -19,23 +19,27 @@
   </div>
   <div class="col s12 m12 l8">
     <app-admin-subscribers
-      id="subscribers"
-      class="scrollspy"
+      id="admin/subscribers"
+      class="scrollspy3"
       [subscribers]="subscribers"
+      (addSubscriberEvent)="addSubscriber($event)"
+      (editSubscriberEvent)="editSubscriber($event)"
+      (deleteSubscriberEvent)="deleteSubscriber($event)"
     ></app-admin-subscribers>
   </div>
   <div class="col l2">
   </div>
 </div>
+<div class="test"></div>
 
 <div class="row margin-for-bot-bar">
   <div class="col l2">
   </div>
   <div class="col s12 m12 l8">
     <app-admin-messages
-      id="messages"
-      class="scrollspy"
-      [messsagesWebpage]="messsagesWebpage"
+      id="admin/messages"
+      class="scrollspy3"
+      [messagesWebpage]="messagesWebpage"
     ></app-admin-messages>
   </div>
   <div class="col l2">

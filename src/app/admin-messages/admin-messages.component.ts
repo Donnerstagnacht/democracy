@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MessageWebpage } from '../admin/messageWebpage';
+import { MessageWebpage, MessageWebpageID } from '../admin/messageWebpage';
 
 @Component({
   selector: 'app-admin-messages',
@@ -8,7 +8,7 @@ import { MessageWebpage } from '../admin/messageWebpage';
   styleUrls: ['./admin-messages.component.scss']
 })
 export class AdminMessagesComponent implements OnInit {
-  @Input() messsagesWebpage: Observable<MessageWebpage[]>;
+  @Input() messagesWebpage: Observable<MessageWebpageID[]>;
 
   constructor() { }
 

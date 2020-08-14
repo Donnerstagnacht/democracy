@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import M from 'materialize-css';
+import { Modal } from 'materialize-css';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { EmailSubscriber } from '../admin/emailSubscriber';
 
@@ -11,7 +11,7 @@ import { EmailSubscriber } from '../admin/emailSubscriber';
 })
 export class NewsletterComponent implements OnInit {
   elem: HTMLElement;
-  instance: any;
+  instance: Modal;
   subscribeForm = this.fb.group({
     email: ['', Validators.required]
   });
@@ -23,7 +23,7 @@ export class NewsletterComponent implements OnInit {
 
   ngOnInit(): void {
     this.elem = this.elRef.nativeElement.querySelector('.modal');
-    this.instance = M.Modal.init(this.elem);
+    this.instance = Modal.init(this.elem);
   }
 
   onSubmit(): void {

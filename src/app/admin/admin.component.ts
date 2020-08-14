@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnInit, ElementRef } from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { EmailSubscriber } from './emailSubscriber';
-import { MessageWebpage } from './messageWebpage';
+import { map } from 'rxjs/operators';
+import { EmailSubscriber, EmailSubscriberID } from './emailSubscriber';
+import { MessageWebpage, MessageWebpageID } from './messageWebpage';
 import { MenuTab } from '../bar-side/menuTab';
 import { AuthService } from '../auth.service';
-import M from 'materialize-css';
+
+import { ScrollSpy } from 'materialize-css';
+
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +16,16 @@ import M from 'materialize-css';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  subscribers: Observable<EmailSubscriber[]>;
-  messsagesWebpage: Observable<MessageWebpage[]>;
+  // Getting Data
+  private subscribersCollection: AngularFirestoreCollection<EmailSubscriber>;
+  subscribers: Observable<EmailSubscriberID[]>;
+
+  // Deleting and editing documents
+  private subscriberDoc: AngularFirestoreDocument<EmailSubscriber>;
+
+  private messagesCollection: AngularFirestoreCollection<MessageWebpage>;
+  messagesWebpage: Observable<MessageWebpageID[]>;
+  private messageDoc: AngularFirestoreDocument<MessageWebpage>;
 
   menuTabList: MenuTab[] = [
     {
@@ -27,16 +38,56 @@ export class AdminComponent implements OnInit {
     },
   ];
 
+  elem: HTMLElement;
+  instance: ScrollSpy;
+
+  // https://froala.com/wysiwyg-editor/
+  // implement it for editing emails to send to all of them?
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private elementRef: ElementRef
     ) {
-    this.subscribers = this.firestore.collection<EmailSubscriber>('subscribers').valueChanges();
-    this.messsagesWebpage = this.firestore.collection<MessageWebpage>('messagesWebpage').valueChanges();
-   }
+      this.messagesCollection = firestore.collection<MessageWebpage>('messagesWebpage');
+      this.messagesWebpage = this.messagesCollection.snapshotChanges().pipe(
+        map((actions) => actions.map( a => {
+          console.log('in');
+          const data = a.payload.doc.data() as MessageWebpage;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        }))
+      );
+
+      this.subscribersCollection = firestore.collection<EmailSubscriber>('subscribers');
+      this.subscribers = this.subscribersCollection.snapshotChanges().pipe(
+        map((actions) => actions.map( a => {
+          console.log('in subscribers');
+          const data = a.payload.doc.data() as EmailSubscriber;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        }))
+      );
+  }
 
   ngOnInit(): void {
     // M.AutoInit();
+    this.elem = this.elementRef.nativeElement.querySelectorAll('.scrollspy3');
+    this.instance = ScrollSpy.init(this.elem);
+  }
+
+  editSubscriber(subscriber: EmailSubscriberID) {
+    this.subscriberDoc = this.firestore.doc<EmailSubscriber>('subscribers/' + subscriber.id);
+    const subscriberNoId: EmailSubscriber = {email: subscriber.email};
+    this.subscriberDoc.update(subscriberNoId);
+  }
+
+  deleteSubscriber(subscriber: EmailSubscriberID) {
+    this.subscriberDoc = this.firestore.doc<EmailSubscriber>('subscribers/' + subscriber.id);
+    this.subscriberDoc.delete();
+  }
+
+  addSubscriber(subscriber: EmailSubscriber) {
+    this.subscribersCollection.add(subscriber);
   }
 
   logout(): void {

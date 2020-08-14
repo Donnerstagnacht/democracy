@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import M from 'materialize-css';
+import {Modal} from 'materialize-css';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MessageWebpage } from '../admin/messageWebpage';
 
@@ -11,7 +11,7 @@ import { MessageWebpage } from '../admin/messageWebpage';
 })
 export class ContactComponent implements OnInit {
   elem: HTMLElement;
-  instance: any;
+  instance: Modal;
   contactForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.elem = this.elRef.nativeElement.querySelector('.modal');
-    this.instance = M.Modal.init(this.elem);
+    this.instance = Modal.init(this.elem);
   }
 
   onSubmit() {
