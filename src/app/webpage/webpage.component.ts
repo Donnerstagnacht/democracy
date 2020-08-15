@@ -45,10 +45,10 @@ export class WebpageComponent implements OnInit, AfterViewInit {
   ];
 
   ideasVideos: string[] = [
-    '../assets/videos/Event Erstellen-2.m4v',
-    '../assets/videos/Event Themen Hinzufügen-1.m4v',
-    '../assets/videos/Event Wählen-3.m4v',
-    '../assets/videos/Events Protokolle Und Aufgaben-4.m4v'
+    '../assets/videos/Idee Erstellen-12.m4v',
+    '../assets/videos/Idee Bearbeiten-11.m4v',
+    '../assets/videos/Idee Teilen-13.m4v',
+    '../assets/videos/Idee Unterstützer-10.m4v'
   ];
 
   groupImages: string[] = [
