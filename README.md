@@ -6,11 +6,12 @@ The goal of this project is to build an application which supports political par
 2. [MaterializeCSS](https://materializecss.com/)
 3. [AngularFire2](https://github.com/angular/angularfire2)
 4. [Firebase & Cloud Functions](https://firebase.google.com/)
+5. [SendGrid](https://sendgrid.com/)
 
 # Other included libraries
-5. [jQuery](https://jquery.com/)
-6. [Typed.js](https://github.com/mattboldt/typed.js/)
-7. [slick](https://kenwheeler.github.io/slick/)
+6. [jQuery](https://jquery.com/)
+7. [Typed.js](https://github.com/mattboldt/typed.js/)
+8. [slick](https://kenwheeler.github.io/slick/)
 
 # Contact
 If you would like to support this project, see [Contributing Guide](docs/tutorials/contributing.md) or write me an email: <a href="mailto:tobias.hassebrock@gmail.com">tobias.hassebrock@gmail.com</a>

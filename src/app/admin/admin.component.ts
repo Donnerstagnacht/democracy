@@ -6,6 +6,7 @@ import { EmailSubscriber, EmailSubscriberID } from './emailSubscriber';
 import { MessageWebpage, MessageWebpageID } from './messageWebpage';
 import { MenuTab } from '../bar-side/menuTab';
 import { AuthService } from '../auth.service';
+import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { ScrollSpy } from 'materialize-css';
 
@@ -46,7 +47,8 @@ export class AdminComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private authService: AuthService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private fun: AngularFireFunctions
     ) {
       this.messagesCollection = firestore.collection<MessageWebpage>('messagesWebpage');
       this.messagesWebpage = this.messagesCollection.snapshotChanges().pipe(
@@ -101,5 +103,30 @@ export class AdminComponent implements OnInit {
 
   logout(): void {
     this.authService.logoutUser();
+  }
+
+  sendIndividualEmail(): void {
+    console.log('cklicked');
+    // const callableFunction1 = this.fun.httpsCallable('genericEmail');
+    // callableFunction1({text: 'Sending emails with Sendgrid from Democracy', subject: 'Email from Democracy'}).subscribe();
+
+    const callableSendIndividualEmail = this.fun.httpsCallable('sendIndividualEmail');
+    callableSendIndividualEmail({
+      subject: 'Email from Democracy',
+      email: 'tobias.hassebrock@gmail.com',
+      name: 'Tobi',
+      text: 'Sending emails with Sendgrid from Democracy'}).subscribe();
+
+    console.log('function ended');
+  }
+
+  sendAllEmails(): void {
+    console.log('clicked');
+    const callableSendAllEmails = this.fun.httpsCallable('sendAllEmails');
+    callableSendAllEmails({
+      subject: 'Erster Newsletter',
+      email: 'tobias.hassebrock@gmail.com',
+      text: 'Erster Newslettertext'
+    }).subscribe();
   }
 }
