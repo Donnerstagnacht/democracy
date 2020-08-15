@@ -68,7 +68,8 @@
             </app-argument>
           </div>
           <div class="col s12 m6 switch-eins">
-            <app-image-carousel [imageList]="argumentImages"></app-image-carousel>
+            <app-video-carousel [imageList]="groupVideos"></app-video-carousel>
+            <!--<app-image-carousel [imageList]="groupImages"></app-image-carousel>-->
           </div>
         </div>
 
@@ -83,7 +84,8 @@
             </app-argument>
           </div>
           <div class="col s12 m6">
-            <app-image-carousel [imageList]="eventsImages"></app-image-carousel>
+            <app-video-carousel [imageList]="eventVideos"></app-video-carousel>
+            <!--<app-image-carousel [imageList]="eventsImages"></app-image-carousel>-->
           </div>
         </div>
 
@@ -97,9 +99,12 @@
             [bricks]="searchBrick">
           </app-argument>
           </div>
-          <div class="col s12 m6 switch-eins toast-swipe-mich ">
-            <img class="gif min z-depth-3" src="../assets/images/gifs/Suche.gif" alt="group-event">
+          <div class="col s12 m6">
+            <app-video-carousel [imageList]="searchVideos"></app-video-carousel>
           </div>
+          <!--<div class="col s12 m6 switch-eins toast-swipe-mich ">
+            <img class="gif min z-depth-3" src="../assets/images/gifs/Suche.gif" alt="group-event">
+          </div>-->
         </div>
 
         <!-- Argument 5: Kommunikation -->
@@ -113,7 +118,8 @@
             </app-argument>
           </div>
           <div class="col s12 m6">
-            <app-image-carousel [imageList]="communicationImages"></app-image-carousel>
+            <app-video-carousel [imageList]="communicationVideos"></app-video-carousel>
+            <!--<app-image-carousel [imageList]="communicationImages"></app-image-carousel>-->
           </div>
         </div>
 
@@ -125,11 +131,14 @@
               class="scrollspy2"
               [headline]="dataHeadline"
               [bricks]="dataBrick">
-          </app-argument>
+            </app-argument>
           </div>
-          <div class="col s12 m6  switch-eins toast-swipe-mich ">
+          <div class="col s12 m6">
+            <app-video-carousel [imageList]="dataVideos"></app-video-carousel>
+          </div>
+          <!--<div class="col s12 m6  switch-eins toast-swipe-mich ">
             <img class="gif min z-depth-3" src="../assets/images/gifs/registrierung.gif" alt="group-event">
-          </div>
+          </div>-->
         </div>
       </div>
     </div>

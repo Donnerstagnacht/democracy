@@ -45,17 +45,26 @@ export class WebpageComponent implements OnInit, AfterViewInit {
   ];
 
   ideasVideos: string[] = [
-    '../assets/videos/Group Aufgaben-5.m4v',
     '../assets/videos/Event Erstellen-2.m4v',
     '../assets/videos/Event Themen Hinzufügen-1.m4v',
+    '../assets/videos/Event Wählen-3.m4v',
+    '../assets/videos/Events Protokolle Und Aufgaben-4.m4v'
   ];
 
-  argumentImages: string[] = [
+  groupImages: string[] = [
     '../assets/images/gifs/group/Group erstellen.gif',
     '../assets/images/gifs/group/Group wiki.gif',
     '../assets/images/gifs/group/Group wiki administrators.gif',
     '../assets/images/gifs/group/Group ideen.gif',
     '../assets/images/gifs/group/Group events.gif'
+  ];
+
+  groupVideos: string[] = [
+    '../assets/videos/Group Erstellen-7.m4v',
+    '../assets/videos/Group Aufgaben-5.m4v',
+    '../assets/videos/Group Events-8.m4v',
+    '../assets/videos/Group Ideen-6.m4v',
+    '../assets/videos/Group Übersicht Und Administration-9.m4v',
   ];
 
   eventsImages: string[] = [
@@ -65,9 +74,28 @@ export class WebpageComponent implements OnInit, AfterViewInit {
     '../assets/images/gifs/events/Event aufgaben und protokolle.gif'
   ];
 
+  eventVideos: string[] = [
+    '../assets/videos/Event Erstellen-2.m4v',
+    '../assets/videos/Event Themen Hinzufügen-1.m4v',
+    '../assets/videos/Event Wählen-3.m4v',
+    '../assets/videos/Events Protokolle Und Aufgaben-4.m4v'
+  ];
+
   communicationImages: string[] = [
     '../assets/images/gifs/kommunikation/Chat.gif',
     '../assets/images/gifs/kommunikation/Chat group.gif'
+  ];
+
+  communicationVideos: string[] = [
+    '../assets/videos/Kommunikation-14.m4v',
+  ];
+
+  searchVideos: string[] = [
+    '../assets/videos/Suche-16.m4v'
+  ];
+
+  dataVideos: string[] = [
+    '../assets/videos/Registrierung-15.m4v'
   ];
 
   groupsHeadline = 'Gruppen';

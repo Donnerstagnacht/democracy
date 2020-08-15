@@ -9,7 +9,8 @@ import { Carousel } from 'materialize-css';
 export class VideoCarouselComponent implements OnInit {
   @Input() imageList: string[];
   options = {
-    fullWidth: true
+    fullWidth: true,
+    indicators: true,
   };
   carousel: Carousel;
 
