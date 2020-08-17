@@ -14,20 +14,15 @@
   [logoutButton]="true">
 </app-bar-side>
 
+<app-admin-newsletter
+  id="admin/newsletter"
+  class="scrollspy3"
+  (newsletterEvent)="sendNewsletter($event)"
+></app-admin-newsletter>
 <div class="row">
   <div class="col l2">
   </div>
   <div class="col s12 m12 l8">
-    <button
-      class="waves-effect waves-light btn red lighten-3 black-text"
-      (click)="sendIndividualEmail()">Individuelle EMAIL SENDEN
-    </button>
-    <button
-    class="waves-effect waves-light btn red lighten-3 black-text"
-    (click)="sendAllEmails()">Alle EMAILS / NEWSLETTER SENDEN
-  </button>
-
-
     <app-admin-subscribers
       id="admin/subscribers"
       class="scrollspy3"
@@ -36,6 +31,7 @@
       (editSubscriberEvent)="editSubscriber($event)"
       (deleteSubscriberEvent)="deleteSubscriber($event)"
       (filterEmailEvent)="filterSubscriber($event)"
+      (sendEmailEvent)="sendEmail($event)"
     ></app-admin-subscribers>
   </div>
   <div class="col l2">
@@ -51,8 +47,17 @@
       id="admin/messages"
       class="scrollspy3"
       [messagesWebpage]="messagesWebpage"
+      (sendEmailEvent)="openEmailReply($event)"
+      (deleteMessageEvent)="deleteMessage($event)"
     ></app-admin-messages>
   </div>
   <div class="col l2">
   </div>
 </div>
+
+<app-admin-email-reply
+  [email]="email"
+  [templateID]="'subscriber-email-id'"
+  [id]="id"
+  (emailEvent)="sendEmailOnMessage($event)">
+</app-admin-email-reply>

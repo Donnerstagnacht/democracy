@@ -1,0 +1,45 @@
+<!--Mobile Curtain nav-->
+<div id="subscriber-email-id" class="overlay valign-wrapper">
+  <div class="overlay-content">
+    <div class="container">
+      <div class="row">
+        <div class="col l2">
+        </div>
+        <div class="col s12 m12 l8">
+          <p>Mail to: </p>
+          <p id="emailTo" class="chip">{{email}}</p>
+          <p>{{id}}</p>
+          <form [formGroup]="emailReplyForm" (ngSubmit)="sendEmail()">
+            <div class="input-field">
+              <input required type="text" class="validate" formControlName="subject">
+              <label for="subject">Betreff</label>
+              <span id="subject-helper" class="helper-text" data-error="Bitte einen Betreff eingeben."></span>
+            </div>
+            <div class="input-field col s12">
+              <textarea required id="text" class="materialize-textarea validate" formControlName="text"></textarea>
+              <label for="nachricht">Text</label>
+              <span id="text-helper" class="helper-text" data-error="wrong" ></span>
+            </div>
+            <div class="row">
+              <div class="flex-row col s12">
+                <button
+                  class="waves-effect waves-light btn red lighten-3 black-text"
+                  type="submit"
+                  [disabled]="!emailReplyForm.valid">ABSENDEN
+                </button>
+                <button
+                type="button"
+                (click)="closeEmailReplyCurtain()"
+                  class="waves-effect waves-light btn grey lighten-3 black-text"
+                  >ABBRECHEN
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col l2">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

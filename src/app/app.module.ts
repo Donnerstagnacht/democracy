@@ -24,7 +24,6 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { ContactComponent } from './contact/contact.component';
 import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
 import { BarBotComponent } from './bar-bot/bar-bot.component';
-import { BotBarCurtainComponent } from './bot-bar-curtain/bot-bar-curtain.component';
 import { BarBotCurtainComponent } from './bar-bot-curtain/bar-bot-curtain.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { BarSideSubmenuComponent } from './bar-side-submenu/bar-side-submenu.component';
@@ -37,6 +36,9 @@ import { LoginComponent } from './login/login.component';
 import { AdminSubscribersComponent } from './admin-subscribers/admin-subscribers.component';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
 import { VideoCarouselComponent } from './video-carousel/video-carousel.component';
+import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.component';
+import { AdminEmailReplyComponent } from './admin-email-reply/admin-email-reply.component';
+import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,6 @@ import { VideoCarouselComponent } from './video-carousel/video-carousel.componen
     ContactComponent,
     ImageCarouselComponent,
     BarBotComponent,
-    BotBarCurtainComponent,
     BarBotCurtainComponent,
     LandingPageComponent,
     BarSideSubmenuComponent,
@@ -69,7 +70,10 @@ import { VideoCarouselComponent } from './video-carousel/video-carousel.componen
     LoginComponent,
     AdminSubscribersComponent,
     AdminMessagesComponent,
-    VideoCarouselComponent
+    VideoCarouselComponent,
+    AdminNewsletterComponent,
+    AdminEmailReplyComponent,
+    AdminUnsubscribeComponent,
   ],
   imports: [
     BrowserModule,

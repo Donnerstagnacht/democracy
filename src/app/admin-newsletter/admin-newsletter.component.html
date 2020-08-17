@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col l2">
+  </div>
+  <div class="col s12 m12 l8">
+    <h3 class="center">
+      Newsletter
+    </h3>
+    <form [formGroup]="newsletterForm" (ngSubmit)="sendNewsletter()">
+      <div class="input-field">
+        <input required type="text" class="validate" formControlName="subject">
+        <label for="subject">Betreff</label>
+        <span id="subject-helper" class="helper-text" data-error="Bitte einen Betreff eingeben."></span>
+      </div>
+      <div class="input-field col s12">
+        <textarea required id="text" class="materialize-textarea validate" formControlName="text"></textarea>
+        <label for="nachricht">Text</label>
+        <span id="text-helper" class="helper-text" data-error="wrong" ></span>
+      </div>
+      <div class="row">
+        <div class="flex-row col s12">
+          <button
+            class="waves-effect waves-light btn red lighten-3 black-text"
+            type="submit"
+            [disabled]="!newsletterForm.valid">ABSENDEN
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="col l2">
+  </div>
+</div>

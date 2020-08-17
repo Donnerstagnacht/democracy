@@ -4,6 +4,7 @@ import { EmailSubscriberID, EmailSubscriber } from '../admin/emailSubscriber';
 
 import { Modal, Tabs } from 'materialize-css';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AdminEmailReplyCurtainService } from '../admin-email-reply-curtain.service';
 
 @Component({
   selector: 'app-admin-subscribers',
@@ -16,6 +17,7 @@ export class AdminSubscribersComponent implements OnInit {
   @Output() editSubscriberEvent = new EventEmitter<EmailSubscriberID>();
   @Output() addSubscriberEvent = new EventEmitter<EmailSubscriber>();
   @Output() filterEmailEvent = new EventEmitter<string>();
+  @Output() sendEmailEvent = new EventEmitter<EmailSubscriberID>();
 
   editEmailForm = this.fb.group({
     editEmail: ['', [Validators.required]]
@@ -30,16 +32,18 @@ export class AdminSubscribersComponent implements OnInit {
 
   editModalRef: HTMLElement;
   editModal: Modal;
-  clickedSubscriber: EmailSubscriberID;
+
 
   tabsTableRef: HTMLElement;
   tabsTable: Tabs;
 
   filterString: string;
+  clickedSubscriber: EmailSubscriberID;
+  clickedEmail: string;
 
   constructor(
     private elRef: ElementRef,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
@@ -80,7 +84,11 @@ export class AdminSubscribersComponent implements OnInit {
   }
 
   filterEmail(): void {
-    console.log(this.filterString);
     this.filterEmailEvent.emit(this.filterString);
   }
+
+  sendEmail(subscriber: EmailSubscriberID): void {
+    this.sendEmailEvent.emit(subscriber);
+  }
+
 }

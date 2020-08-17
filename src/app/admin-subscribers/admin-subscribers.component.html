@@ -2,8 +2,6 @@
   Subscribers
 </h3>
 
-
-
 <div class="row ">
   <ul id="tabsTable" class="tabs ">
     <li class="tab col s6"><a href="#test1">Emails Hinzufügen</a></li>
@@ -33,10 +31,11 @@
   </div>
 </div>
 
-<table class="highlight">
+<table class="highlight responsive-table">
   <thead>
     <tr>
       <th>Email</th>
+      <th>Senden</th>
       <th>Ändern</th>
       <th>Löschen</th>
     </tr>
@@ -44,7 +43,12 @@
 
   <tbody>
     <tr *ngFor="let subscriber of subscribers | async">
-      <td>{{subscriber.email}}</td>
+      <td>{{subscriber.email}}  {{subscriber.id}}</td>
+      <td>
+        <a (click)="sendEmail(subscriber)" class="">
+          <i class="fas fa-envelope hover black-text"></i>
+        </a>
+      </td>
       <td>
         <a (click)="openEditModal(subscriber)" class="">
           <i class="fas fa-pen hover black-text"></i>

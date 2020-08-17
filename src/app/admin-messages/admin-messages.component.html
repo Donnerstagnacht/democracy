@@ -9,7 +9,18 @@
     <p>{{message.message}}</p>
   </div>
   <div class="card-action">
-    <a href="#" class="black-text">Antworten</a>
-    <a href="#" class="black-text">Löschen</a>
+    <button (click)="sendEmail(message.email)" class="btn-flat black-text">Antworten</button>
+    <button (click)="openDeleteModal(message.id)" class="btn-flat black-text">Löschen</button>
+  </div>
+</div>
+
+<!-- Modal Subsribe Delete -->
+<div id="deleteModal-message" class="modal">
+  <div class="modal-content">
+    <h4>Möchtest du diesen Kontakt wirklich löschen?</h4>
+  </div>
+  <div class="modal-footer flex-row">
+    <button (click)="deleteMessage(clickedMessageID)" class="center modal-close btn-flat grey lighten-3">Ja</button>
+    <button class="center modal-close btn red lighten-3 black-text">Nein</button>
   </div>
 </div>

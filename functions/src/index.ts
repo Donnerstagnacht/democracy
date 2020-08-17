@@ -25,6 +25,7 @@ export const sendIndividualEmail = functions.https.onCall(async (event, ) => {
         subject: event.subject,
         name: event.name,
         text: event.text,
+        id: event.id
     },
   }
   // console.log(individualMail);
@@ -37,6 +38,12 @@ export const sendAllEmails = functions.https.onCall(async (event) => {
   const subscriberSnapshots = await admin.firestore().collection('subscribers').get();
 
   const emails = subscriberSnapshots.docs.map(snap => snap.data().email);
+  console.log('ids hier?', event.id)
+  const ids = subscriberSnapshots.docs.map(snap => snap.id);
+  // const id = subscriberSnapshots.docs.map(snap => snap.data().id);
+  // console.log('id hier? ', id);
+  // console.log('email hier?', emails);
+  // console.log('data hier?', subscriberSnapshots.docs.map(snap => snap.data()));
 
   const individualMail = {
     to: emails,
@@ -45,6 +52,7 @@ export const sendAllEmails = functions.https.onCall(async (event) => {
     dynamic_template_data: {
         subject: event.subject,
         text: event.text,
+        id: ids //eventuell Bug
     },
   }
   // console.log(individualMail);

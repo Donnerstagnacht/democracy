@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MessageWebpage, MessageWebpageID } from '../admin/messageWebpage';
+import { MessageWebpageID } from '../admin/messageWebpage';
+import { Modal } from 'materialize-css';
 
 @Component({
   selector: 'app-admin-messages',
@@ -9,10 +10,32 @@ import { MessageWebpage, MessageWebpageID } from '../admin/messageWebpage';
 })
 export class AdminMessagesComponent implements OnInit {
   @Input() messagesWebpage: Observable<MessageWebpageID[]>;
+  @Output() sendEmailEvent = new EventEmitter<string>();
+  @Output() deleteMessageEvent = new EventEmitter<string>();
 
-  constructor() { }
+  deleteModalRef: HTMLElement;
+  deleteModal: Modal;
+
+  clickedMessageID: string;
+
+  constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.deleteModalRef = this.elRef.nativeElement.querySelector('#deleteModal-message');
+    this.deleteModal = Modal.init(this.deleteModalRef);
+  }
+
+  sendEmail(email: string): void {
+    this.sendEmailEvent.emit(email);
+  }
+
+  openDeleteModal(id: string) {
+    this.clickedMessageID = id;
+    this.deleteModal.open();
+  }
+
+  deleteMessage(id: string) {
+    this.deleteMessageEvent.emit(id);
   }
 
 }

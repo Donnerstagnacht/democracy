@@ -20,11 +20,11 @@ export class BarBotCurtainService {
   }
 
 /* Closes the curtain menu on mobile*/
- closeNav(): void {
-  console.log('close');
+  closeNav(): void {
+    console.log('close');
 
-  document.getElementById('bot-nav').style.width = '0%';
-  document.getElementById('mehr').innerHTML = 'MEHR';
-  this.open = false;
-}
+    document.getElementById('bot-nav').style.width = '0%';
+    document.getElementById('mehr').innerHTML = 'MEHR';
+    this.open = false;
+    }
 }
