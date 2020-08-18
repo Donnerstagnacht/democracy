@@ -39,6 +39,8 @@ import { VideoCarouselComponent } from './video-carousel/video-carousel.componen
 import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.component';
 import { AdminEmailReplyComponent } from './admin-email-reply/admin-email-reply.component';
 import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
+import { ClipboardModule } from 'ngx-clipboard';
+
 
 @NgModule({
   declarations: [
@@ -82,7 +84,8 @@ import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe
     ReactiveFormsModule,
     FormsModule,
     AngularFireAnalyticsModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
-import { Dropdown } from 'materialize-css';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Dropdown, Toast } from 'materialize-css';
+import M from 'materialize-css';
 
 @Component({
   selector: 'app-button-share',
@@ -7,6 +8,7 @@ import { Dropdown } from 'materialize-css';
   styleUrls: ['./button-share.component.scss']
 })
 export class ButtonShareComponent implements OnInit {
+  @Input() link: string;
 
   dropdownRef: HTMLElement;
   dropDown: Dropdown;
@@ -14,8 +16,13 @@ export class ButtonShareComponent implements OnInit {
   constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.link = 'www.google.com';
     this.dropdownRef = this.elRef.nativeElement.querySelector('#share-button');
     this.dropDown = Dropdown.init(this.dropdownRef);
+  }
+
+  onCopy() {
+    M.toast({html: 'Kopiert'});
   }
 
 }

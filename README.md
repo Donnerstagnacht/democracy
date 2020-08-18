@@ -12,6 +12,7 @@ The goal of this project is to build an application which supports political par
 6. [jQuery](https://jquery.com/)
 7. [Typed.js](https://github.com/mattboldt/typed.js/)
 8. [slick](https://kenwheeler.github.io/slick/)
+9. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
 
 # Contact
 If you would like to support this project, see [Contributing Guide](docs/tutorials/contributing.md) or write me an email: <a href="mailto:tobias.hassebrock@gmail.com">tobias.hassebrock@gmail.com</a>

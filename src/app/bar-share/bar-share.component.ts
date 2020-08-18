@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-bar-share',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bar-share.component.scss']
 })
 export class BarShareComponent implements OnInit {
+  @Input() link: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.link = 'www.google.com';
   }
 
 }
