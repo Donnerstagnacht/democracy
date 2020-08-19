@@ -40,6 +40,12 @@ import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.co
 import { AdminEmailReplyComponent } from './admin-email-reply/admin-email-reply.component';
 import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
 import { ClipboardModule } from 'ngx-clipboard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -85,7 +91,13 @@ import { ClipboardModule } from 'ngx-clipboard';
     FormsModule,
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    ClipboardModule
+    ClipboardModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

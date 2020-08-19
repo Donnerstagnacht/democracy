@@ -9,10 +9,17 @@ import { Brick } from './brick';
 export class ArgumentComponent implements OnInit {
   @Input() bricks: Brick[];
   @Input() headline: string;
+  @Input() link: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log('argument Link', this.link);
+  }
+
+  click() {
+    console.log('argument Link2', this.link);
+
   }
 
 }

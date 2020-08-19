@@ -1,12 +1,30 @@
-<a id="share-button" class='dropdown-trigger black-text' href='#' data-target='dropdown1'>
+<a id="share-button" class='black-text' [matMenuTriggerFor]="menu">
   <i class="material-icons">share</i>
 </a>
 
-<!-- Share Dropdown-->
-<ul id='dropdown1' class='dropdown-content right'>
-  <li><a class="center share-hover black-text tooltipped copy-tooltip" data-position="top" data-tooltip="Kopiert" (cbOnSuccess)="onCopy()" ngxClipboard [cbContent]="link"><i class="fa fa-copy"></i>Kopieren</a></li>
-  <li><a href="https://api.whatsapp.com/send?text={{link}}" target="_blank" class="center share-hover black-text"><i class="fa fa-whatsapp "></i>Whatsapp</a></li>
-  <li><a href="https://www.facebook.com/sharer.php?u={{link}}" target="_blank" class="center share-hover black-text"><i class="fa fa-facebook "></i>Facebook</a></li>
-  <li><a href="https://twitter.com/intent/tweet?text={{link}}" target="_blank" class="center share-hover black-text"><i class="fa fa-twitter "></i>Twitter</a></li>
-  <!--<li><a href="#" target="_blank" class="center share-hover black-text"><i class="fa fa-instagram "></i>Instagram</a></li>-->
-</ul>
+<mat-menu #menu="matMenu">
+  <a class="black-text share" mat-menu-item (cbOnSuccess)="openSnackbar()" ngxClipboard [cbContent]="link">
+    <div>
+      <i class="fa fa-copy "></i>
+      <span>Kopieren</span>
+    </div>
+  </a>
+  <a mat-menu-item href="https://api.whatsapp.com/send?text={{link}}" target="_blank" class="black-text share">
+    <div>
+      <i class="fab fa-whatsapp "></i>
+      <span>Whatsapp</span>
+    </div>
+  </a>
+  <a mat-menu-item href="https://www.facebook.com/sharer.php?u={{link}}" target="_blank" class="black-text share">
+    <div>
+      <i class="fab fa-facebook "></i>
+      <span>Facebook</span>
+    </div>
+  </a>
+  <a mat-menu-item href="https://twitter.com/intent/tweet?text={{link}}" target="_blank" class="black-text share">
+    <div>
+      <i class="fab fa-twitter "></i>
+      <span>Twitter</span>
+    </div>
+  </a>
+</mat-menu>

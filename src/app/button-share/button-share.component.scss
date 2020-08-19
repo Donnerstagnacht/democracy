@@ -1,7 +1,19 @@
-li>a, .dropdown-content li>span {
-  color: black;
+/*::ng-deep .mat-menu-content {
+  padding-top: 0px!important;
+  padding-bottom: 0px!important;
+}*/
+
+.fab, .fa {
+  padding: 20px 20px 0px 20px;
+  font-size: 30px;
+  text-align: center;
 }
 
-.share-hover:hover {
+span, i, p {
+  display: block;
+  text-align: center;
+}
+
+.share:hover {
   background-color: #ef9a9a;
 }

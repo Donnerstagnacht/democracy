@@ -1,6 +1,9 @@
 <span class="flex-container">
   <h4 class="red-dark">{{headline}}</h4>
-  <app-button-share class="share"></app-button-share>
+ <app-button-share
+  (click)="click()"
+    class="share"
+    [link]="link"></app-button-share>
 </span>
 <div *ngFor="let brick of bricks">
   <h6 class="red-dark">{{brick.title}}</h6>

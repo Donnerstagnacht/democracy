@@ -10,6 +10,13 @@ import { MenuTab } from '../bar-side/menuTab';
 })
 export class WebpageComponent implements OnInit, AfterViewInit {
   highlight = 'Wir können jederzeit Unterstützung gebrauchen!';
+  link = 'http://localhost:4200/';
+  ideenID = 'ideen';
+  gruppenID = 'gruppen';
+  eventID = 'events';
+  searchID = 'search';
+  kommunikationID = 'kommunikation';
+  datenID = 'daten';
 
   ideasHeadline = 'Ideen & Anträge';
   ideasBrick: Brick[] = [

@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
-import { Dropdown, Toast } from 'materialize-css';
-import M from 'materialize-css';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-button-share',
@@ -10,19 +9,21 @@ import M from 'materialize-css';
 export class ButtonShareComponent implements OnInit {
   @Input() link: string;
 
-  dropdownRef: HTMLElement;
-  dropDown: Dropdown;
+  snackBar: MatSnackBar;
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private matSnackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.link = 'www.google.com';
-    this.dropdownRef = this.elRef.nativeElement.querySelector('#share-button');
-    this.dropDown = Dropdown.init(this.dropdownRef);
   }
 
-  onCopy() {
-    M.toast({html: 'Kopiert'});
+  openSnackbar() {
+    this.matSnackBar.open('Kopiert!', 'ok', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    }
+
+      );
   }
 
 }
