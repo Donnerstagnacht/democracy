@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreDocument, AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { EmailSubscriber, EmailSubscriberID } from '../admin/emailSubscriber';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
+import { SubscriberService } from '../admin/subscriber.service';
+import { FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AdminUnsubscribeDialogComponent } from '../admin-unsubscribe-dialog/admin-unsubscribe-dialog.component';
 
 @Component({
   selector: 'app-admin-unsubscribe',
@@ -9,30 +11,24 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./admin-unsubscribe.component.scss']
 })
 export class AdminUnsubscribeComponent implements OnInit {
-  private subscriberDoc: AngularFirestoreDocument<EmailSubscriber>;
-  // private subscribersCollection: AngularFirestoreCollection<EmailSubscriber>;
-  id: string;
+  unsubscribeForm = this.fb.group({
+    email: ['', Validators.required]
+  });
 
   constructor(
-    private firestore: AngularFirestore,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private subscriberService: SubscriberService,
+    private fb: FormBuilder,
+    public matDialogRef: MatDialog) { }
 
-  ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id'); // 7yD7Lq0w1eA4u0KzSJQ2
-    console.log(this.id);
+  ngOnInit(): void {}
 
-  }
-
-  unsubscribe(id: string): void { // subscriber: EmailSubscriberID
-    console.log('unsubscribe', id);
-   /* const emailSubscriber: EmailSubscriber = {email: email};
-    this.subscribersCollection = this.firestore.collection<EmailSubscriber>('subscribers');
-    this.subscribersCollection.add(emailSubscriber);*/
-
-    this.subscriberDoc = this.firestore.doc<EmailSubscriber>('subscribers/' + id);
-    this.subscriberDoc.delete();
-    this.router.navigate(['']);
+  unsubscribe(): void {
+    this.subscriberService.unsubscribe(this.unsubscribeForm.value.email);
+    const dialogRef: MatDialogRef<AdminUnsubscribeDialogComponent> = this.matDialogRef.open(AdminUnsubscribeDialogComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.router.navigate(['']);
+    });
   }
 
 }

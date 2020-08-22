@@ -3,6 +3,7 @@ import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore 
 import { Observable } from 'rxjs';
 import { EmailSubscriberID, EmailSubscriber } from './emailSubscriber';
 import { map } from 'rxjs/operators';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,22 @@ export class SubscriberService {
       }))
     );
     return this.subscribers;
+  }
+
+  unsubscribe(email: string): void {
+    this.subscribersCollection = this.firestore.collection('subscribers', ref => ref.where('email', '==', email).limit(1));
+    this.subscribersCollection.snapshotChanges().pipe(
+      map((actions) => actions.map( a => {
+        const data = a.payload.doc.data() as EmailSubscriber;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      }))
+    ).subscribe(subscribers => {
+      if (subscribers.length >= 1) {
+        this.deleteSubscriber(subscribers[0]);
+      }
+    });
+
   }
 
 }

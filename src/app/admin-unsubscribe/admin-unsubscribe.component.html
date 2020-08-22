@@ -5,7 +5,8 @@
     <div class="col s12 m12 l8">
       <h5 class="center margin-bot">Möchtest du dich wirklich vom Newsletter abmelden?</h5>
       <div class="row">
-        <div class="flex-row col s12">
+ <!--       <div class="flex-row col s12">
+
           <button
             class="waves-effect waves-light btn red lighten-3 black-text"
             (click)="unsubscribe(id)">JA
@@ -16,7 +17,25 @@
             class="waves-effect waves-light btn grey lighten-3 black-text"
             >NEIN
           </button>
-        </div>
+        </div>-->
+
+        <form [formGroup]="unsubscribeForm" (ngSubmit)="unsubscribe()">
+          <div class="input-field">
+            <input required id="email-unsubscribe" type="text" class="validate" formControlName="email">
+            <label for="email-unsubscribe">Email</label>
+            <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
+          </div>
+          <div class="center">
+            <button
+              id="unsubscribeButton"
+              class="waves-effect waves-light btn red lighten-3 black-text"
+              target=""
+              data-target="unsubscribed"
+              type="submit"
+              [disabled]="!unsubscribeForm.valid"
+            >ABMELDEN</button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="col l2">

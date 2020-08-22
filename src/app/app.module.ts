@@ -46,6 +46,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admin-unsubscribe-dialog.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AdminNewsletterComponent,
     AdminEmailReplyComponent,
     AdminUnsubscribeComponent,
+    AdminUnsubscribeDialogComponent,
   ],
   imports: [
     BrowserModule,
