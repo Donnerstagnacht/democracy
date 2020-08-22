@@ -5,6 +5,7 @@ export interface MessageWebpage {
     topic: string;
     subject: string;
     message: string;
+    responded: boolean;
 }
 
 export interface MessageWebpageID extends MessageWebpage {

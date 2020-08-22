@@ -1,8 +1,8 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Modal, FormSelect} from 'materialize-css';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { MessageWebpage } from '../admin/messageWebpage';
+import { MessagesService } from '../admin/messages.service';
 
 @Component({
   selector: 'app-contact',
@@ -28,7 +28,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private elRef: ElementRef,
-    private firestore: AngularFirestore) { }
+    private messagesService: MessagesService) { }
 
   ngOnInit(): void {
     this.contactModalElement = this.elRef.nativeElement.querySelector('#modalKontakt');
@@ -39,19 +39,16 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submitted', this.contactForm.value);
-    console.log(this.contactModalElement);
-    console.log(typeof(this.contactModal));
-
-    const messagesWebpageCollection = this.firestore.collection<MessageWebpage>('messagesWebpage');
-    messagesWebpageCollection.add({
+    const newMessage: MessageWebpage = {
       firstName: this.contactForm.value.firstName,
       lastName: this.contactForm.value.lastName,
       email: this.contactForm.value.email,
       topic: this.contactForm.value.topic,
       subject: this.contactForm.value.subject,
       message: this.contactForm.value.message,
-    });
+      responded: false
+    };
+    this.messagesService.createMessage(newMessage);
 
     this.contactModal.open();
   }

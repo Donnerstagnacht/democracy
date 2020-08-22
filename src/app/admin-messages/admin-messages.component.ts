@@ -10,7 +10,7 @@ import { Modal } from 'materialize-css';
 })
 export class AdminMessagesComponent implements OnInit {
   @Input() messagesWebpage: Observable<MessageWebpageID[]>;
-  @Output() sendEmailEvent = new EventEmitter<string>();
+  @Output() sendEmailEvent = new EventEmitter<MessageWebpageID>();
   @Output() deleteMessageEvent = new EventEmitter<string>();
 
   deleteModalRef: HTMLElement;
@@ -25,8 +25,8 @@ export class AdminMessagesComponent implements OnInit {
     this.deleteModal = Modal.init(this.deleteModalRef);
   }
 
-  sendEmail(email: string): void {
-    this.sendEmailEvent.emit(email);
+  sendEmail(mssageWebpageID: MessageWebpageID): void {
+    this.sendEmailEvent.emit(mssageWebpageID);
   }
 
   openDeleteModal(id: string) {

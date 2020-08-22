@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Modal } from 'materialize-css';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { EmailSubscriber } from '../admin/emailSubscriber';
+import { SubscriberService } from '../admin/subscriber.service';
 
 @Component({
   selector: 'app-newsletter',
@@ -19,7 +19,7 @@ export class NewsletterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private elRef: ElementRef,
-    private firestore: AngularFirestore) { }
+    private subscriberService: SubscriberService) { }
 
   ngOnInit(): void {
     this.elem = this.elRef.nativeElement.querySelector('.modal');
@@ -27,13 +27,7 @@ export class NewsletterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Submitted', this.subscribeForm.value);
-    console.log(this.elem);
-    console.log(typeof(this.instance));
-
-    const subscriberCollection = this.firestore.collection<EmailSubscriber>('subscribers');
-    subscriberCollection.add({email: this.subscribeForm.value.email});
-
+    this.subscriberService.createSubscriber({email: this.subscribeForm.value.email});
     this.instance.open();
   }
 

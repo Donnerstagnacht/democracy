@@ -4,6 +4,17 @@ import * as admin from 'firebase-admin';
 admin.initializeApp();
 // const db = admin.firestore();
 
+
+export interface MessageWebpage {
+  firstName: string;
+  lastName: string;
+  email: string;
+  topic: string;
+  subject: string;
+  message: string;
+  responded: boolean;
+}
+
 // Sendgrid Config
 import * as sendGridMail from '@sendgrid/mail';
 
@@ -28,9 +39,13 @@ export const sendIndividualEmail = functions.https.onCall(async (event, ) => {
         id: event.id
     },
   }
-  // console.log(individualMail);
+  // console.log(individualMail);;
 
   await sendGridMail.send(individualMail);
+  // await admin.firestore().collection('messagesWebpage').doc(event.id).update({'responded': true}).then(console.log('responded'));
+
+  // docRef.
+
   return {success: true};
 });
 

@@ -3,16 +3,17 @@ The goal of this project is to build an application which supports political par
 
 # Technology Stack
 1. [Angular 9+](https://angular.io)
-2. [MaterializeCSS](https://materializecss.com/)
-3. [AngularFire2](https://github.com/angular/angularfire2)
-4. [Firebase & Cloud Functions](https://firebase.google.com/)
-5. [SendGrid](https://sendgrid.com/)
+2. [AngularFire2](https://github.com/angular/angularfire2)
+3. [Firebase & Cloud Functions](https://firebase.google.com/)
+4. [Angular Material](https://material.angular.io/)
+5. [MaterializeCSS](https://materializecss.com/)
+6. [SendGrid](https://sendgrid.com/)
 
 # Other included libraries
-6. [jQuery](https://jquery.com/)
-7. [Typed.js](https://github.com/mattboldt/typed.js/)
-8. [slick](https://kenwheeler.github.io/slick/)
-9. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
+7. [jQuery](https://jquery.com/)
+8. [Typed.js](https://github.com/mattboldt/typed.js/)
+9. [slick](https://kenwheeler.github.io/slick/)
+10. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
 
 # Contact
 If you would like to support this project, see [Contributing Guide](docs/tutorials/contributing.md) or write me an email: <a href="mailto:tobias.hassebrock@gmail.com">tobias.hassebrock@gmail.com</a>

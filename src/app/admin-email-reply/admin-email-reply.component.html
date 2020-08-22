@@ -8,7 +8,7 @@
         <div class="col s12 m12 l8">
           <p>Mail to: </p>
           <p id="emailTo" class="chip">{{email}}</p>
-          <p>{{id}}</p>
+          <p>ID: {{id}}</p>
           <form [formGroup]="emailReplyForm" (ngSubmit)="sendEmail()">
             <div class="input-field">
               <input required type="text" class="validate" formControlName="subject">
