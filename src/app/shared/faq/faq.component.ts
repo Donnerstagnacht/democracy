@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
-import { Question } from '../question';
 import { Collapsible } from 'materialize-css';
+import { Question } from 'src/app/question';
 
 
 @Component({

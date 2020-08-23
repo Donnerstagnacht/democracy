@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, HostListener, AfterViewInit } from '@angular/core';
-import { Brick } from '../argument/brick';
 import { ScrollSpy } from 'materialize-css';
 import { MenuTab } from '../bar-side/menuTab';
+import { Brick } from '../shared/argument/brick';
 
 @Component({
   selector: 'app-webpage',

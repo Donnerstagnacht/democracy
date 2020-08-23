@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Brick } from './argument/brick';
 
 @Component({
   selector: 'app-root',

@@ -9,20 +9,13 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarSideComponent } from './bar-side/bar-side.component';
-import { ButtonShareComponent } from './button-share/button-share.component';
 import { ImpressumComponent } from './impressum/impressum.component';
-import { FaqComponent } from './faq/faq.component';
 import { FaqControllerComponent } from './faq-controller/faq-controller.component';
-import { TeamMemberComponent } from './team-member/team-member.component';
 import { TeamMemberControllerComponent } from './team-member-controller/team-member-controller.component';
-import { CardTextComponent } from './card-text/card-text.component';
 import { CardControllerComponent } from './card-controller/card-controller.component';
-import { HighlightComponent } from './highlight/highlight.component';
 import { BarShareComponent } from './bar-share/bar-share.component';
-import { ArgumentComponent } from './argument/argument.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { ContactComponent } from './contact/contact.component';
-import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
 import { BarBotComponent } from './bar-bot/bar-bot.component';
 import { BarBotCurtainComponent } from './bar-bot-curtain/bar-bot-curtain.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -35,38 +28,29 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { AdminSubscribersComponent } from './admin-subscribers/admin-subscribers.component';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
-import { VideoCarouselComponent } from './video-carousel/video-carousel.component';
 import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.component';
 import { AdminEmailReplyComponent } from './admin-email-reply/admin-email-reply.component';
 import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
-import { ClipboardModule } from 'ngx-clipboard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
-import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admin-unsubscribe-dialog.component';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BarSideComponent,
-    ButtonShareComponent,
     ImpressumComponent,
-    FaqComponent,
     FaqControllerComponent,
-    TeamMemberComponent,
     TeamMemberControllerComponent,
-    CardTextComponent,
     CardControllerComponent,
-    HighlightComponent,
     BarShareComponent,
-    ArgumentComponent,
     NewsletterComponent,
     ContactComponent,
-    ImageCarouselComponent,
     BarBotComponent,
     BarBotCurtainComponent,
     LandingPageComponent,
@@ -79,7 +63,6 @@ import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admi
     LoginComponent,
     AdminSubscribersComponent,
     AdminMessagesComponent,
-    VideoCarouselComponent,
     AdminNewsletterComponent,
     AdminEmailReplyComponent,
     AdminUnsubscribeComponent,
@@ -93,13 +76,12 @@ import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admi
     FormsModule,
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
-    ClipboardModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatMenuModule,
     MatIconModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
