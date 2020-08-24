@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TeamMember } from '../team-member';
 
 @Component({
@@ -7,6 +7,7 @@ import { TeamMember } from '../team-member';
   styleUrls: ['./team-member-controller.component.scss']
 })
 export class TeamMemberControllerComponent implements OnInit {
+  @Input() link: string;
   // Works also for multiple team members
   teamMembers: TeamMember[] = [
     {

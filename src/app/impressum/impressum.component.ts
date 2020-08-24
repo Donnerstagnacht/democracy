@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-impressum',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./impressum.component.scss']
 })
 export class ImpressumComponent implements OnInit {
+  @Input() link: string;
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Question } from '../question';
 
 @Component({
@@ -7,6 +7,7 @@ import { Question } from '../question';
   styleUrls: ['./faq-controller.component.scss']
 })
 export class FaqControllerComponent implements OnInit {
+  @Input() link: string;
   functionalQuestions: Question[] = [
     {
       question: 'Welches Alleinstellungsmerkmal hat unsere App gegenüber anderen sozialen Netzwerken?',

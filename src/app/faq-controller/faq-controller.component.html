@@ -4,7 +4,10 @@
   </div>
   <div class="col s12 m12 l8">
     <div class="container">
-      <h3 class="center">FAQ</h3>
+      <div class="center">
+        <h3 class="inline-block padding-right-16">FAQ</h3>
+        <app-button-share class="inline-block padding-left-16" [link]="link"></app-button-share>
+      </div>
       <div class="">
         <h5 class="center">Zu Funktionen</h5>
         <app-faq [questions]="functionalQuestions"></app-faq>

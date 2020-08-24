@@ -156,8 +156,11 @@
     </div>
     <div class="col s12 m12 l8">
       <div class="container">
-        <div id="prototyp" class="row scrollspy">
-          <h3 class="center">Prototyp</h3>
+        <div id="{{prototypID}}" class="row scrollspy">
+          <div class="center">
+              <h3 class="inline-block padding-right-16">Prototyp</h3>
+              <app-button-share class="inline-block padding-left-16" [link]="link + '#' + prototypID"></app-button-share>
+          </div>
           <div class="col s12 m6">
             <h6>Visualisieren</h6>
             <p class="justify">
@@ -181,7 +184,10 @@
             <app-newsletter></app-newsletter>
           </div>
         </div>
-        <h4 class="center">Klick Dummy</h4>
+        <div id="{{clickDummyID}}" class="center">
+          <h4 class="inline-block padding-right-16">Klick Dummy</h4>
+          <app-button-share class="inline-block padding-left-16" [link]="link + '#' + clickDummyID"></app-button-share>
+        </div>
         <div class="center margin-top">
           <iframe class="iframe round center z-depth-3" src="https://xd.adobe.com/embed/9e081b15-b13d-4217-4cf9-8838d58e1ce9-e839/"
             frameborder="0" allowfullscreen></iframe>
@@ -197,8 +203,11 @@
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
-      <div id="support" class="container scrollspy">
-        <h3 class="center">Unterstütz uns!</h3>
+      <div id="{{supportID}}" class="container scrollspy">
+        <div class="center">
+          <h3 class="inline-block padding-right-16">Unterstütz uns!</h3>
+          <app-button-share class="inline-block padding-left-16" [link]="link + '#' + supportID"></app-button-share>
+        </div>
         <div class="center">
           <h5>Entwickler? Besuche uns auf GitHub</h5>
           <a href="https://github.com/Donnerstagnacht/democracy" target="_blank" class=""><i class="fa fa-github hover center black-text"></i></a>
@@ -216,7 +225,7 @@
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
-      <div id="kontakt" class="scrollspy container">
+      <div id="{{contactID}}" class="scrollspy container">
         <div class="center">
           <h5>
             Fragen? Interesse?
@@ -240,11 +249,11 @@
   </div>
 
   <!-- Team -->
-  <app-team-member-controller id="team" class="scrollspy"></app-team-member-controller>
+  <app-team-member-controller [link]="link + '#' + teamID" id="{{teamID}}" class="scrollspy"></app-team-member-controller>
 
   <!--FAQ-->
-  <app-faq-controller id="faq" class="scrollspy"></app-faq-controller>
+  <app-faq-controller [link]="link + '#' + faqID" id="{{faqID}}" class="scrollspy"></app-faq-controller>
 
   <!-- Impressum -->
-  <app-impressum id="impressum" class="scrollspy"></app-impressum>
+  <app-impressum id="{{impressumID}}" class="scrollspy"></app-impressum>
 

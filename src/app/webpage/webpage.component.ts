@@ -10,6 +10,7 @@ import { Brick } from '../shared/argument/brick';
 })
 export class WebpageComponent implements OnInit, AfterViewInit {
   highlight = 'Wir können jederzeit Unterstützung gebrauchen!';
+  // change to https://democracy-life.web.app/ in production
   link = 'http://localhost:4200/';
   ideenID = 'ideen';
   gruppenID = 'gruppen';
@@ -17,6 +18,13 @@ export class WebpageComponent implements OnInit, AfterViewInit {
   searchID = 'search';
   kommunikationID = 'kommunikation';
   datenID = 'daten';
+  prototypID = 'prototyp';
+  clickDummyID = 'clickdummy';
+  supportID = 'support';
+  contactID = 'kontakt';
+  teamID = 'team';
+  faqID = 'faq';
+  impressumID = 'impressum';
 
   ideasHeadline = 'Ideen & Anträge';
   ideasBrick: Brick[] = [
