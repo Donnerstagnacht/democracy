@@ -14,12 +14,6 @@ export class ArgumentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log('argument Link', this.link);
-  }
-
-  click() {
-    console.log('argument Link2', this.link);
-
   }
 
 }

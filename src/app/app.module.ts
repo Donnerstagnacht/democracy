@@ -38,6 +38,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admin-unsubscribe-dialog.component';
 import { SharedModule } from './shared/shared.module';
+import { NewsletterDialogComponent } from './newsletter-dialog/newsletter-dialog.component';
+import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
 
 
 @NgModule({
@@ -67,6 +69,8 @@ import { SharedModule } from './shared/shared.module';
     AdminEmailReplyComponent,
     AdminUnsubscribeComponent,
     AdminUnsubscribeDialogComponent,
+    NewsletterDialogComponent,
+    ContactDialogComponent,
   ],
   imports: [
     BrowserModule,

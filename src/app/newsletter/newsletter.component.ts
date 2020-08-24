@@ -1,8 +1,9 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Modal } from 'materialize-css';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { SubscriberService } from '../admin/subscriber.service';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { NewsletterDialogComponent } from '../newsletter-dialog/newsletter-dialog.component';
 
 @Component({
   selector: 'app-newsletter',
@@ -18,17 +19,16 @@ export class NewsletterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private elRef: ElementRef,
-    private subscriberService: SubscriberService) { }
+    private subscriberService: SubscriberService,
+    public matDialogRef: MatDialog) { }
 
   ngOnInit(): void {
-    this.elem = this.elRef.nativeElement.querySelector('.modal');
-    this.instance = Modal.init(this.elem);
+
   }
 
   onSubmit(): void {
     this.subscriberService.createSubscriber({email: this.subscribeForm.value.email});
-    this.instance.open();
+    const dialogRef: MatDialogRef<NewsletterDialogComponent> = this.matDialogRef.open(NewsletterDialogComponent);
   }
 
 }
