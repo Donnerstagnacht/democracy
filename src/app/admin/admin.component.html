@@ -31,7 +31,7 @@
       (editSubscriberEvent)="updateSubscriber($event)"
       (deleteSubscriberEvent)="deleteSubscriber($event)"
       (filterEmailEvent)="filterSubscriber($event)"
-      (sendEmailEvent)="openEmailReplyClickedOnSubscriber($event)"
+      (sendEmailEvent)="replyByEmail($event, false)"
     ></app-admin-subscribers>
   </div>
   <div class="col l2">
@@ -47,17 +47,10 @@
       id="admin/messages"
       class="scrollspy3"
       [messagesWebpage]="messagesWebpage"
-      (sendEmailEvent)="openEmailReplyClickedOnMessage($event)"
+      (sendEmailEvent)="replyByEmail($event, true)"
       (deleteMessageEvent)="deleteMessage($event)"
     ></app-admin-messages>
   </div>
   <div class="col l2">
   </div>
 </div>
-
-<app-admin-email-reply
-  [email]="email"
-  [templateID]="'subscriber-email-id'"
-  [id]="id"
-  (emailEvent)="replyByEmail($event)">
-</app-admin-email-reply>

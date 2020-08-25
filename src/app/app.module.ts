@@ -29,7 +29,6 @@ import { LoginComponent } from './login/login.component';
 import { AdminSubscribersComponent } from './admin-subscribers/admin-subscribers.component';
 import { AdminMessagesComponent } from './admin-messages/admin-messages.component';
 import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.component';
-import { AdminEmailReplyComponent } from './admin-email-reply/admin-email-reply.component';
 import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
@@ -40,6 +39,10 @@ import { AdminUnsubscribeDialogComponent } from './admin-unsubscribe-dialog/admi
 import { SharedModule } from './shared/shared.module';
 import { NewsletterDialogComponent } from './newsletter-dialog/newsletter-dialog.component';
 import { ContactDialogComponent } from './contact-dialog/contact-dialog.component';
+import { AdminDeleteEmailDialogComponent } from './admin-delete-email-dialog/admin-delete-email-dialog.component';
+import { AdminEditSubscriberDialogComponent } from './admin-edit-subscriber-dialog/admin-edit-subscriber-dialog.component';
+import { AdminDeleteMessageDialogComponent } from './admin-delete-message-dialog/admin-delete-message-dialog.component';
+import { AdminSendEmailDialogComponent } from './admin-send-email-dialog/admin-send-email-dialog.component';
 
 
 @NgModule({
@@ -66,15 +69,19 @@ import { ContactDialogComponent } from './contact-dialog/contact-dialog.componen
     AdminSubscribersComponent,
     AdminMessagesComponent,
     AdminNewsletterComponent,
-    AdminEmailReplyComponent,
     AdminUnsubscribeComponent,
     AdminUnsubscribeDialogComponent,
     NewsletterDialogComponent,
     ContactDialogComponent,
+    AdminDeleteEmailDialogComponent,
+    AdminEditSubscriberDialogComponent,
+    AdminDeleteMessageDialogComponent,
+    AdminSendEmailDialogComponent,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,

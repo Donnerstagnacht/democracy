@@ -1,21 +1,18 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { EmailSubscriber, EmailSubscriberID } from './emailSubscriber';
-import { MessageWebpage, MessageWebpageID } from './messageWebpage';
+import { MessageWebpageID } from './messageWebpage';
 import { MenuTab } from '../bar-side/menuTab';
 import { AuthService } from '../auth.service';
-import { AngularFireFunctions } from '@angular/fire/functions';
 
 import { ScrollSpy } from 'materialize-css';
-import { AdminEmailReplyCurtainService } from '../admin-email-reply-curtain.service';
-import { EmailReply } from '../admin-email-reply/emailReply';
 import { Newsletter } from '../admin-newsletter/newsletter';
 import { SubscriberService } from './subscriber.service';
 import { MessagesService } from './messages.service';
 import { EmailsService } from './emails.service';
-
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { AdminSendEmailDialogComponent } from '../admin-send-email-dialog/admin-send-email-dialog.component';
+import { EmailReply } from './emailReply';
 
 @Component({
   selector: 'app-admin',
@@ -44,18 +41,13 @@ export class AdminComponent implements OnInit {
   elem: HTMLElement;
   instance: ScrollSpy;
 
-  email: string;
-  id: string;
-
-  // https://froala.com/wysiwyg-editor/
-  // implement it for editing emails to send to all of them?
   constructor(
     private authService: AuthService,
     private elementRef: ElementRef,
-    private adminEmailReplyCurtainService: AdminEmailReplyCurtainService,
     private subscriberService: SubscriberService,
     private messageService: MessagesService,
-    private emailsService: EmailsService
+    private emailsService: EmailsService,
+    private matDialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -82,25 +74,30 @@ export class AdminComponent implements OnInit {
     this.subscribers = this.subscriberService.filterSubscriber(filterString);
   }
 
-  openEmailReplyClickedOnSubscriber(subscriber: EmailSubscriberID): void {
-    this.email = subscriber.email;
-    this.id = subscriber.id;
-    this.adminEmailReplyCurtainService.openEmailReply(subscriber.email, 'subscriber-email-id');
-  }
-
-  openEmailReplyClickedOnMessage(messageWebpageID: MessageWebpageID ): void {
-    this.email = messageWebpageID.email;
-    this.id = messageWebpageID.id;
-    this.adminEmailReplyCurtainService.openEmailReply(this.email, this.id);
-  }
-
-  replyByEmail(emailData: EmailReply) {
-    this.emailsService.replyOnMessageByEmail(emailData);
-    this.adminEmailReplyCurtainService.closeEmailReply('subscriber-email-id');
-  }
-
   deleteMessage(id: string): void {
     this.messageService.deleteMessage(id);
+  }
+
+  replyByEmail(messageWebpageID: MessageWebpageID, onMessage: boolean): void {
+    const sendEmailData: EmailReply = {
+      id: messageWebpageID.id,
+      email: messageWebpageID.email,
+      subject: '',
+      text: ''
+    };
+    const dialogRef: MatDialogRef<AdminSendEmailDialogComponent> = this.matDialog.open(AdminSendEmailDialogComponent, {
+      panelClass: ['animate__animated', 'animate__slideInLeft'],
+      height: '100vh',
+      width: '100vw',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      data: sendEmailData,
+    });
+    dialogRef.afterClosed().subscribe((sendEmail: EmailReply) => {
+      if (sendEmail) {
+        this.emailsService.replyByEmail(sendEmail, onMessage);
+      }
+    });
   }
 
   sendNewsletter(newsletter: Newsletter): void {

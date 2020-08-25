@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MessageWebpageID } from '../admin/messageWebpage';
-import { Modal } from 'materialize-css';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AdminDeleteMessageDialogComponent } from '../admin-delete-message-dialog/admin-delete-message-dialog.component';
 
 @Component({
   selector: 'app-admin-messages',
@@ -13,29 +14,23 @@ export class AdminMessagesComponent implements OnInit {
   @Output() sendEmailEvent = new EventEmitter<MessageWebpageID>();
   @Output() deleteMessageEvent = new EventEmitter<string>();
 
-  deleteModalRef: HTMLElement;
-  deleteModal: Modal;
+  constructor(public matgDialog: MatDialog) { }
 
-  clickedMessageID: string;
-
-  constructor(private elRef: ElementRef) { }
-
-  ngOnInit(): void {
-    this.deleteModalRef = this.elRef.nativeElement.querySelector('#deleteModal-message');
-    this.deleteModal = Modal.init(this.deleteModalRef);
-  }
+  ngOnInit(): void { }
 
   sendEmail(mssageWebpageID: MessageWebpageID): void {
     this.sendEmailEvent.emit(mssageWebpageID);
   }
 
-  openDeleteModal(id: string) {
-    this.clickedMessageID = id;
-    this.deleteModal.open();
-  }
-
-  deleteMessage(id: string) {
-    this.deleteMessageEvent.emit(id);
+  openDeleteModal(message: MessageWebpageID) {
+    const dialogRef: MatDialogRef<AdminDeleteMessageDialogComponent> = this.matgDialog.open(AdminDeleteMessageDialogComponent, {
+      data: message
+    });
+    dialogRef.afterClosed().subscribe((deleteMessage: MessageWebpageID) => {
+      if (deleteMessage) {
+        this.deleteMessageEvent.emit(message.id);
+      }
+    });
   }
 
 }

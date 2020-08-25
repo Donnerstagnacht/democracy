@@ -1,0 +1,8 @@
+<mat-dialog-content>
+  <h4 mat-dialog-title>Möchtest du diesen Kontakt wirklich löschen?</h4>
+  <p>Email: {{subscriber.email}}</p>
+</mat-dialog-content>
+<mat-dialog-actions class="flex-row">
+  <button [mat-dialog-close]="subscriber" class="center btn-flat grey lighten-3">Ja</button>
+  <button [mat-dialog-close]="" class="center btn red lighten-3 black-text">Nein</button>
+</mat-dialog-actions>

@@ -1,0 +1,23 @@
+<!-- Modal Subsribe Edit -->
+<mat-dialog-content>
+  <form [formGroup]="editEmailForm">
+    <div class="modal-content">
+      <h4>Die neue Email lautet</h4>
+        <div class="input-field">
+          <input required id="newEmail" type="email" class="validate" formControlName="editEmail">
+          <label for="email-subscribe">Email</label>
+          <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
+        </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions class="flex-row">
+  <button
+  (click)="edit()"
+  [mat-dialog-close]="subscriber"
+  type="submit"
+  class="center btn-flat grey lighten-3"
+  [disabled]="!editEmailForm.valid"
+  >Speichern</button>
+  <button [mat-dialog-close]="" class="center modal-close btn red lighten-3 black-text">Abbrechen</button>
+</mat-dialog-actions>
