@@ -15,11 +15,19 @@
     <h5 class="center">Newsletter</h5>
     <p>Gespannt auf Neuigkeiten? Bleibe mit unserem Newsletter immer auf dem neusten Stand.</p>
     <form id="subscribeform" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && subscribeForm.value.email!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine gültige Email eingeben</mat-error>
+      </mat-form-field>
+
+      <!--
       <div class="input-field">
         <input required id="email-subscribe" type="email" class="validate" formControlName="email">
         <label for="email-subscribe">Email</label>
         <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
-      </div>
+      </div>-->
       <div class="center">
         <button
           id="subscribeButton"

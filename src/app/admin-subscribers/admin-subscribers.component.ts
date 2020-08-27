@@ -7,6 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AdminDeleteEmailDialogComponent } from '../admin-delete-email-dialog/admin-delete-email-dialog.component';
 import { AdminEditSubscriberDialogComponent } from '../admin-edit-subscriber-dialog/admin-edit-subscriber-dialog.component';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-admin-subscribers',
@@ -22,7 +23,7 @@ export class AdminSubscribersComponent implements OnInit {
   @Output() sendEmailEvent = new EventEmitter<EmailSubscriberID>();
 
   editEmailForm = this.fb.group({
-    editEmail: ['', [Validators.required]]
+    editEmail: ['', [Validators.email]]
   });
 
   addEmailForm = this.fb.group({
@@ -37,7 +38,8 @@ export class AdminSubscribersComponent implements OnInit {
   constructor(
     private elRef: ElementRef,
     private fb: FormBuilder,
-    private matDialogRef: MatDialog
+    private matDialogRef: MatDialog,
+    private generalFormsService: GeneralFormsService
   ) { }
 
   ngOnInit(): void {
@@ -81,6 +83,14 @@ export class AdminSubscribersComponent implements OnInit {
 
   sendEmail(subscriber: EmailSubscriberID): void {
     this.sendEmailEvent.emit(subscriber);
+  }
+
+  errorHandlingAddEmail(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.addEmailForm, control, error);
+  }
+
+  errorHandlingEditEmail(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.editEmailForm, control, error);
   }
 
 }

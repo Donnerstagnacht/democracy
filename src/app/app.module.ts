@@ -43,6 +43,11 @@ import { AdminDeleteEmailDialogComponent } from './admin-delete-email-dialog/adm
 import { AdminEditSubscriberDialogComponent } from './admin-edit-subscriber-dialog/admin-edit-subscriber-dialog.component';
 import { AdminDeleteMessageDialogComponent } from './admin-delete-message-dialog/admin-delete-message-dialog.component';
 import { AdminSendEmailDialogComponent } from './admin-send-email-dialog/admin-send-email-dialog.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {TextFieldModule} from '@angular/cdk/text-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -92,7 +97,12 @@ import { AdminSendEmailDialogComponent } from './admin-send-email-dialog/admin-s
     MatIconModule,
     MatDialogModule,
     MatSnackBarModule,
-    SharedModule
+    SharedModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    TextFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

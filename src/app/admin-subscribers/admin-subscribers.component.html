@@ -1,19 +1,16 @@
 <h3 class="center" >
   Subscribers
 </h3>
-
-<div class="row ">
-  <ul id="tabsTable" class="tabs ">
-    <li class="tab col s6"><a href="#test1">Emails Hinzufügen</a></li>
-    <li class="tab col s6"><a class="active" href="#test2">Emails Filtern</a></li>
-  </ul>
-  <div id="test1">
+<!-- [disableRipple]="true" -->
+<mat-tab-group [disableRipple]="true" mat-stretch-tabs [color]="'primary'">
+  <mat-tab label="EMAILS HINZUFÜGEN">
     <form [formGroup]="addEmailForm" (ngSubmit)="addEmail()">
-      <div class="input-field">
-        <input required type="email" class="validate" formControlName="addEmail">
-        <label for="email-subscribe">Email</label>
-        <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
-      </div>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="addEmail">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandlingAddEmail('addEmail', 'email') && addEmailForm.value.addEmail!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandlingAddEmail('addEmail', 'email')">Bitte eine Email eingeben.</mat-error>
+      </mat-form-field>
       <div class="center">
         <button
           class="waves-effect waves-light btn red lighten-3 black-text"
@@ -22,14 +19,14 @@
         >HINZUFÜGEN</button>
       </div>
     </form>
-  </div>
-  <div id="test2" class="">
-    <div class="input-field">
-      <input type="text" [ngModel]="filterString" (ngModelChange)="filterString=$event; filterEmail()"> <br>
-      <label>Filter Emails</label>
-    </div>
-  </div>
-</div>
+  </mat-tab>
+  <mat-tab label="EMAILS FILTERN">
+    <mat-form-field class="full-width" appearance="standard">
+      <mat-label>Betreff</mat-label>
+      <input matInput type="text" [ngModel]="filterString" (ngModelChange)="filterString=$event; filterEmail()">
+    </mat-form-field>
+  </mat-tab>
+</mat-tab-group>
 
 <table class="highlight responsive-table">
   <thead>

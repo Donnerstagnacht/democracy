@@ -1,4 +1,29 @@
 @import "app/shared/button-share/one-menu.style.scss";
+@import '~@angular/material/theming';
+@import './leftlife-theme.scss';
+@import './leftlife-mat-inputs-materialize-compatible.scss';
+@import './app/admin-subscribers/leftlife-tabs.scss';
+@include angular-material-theme($left-life-theme);
+
+mat-form-field input {
+  border: none;
+  height: initial !important;
+}
+
+mat-form-field input:focus {
+  border: none;
+  box-shadow: none;
+  height: initial !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.accept-icon {
+  color: limegreen;
+}
+
 
 /* You can add global styles to this file, and also import other style files */
 /** Typography styles */
@@ -41,28 +66,30 @@ p {
 
 /** form colour */
 /* label focus color */
+
+/*
 .input-field input[type=text]:focus + label, .input-field input[type=text]:focus + label {
   color: #ef9a9a!important;
-}
-/* label underline focus color */
+}*/
+/* label underline focus color *//*
 .input-field input[type=text]:focus {
   border-bottom: 1px solid #ef9a9a!important;
   box-shadow: 0 1px 0 0 #ef9a9a!important;
-}
-
+}*/
+/*
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #ef9a9a;
   -webkit-box-shadow: 0 1px 0 0 #ef9a9a;
   box-shadow: 0 1px 0 0 #ef9a9a;
-}
-
+}*/
+/*
 input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
     color: #ef9a9a;
-}
-
+}*/
+/*
 .share-hover:hover {
   background-color: #ef9a9a;
-}
+}*/
 
 
 /** * Menu HOver colour */

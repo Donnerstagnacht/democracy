@@ -1,0 +1,15 @@
+mat-form-field input {
+  border: none!important;
+  height: initial !important;
+  margin-bottom: opx!important;
+}
+
+input:not([type]) {
+  margin: 0px!important;
+}
+
+mat-form-field input:focus {
+  border: none!important;
+  box-shadow: none!important;
+  height: initial !important;
+}

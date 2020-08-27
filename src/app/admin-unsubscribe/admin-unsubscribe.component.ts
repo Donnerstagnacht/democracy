@@ -4,6 +4,7 @@ import { SubscriberService } from '../admin/subscriber.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AdminUnsubscribeDialogComponent } from '../admin-unsubscribe-dialog/admin-unsubscribe-dialog.component';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-admin-unsubscribe',
@@ -12,13 +13,14 @@ import { AdminUnsubscribeDialogComponent } from '../admin-unsubscribe-dialog/adm
 })
 export class AdminUnsubscribeComponent implements OnInit {
   unsubscribeForm = this.fb.group({
-    email: ['', Validators.required]
+    email: ['', [Validators.email, Validators.required]]
   });
 
   constructor(
     private router: Router,
     private subscriberService: SubscriberService,
     private fb: FormBuilder,
+    private generalFormsService: GeneralFormsService,
     public matDialogRef: MatDialog) { }
 
   ngOnInit(): void {}
@@ -29,6 +31,10 @@ export class AdminUnsubscribeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(() => {
       this.router.navigate(['']);
     });
+  }
+
+  errorHandling(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.unsubscribeForm, control, error);
   }
 
 }

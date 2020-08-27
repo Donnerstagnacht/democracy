@@ -1,10 +1,10 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Modal, FormSelect} from 'materialize-css';
 import { MessageWebpage } from '../admin/messageWebpage';
 import { MessagesService } from '../admin/messages.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-contact',
@@ -15,25 +15,30 @@ export class ContactComponent implements OnInit {
   contactForm = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.email, Validators.required]],
     topic: ['', Validators.required],
     subject: ['', Validators.required],
     message: ['', Validators.required],
   });
 
-  selectElement: HTMLElement;
-  select: FormSelect;
+  topics: string[] = [
+    'Fragen zur Idee',
+    'Erzähl von uns',
+    'Spenden',
+    'Design',
+    'Programmierung',
+    'Sonstiges'
+  ];
 
   constructor(
     private fb: FormBuilder,
     private elRef: ElementRef,
     private messagesService: MessagesService,
-    private matDialogRef: MatDialog) { }
+    private matDialogRef: MatDialog,
+    private generalFormsService: GeneralFormsService
+  ) { }
 
-  ngOnInit(): void {
-    this.selectElement = this.elRef.nativeElement.querySelector('#thema');
-    this.select = FormSelect.init(this.selectElement);
-  }
+  ngOnInit(): void {  }
 
   onSubmit() {
     const newMessage: MessageWebpage = {
@@ -49,6 +54,10 @@ export class ContactComponent implements OnInit {
     const dialogRef: MatDialogRef<ContactDialogComponent> = this.matDialogRef.open(ContactDialogComponent, {
       data: newMessage
     });
+  }
+
+  errorHandling(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.contactForm, control, error);
   }
 
 }

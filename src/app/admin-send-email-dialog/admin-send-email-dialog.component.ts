@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { EmailReply } from '../admin/emailReply';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-admin-send-email-dialog',
@@ -18,6 +19,7 @@ export class AdminSendEmailDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private generalFormsService: GeneralFormsService,
     @Inject(MAT_DIALOG_DATA) public sendEmailData: EmailReply,
     public dialogRef: MatDialogRef<AdminSendEmailDialogComponent>
   ) { }
@@ -49,6 +51,10 @@ export class AdminSendEmailDialogComponent implements OnInit {
     animated.addEventListener('animationend', () => {
       this.dialogRef.close();
     });
+  }
+
+  errorHandling(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.emailReplyForm, control, error);
   }
 
 

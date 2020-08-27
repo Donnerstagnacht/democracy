@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Newsletter } from './newsletter';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-admin-newsletter',
@@ -14,7 +15,10 @@ export class AdminNewsletterComponent implements OnInit {
     text: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private generalFormsService: GeneralFormsService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +28,10 @@ export class AdminNewsletterComponent implements OnInit {
       subject: this.newsletterForm.value.subject,
       text: this.newsletterForm.value.text
     });
+  }
+
+  errorHandling(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.newsletterForm, control, error);
   }
 
 }

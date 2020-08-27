@@ -3,11 +3,12 @@
   <form [formGroup]="editEmailForm">
     <div class="modal-content">
       <h4>Die neue Email lautet</h4>
-        <div class="input-field">
-          <input required id="newEmail" type="email" class="validate" formControlName="editEmail">
-          <label for="email-subscribe">Email</label>
-          <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
-        </div>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="editEmail">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('editEmail', 'email') && editEmailForm.value.editEmail!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('editEmail', 'email')">Bitte eine Email eingeben.</mat-error>
+      </mat-form-field>
     </div>
   </form>
 </mat-dialog-content>

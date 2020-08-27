@@ -20,11 +20,12 @@
         </div>-->
 
         <form [formGroup]="unsubscribeForm" (ngSubmit)="unsubscribe()">
-          <div class="input-field">
-            <input required id="email-unsubscribe" type="text" class="validate" formControlName="email">
-            <label for="email-unsubscribe">Email</label>
-            <span id="email-subscribe-helper" class="helper-text" data-error="Bitte eine Email eingeben."></span>
-          </div>
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && unsubscribeForm.value.email!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine Email eingeben.</mat-error>
+          </mat-form-field>
           <div class="center">
             <button
               id="unsubscribeButton"
