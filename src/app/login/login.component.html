@@ -1,34 +1,43 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div class="input-field">
-    <input id="email" type="email" class="validate" formControlName="email">
-    <label for="email">Email</label>
-    <span id="email-helper" class="helper-text" data-error="Bitte eine gültige Email eingeben" ></span>
-  </div>
-  <div class="input-field">
-    <input id="password" type="password" class="validate" formControlName="password">
-    <label for="password">Password</label>
-    <span id="password-helper" class="helper-text" data-error="Bitte eine gültiges Passwort eingeben" ></span>
-  </div>
-  <div class="flex-container" *ngIf="loginMode">
+  <mat-form-field class="full-width" appearance="standard">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && loginForm.value.email!==''">done</mat-icon>
+    <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine gültige Email eingeben</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="standard">
+    <mat-label>Passwort</mat-label>
+    <input matInput formControlName="password" type="password">
+    <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('password', 'required') && !errorHandling('password', 'minlength') && loginForm.value.passwprd!==''">done</mat-icon>
+    <mat-error *ngIf="errorHandling('password', 'minlength') || errorHandling('password', 'required')">Bitte ein Passwort mit mindestens 6 Zeichen eingeben</mat-error>
+  </mat-form-field>
+
+  <div class="flex-row" *ngIf="loginMode">
     <button
+      mat-raised-button
+      color="primary"
       type="submit"
       [disabled]="!loginForm.valid"
-      class="margin waves-effect black-text waves-light red lighten-3 btn "
-    >LOGIN</button>
+      >LOGIN
+    </button>
     <button
+      mat-flat-button
       (click)="changeLoginMode()"
-      class="margin black-text white lighten-3 btn"
-    >REGISTER FIRST</button>
+      >REGISTER FIRST
+    </button>
   </div>
-  <div class="flex-container" *ngIf="!loginMode">
+  <div class="flex-row" *ngIf="!loginMode">
     <button
+      mat-raised-button
+      color="primary"
       type="submit"
       [disabled]="!loginForm.valid"
-      class="margin waves-effect black-text waves-light red lighten-3 btn "
     >REGISTER</button>
     <button
+      mat-flat-button
       (click)="changeLoginMode()"
-      class="margin black-text white lighten-3 btn"
-    >LOGIN</button>
+      >LOGIN
+    </button>
   </div>
 </form>

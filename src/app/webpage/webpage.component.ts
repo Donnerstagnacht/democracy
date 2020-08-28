@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, HostListener, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { ScrollSpy } from 'materialize-css';
 import { MenuTab } from '../bar-side/menuTab';
 import { Brick } from '../shared/argument/brick';
@@ -8,7 +8,7 @@ import { Brick } from '../shared/argument/brick';
   templateUrl: './webpage.component.html',
   styleUrls: ['./webpage.component.scss']
 })
-export class WebpageComponent implements OnInit, AfterViewInit {
+export class WebpageComponent implements OnInit {
   highlight = 'Wir können jederzeit Unterstützung gebrauchen!';
   // change to https://democracy-life.web.app/ in production
   link = 'http://localhost:4200/';
@@ -50,28 +50,11 @@ export class WebpageComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  ideasImages: string[] = [
-    '../assets/images/gifs/idee/Idee erstellen.gif',
-    '../assets/images/gifs/idee/Idee bearbeiten1.gif',
-    '../assets/images/gifs/idee/Idee bearbeiten2.gif',
-    '../assets/images/gifs/idee/Idee bearbeiten3.gif',
-    '../assets/images/gifs/idee/Idee teilen.gif',
-    '../assets/images/gifs/idee/Idee unterstuetzer.gif'
-  ];
-
   ideasVideos: string[] = [
     '../assets/videos/Idee Erstellen-12.m4v',
     '../assets/videos/Idee Bearbeiten-11.m4v',
     '../assets/videos/Idee Teilen-13.m4v',
     '../assets/videos/Idee Unterstützer-10.m4v'
-  ];
-
-  groupImages: string[] = [
-    '../assets/images/gifs/group/Group erstellen.gif',
-    '../assets/images/gifs/group/Group wiki.gif',
-    '../assets/images/gifs/group/Group wiki administrators.gif',
-    '../assets/images/gifs/group/Group ideen.gif',
-    '../assets/images/gifs/group/Group events.gif'
   ];
 
   groupVideos: string[] = [
@@ -82,23 +65,11 @@ export class WebpageComponent implements OnInit, AfterViewInit {
     '../assets/videos/Group Übersicht Und Administration-9.m4v',
   ];
 
-  eventsImages: string[] = [
-    '../assets/images/gifs/events/Event erstellen.gif',
-    '../assets/images/gifs/events/Event thema erstellen.gif',
-    '../assets/images/gifs/events/Event waehlen.gif',
-    '../assets/images/gifs/events/Event aufgaben und protokolle.gif'
-  ];
-
   eventVideos: string[] = [
     '../assets/videos/Event Erstellen-2.m4v',
     '../assets/videos/Event Themen Hinzufügen-1.m4v',
     '../assets/videos/Event Wählen-3.m4v',
     '../assets/videos/Events Protokolle Und Aufgaben-4.m4v'
-  ];
-
-  communicationImages: string[] = [
-    '../assets/images/gifs/kommunikation/Chat.gif',
-    '../assets/images/gifs/kommunikation/Chat group.gif'
   ];
 
   communicationVideos: string[] = [
@@ -286,17 +257,11 @@ export class WebpageComponent implements OnInit, AfterViewInit {
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit(): void {
-    // M.AutoInit();
     this.elem = this.elementRef.nativeElement.querySelectorAll('.scrollspy');
     this.instance = ScrollSpy.init(this.elem);
 
     this.elem2 = this.elementRef.nativeElement.querySelectorAll('.scrollspy2');
     this.instance2 = ScrollSpy.init(this.elem2);
-  }
-
-  ngAfterViewInit(): void {
-    // Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
-
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {

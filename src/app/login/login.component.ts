@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { UserCredentials } from './userCredentials';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { GeneralFormsService } from '../shared/general-forms.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,13 @@ export class LoginComponent implements OnInit {
   loginMode: boolean;
 
   loginForm = this.fb.group({
-    email: ['', [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   });
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private generalFormsService: GeneralFormsService
     ) { }
 
   ngOnInit(): void {
@@ -41,5 +43,9 @@ export class LoginComponent implements OnInit {
 
   changeLoginMode(): void {
     this.loginMode = !this.loginMode;
+  }
+
+  errorHandling(control: string, error: string): boolean {
+    return this.generalFormsService.errorHandling(this.loginForm, control, error);
   }
 }

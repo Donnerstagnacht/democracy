@@ -1,7 +1,6 @@
 <h3 class="center" >
   Subscribers
 </h3>
-<!-- [disableRipple]="true" -->
 <mat-tab-group [disableRipple]="true" mat-stretch-tabs [color]="'primary'">
   <mat-tab label="EMAILS HINZUFÜGEN">
     <form [formGroup]="addEmailForm" (ngSubmit)="addEmail()">
@@ -43,17 +42,17 @@
     <tr *ngFor="let subscriber of subscribers | async">
       <td>{{subscriber.email}}  {{subscriber.id}}</td>
       <td>
-        <a (click)="sendEmail(subscriber)" class="">
+        <a (click)="sendEmail(subscriber)">
           <i class="fas fa-envelope hover black-text"></i>
         </a>
       </td>
       <td>
-        <a (click)="edit(subscriber)" class="">
+        <a (click)="edit(subscriber)">
           <i class="fas fa-pen hover black-text"></i>
         </a>
       </td>
       <td>
-        <a (click)="delete(subscriber)" class="">
+        <a (click)="delete(subscriber)">
           <i class="fas fa-trash hover black-text"></i>
         </a>
       </td>
