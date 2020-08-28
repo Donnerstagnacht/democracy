@@ -78,7 +78,8 @@ $acceptance-palette: (
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $left-life-primary: mat-palette($left-life-palette);
-$left-life-accent:  mat-palette($acceptance-palette);
+$left-life-accent:  mat-palette($left-life-palette);
+$left-life-acceptance:  mat-palette($acceptance-palette);
 
 // The warn palette is optional (defaults to red).
 $left-life-warn:    mat-palette($mat-red);
@@ -90,5 +91,6 @@ $left-life-theme: mat-light-theme((
     primary: $left-life-primary,
     accent: $left-life-accent,
     warn: $left-life-warn,
+    acceptance: $acceptance-palette
   )
 ));

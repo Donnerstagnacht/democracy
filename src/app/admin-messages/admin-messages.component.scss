@@ -1,17 +1,12 @@
-.colour {
-  color: #ef5350 !important;
-}
+@import '~@angular/material/theming';
+@import '../../leftlife-theme.scss';
 
 .colour-2 {
-  color: #ef9a9a;
-}
-
-.margin-for-bot-bar {
-  margin-bottom: 70px;
+  color: mat-color($left-life-primary);
 }
 
 .responded {
-  background-color: #3CB371;
+  background-color: mat-color($left-life-acceptance);
 }
 
 button {

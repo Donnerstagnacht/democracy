@@ -3,25 +3,25 @@
 </a>
 
 <mat-menu #menu="matMenu">
-  <a class="black-text share" mat-menu-item (cbOnSuccess)="openSnackbar()" ngxClipboard [cbContent]="link">
+  <a mat-menu-item (cbOnSuccess)="openSnackbar()" ngxClipboard [cbContent]="link">
     <div>
       <i class="fa fa-copy "></i>
       <span>Kopieren</span>
     </div>
   </a>
-  <a mat-menu-item href="https://api.whatsapp.com/send?text={{link}}" target="_blank" class="black-text share">
+  <a mat-menu-item href="https://api.whatsapp.com/send?text={{link}}" target="_blank">
     <div>
       <i class="fab fa-whatsapp "></i>
       <span>Whatsapp</span>
     </div>
   </a>
-  <a mat-menu-item href="https://www.facebook.com/sharer.php?u={{link}}" target="_blank" class="black-text share">
+  <a mat-menu-item href="https://www.facebook.com/sharer.php?u={{link}}" target="_blank">
     <div>
       <i class="fab fa-facebook "></i>
       <span>Facebook</span>
     </div>
   </a>
-  <a mat-menu-item href="https://twitter.com/intent/tweet?text={{link}}" target="_blank" class="black-text share">
+  <a mat-menu-item href="https://twitter.com/intent/tweet?text={{link}}" target="_blank">
     <div>
       <i class="fab fa-twitter "></i>
       <span>Twitter</span>

@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+@import '../../leftlife-theme.scss';
+
+.carousel .indicators .indicator-item {
+  background-color: rgba(0, 0, 0, 0.12)!important;
+ }
+
+ .carousel .indicators .indicator-item.active {
+  background-color: mat-color($left-life-primary, 900)!important;
+}

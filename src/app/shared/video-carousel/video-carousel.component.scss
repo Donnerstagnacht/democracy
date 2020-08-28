@@ -1,0 +1,19 @@
+.min {
+  min-height: 400px;
+  max-height: 95vh;
+  border-radius: 2%;
+}
+
+/** Mainly adjusting image width and height */
+@media screen and (max-width: 600px) {
+  .min {
+    min-height: 400px;
+    max-height: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .min {
+    min-height: 550px;
+  }
+}

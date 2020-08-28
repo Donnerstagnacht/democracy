@@ -1,30 +1,15 @@
-@import "app/shared/button-share/one-menu.style.scss";
+@import "app/shared/button-share/mat-menu-overwrite-share-button.scss";
 @import '~@angular/material/theming';
 @import './leftlife-theme.scss';
 @import './leftlife-mat-inputs-materialize-compatible.scss';
 @import './leftlife-mat-buttons-materialize-compatible.scss';
+@import './app/shared/video-carousel/video-carousel-overwrite.scss';
 @import './app/admin-subscribers/leftlife-tabs.scss';
 @include angular-material-theme($left-life-theme);
-
-mat-form-field input {
-  border: none;
-  height: initial !important;
-}
-
-mat-form-field input:focus {
-  border: none;
-  box-shadow: none;
-  height: initial !important;
-}
 
 .full-width {
   width: 100%;
 }
-
-.accept-icon {
-  color: limegreen;
-}
-
 
 /* You can add global styles to this file, and also import other style files */
 /** Typography styles */
@@ -33,75 +18,26 @@ h1, h2, h3, h4, h5, h6, span, a, .typewriter1 {
 }
 
 h6 {
-  color: #ef5350 !important;
+  color: mat-color($left-life-primary, 900)!important;
 }
 
 p {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-/** Colour Styles */
-/* Colour Carousel */
-.carousel .indicators .indicator-item {
- background-color: grey;
+.primary-900 {
+  color: mat-color($left-life-primary, 900)!important
 }
-
-.carousel .indicators .indicator-item.active {
-  background-color: #ef5350!important;
-}
-
-.mark {
-  color: #ef5350 !important;
-  background-color: transparent;
-}
-
-.accent-color-background {
-  background-color: #ef5350;
-}
-
-.colour {
-  color: #ef5350 !important;
-}
-
-
-/** form colour */
-/* label focus color */
-
-/*
-.input-field input[type=text]:focus + label, .input-field input[type=text]:focus + label {
-  color: #ef9a9a!important;
-}*/
-/* label underline focus color *//*
-.input-field input[type=text]:focus {
-  border-bottom: 1px solid #ef9a9a!important;
-  box-shadow: 0 1px 0 0 #ef9a9a!important;
-}*/
-/*
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #ef9a9a;
-  -webkit-box-shadow: 0 1px 0 0 #ef9a9a;
-  box-shadow: 0 1px 0 0 #ef9a9a;
-}*/
-/*
-input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
-    color: #ef9a9a;
-}*/
-/*
-.share-hover:hover {
-  background-color: #ef9a9a;
-}*/
-
 
 /** * Menu HOver colour */
 /* ul > li .active, */
 ul > li .active, nav ul a:hover, .curtain-hover:hover  {
   /*background-color: rgba(0, 0, 0, 0.1);*/
-  background-color: #ef9a9a;
+  background-color: mat-color($left-life-primary);
 }
 
 a.loesung-menu-mobile-child.black-text.active {
-  background-color: #ef9a9a;
+  background-color: mat-color($left-life-primary);
 }
 
 
@@ -142,58 +78,9 @@ li .slick-slide:focus {
   justify-content: space-around;
 }
 
-
-/** Spacing */
-.loesung-margin {
-  margin-bottom: 16px!important;
-}
-
-.min {
-  min-height: 400px;
-  max-height: 95vh;
-  border-radius: 2%;
-}
-
-#loesung-menu-mobil {
-  width: 92vw;
-}
-
-.margin-top {
-  margin-top: 16px;
-}
-
-.padding {
-  text-align: center;
-}
-
-.app-width {
-  width: 100%;
-}
-
 .justify {
   text-align: justify;
 }
-
-.gif {
-  width: 100%;
-}
-
-.table-of-contents {
-  margin-top: 150px;
-}
-
-.share {
-  padding-top: 15px;
-}
-
-/* Styling Prototype*/
-.iframe {
-  width: 320px!important;
-  max-width: 100%;
-  max-height: 95vh;
-  height: 480px;
-}
-
 
 /** Styling browser scrollbar
 /* width */
@@ -202,32 +89,13 @@ li .slick-slide:focus {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #F44336;
+  background:  mat-color($left-life-primary);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b71c1c;
+  background:  mat-color($left-life-primary, 900);
 }
-
-
-.rocket {
-  max-width: 90px;
-  /* display: none; */
-}
-
-
-/* iphone element */
-.iphone-x {
-  text-align: center;
-  margin: 16px auto 32px auto;
-  width: 216px;
-  height: 468px;
-  border-radius: 40px;
-  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919,
-    0px 0px 0px 20px #111;
-}
-
 
 /* icons */
 .fa {
@@ -270,45 +138,6 @@ li .slick-slide:focus {
   -moz-transform: scale(1.5);
 }
 
-
-/* Animation  typewriter*/
-@keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-.typewriter1 {
-  font-family: "Raleway", sans-serif;
-  font-weight: 200;
-  font-size: 2em;
-  margin: 0.4em 0;
-}
-
-@media screen and (min-width: 360px) {
-  .iframe {
-    height: 565px;
-  }
-}
-
-
-/** Mainly adjusting image width and height */
-@media screen and (max-width: 600px) {
-  .headline {
-    margin-top: 0px;
-    margin-bottom: 30px;
-    min-height: 350px!important;
-  }
-
-  .min {
-    min-height: 400px;
-    max-height: none;
-  }
-}
-
 @media screen and (max-width: 992px) {
   .container {
     margin-bottom: 60px;
@@ -319,26 +148,8 @@ li .slick-slide:focus {
   .container {
     width: 90%;
   }
-
-  .min {
-    min-height: 550px;
-  }
 }
 
-@media screen and (min-width: 600px) {
-  .landing-wrapper {
-    margin-top: 48px;
-  }
-
-  .switch-container {
-    display: -webkit-flex; /* Safari */
-    display: flex;
-  }
-
-  /* Switching argument image description order*/
-  div.switch-eins   {order: 1;}
-  div.switch-zwei  {order: 2;}
-
-  div.switch-eins   {-webkit-order: 1;}
-  div.switch-zwei   {-webkit-order: 2;}
+.app.width {
+  width: 100%!important;
 }
