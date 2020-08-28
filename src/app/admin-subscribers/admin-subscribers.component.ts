@@ -8,6 +8,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AdminDeleteEmailDialogComponent } from '../admin-delete-email-dialog/admin-delete-email-dialog.component';
 import { AdminEditSubscriberDialogComponent } from '../admin-edit-subscriber-dialog/admin-edit-subscriber-dialog.component';
 import { GeneralFormsService } from '../shared/general-forms.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-subscribers',
@@ -39,7 +40,8 @@ export class AdminSubscribersComponent implements OnInit {
     private elRef: ElementRef,
     private fb: FormBuilder,
     private matDialogRef: MatDialog,
-    private generalFormsService: GeneralFormsService
+    private generalFormsService: GeneralFormsService,
+    private matSnackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +58,7 @@ export class AdminSubscribersComponent implements OnInit {
     dialogRef.afterClosed().subscribe((editSubscriber: EmailSubscriberID) => {
       if (editSubscriber) {
         this.editSubscriberEvent.emit(subscriber);
+        this.openSnackbar('Subscriber geändert');
       }
     });
   }
@@ -67,6 +70,7 @@ export class AdminSubscribersComponent implements OnInit {
     dialogRef.afterClosed().subscribe((deleteSubscriber: EmailSubscriberID) => {
       if (deleteSubscriber) {
         this.deleteSubscriberEvent.emit(subscriber);
+        this.openSnackbar('Subscriber gelöscht');
       }
     });
   }
@@ -75,6 +79,7 @@ export class AdminSubscribersComponent implements OnInit {
     const subscriber: EmailSubscriber = {email: this.addEmailForm.value.addEmail};
     this.addSubscriberEvent.emit(subscriber);
     this.addEmailForm.reset();
+    this.openSnackbar('Subscriber hinzugefügt');
   }
 
   filterEmail(): void {
@@ -93,4 +98,11 @@ export class AdminSubscribersComponent implements OnInit {
     return this.generalFormsService.errorHandling(this.editEmailForm, control, error);
   }
 
+  openSnackbar(message: string) {
+    this.matSnackBar.open(message, 'ok', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    });
+  }
 }

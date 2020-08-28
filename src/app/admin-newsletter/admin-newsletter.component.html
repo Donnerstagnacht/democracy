@@ -14,11 +14,44 @@
       </mat-form-field>
 
       <mat-form-field class="full-width" appearance="standard">
-        <mat-label>Text</mat-label>
-        <textarea  matInput cdkTextareaAutosize formControlName="text"></textarea>
-        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('text', 'required') && newsletterForm.value.text!==''">done</mat-icon>
-        <mat-error *ngIf="errorHandling('text', 'required')">Bitte einen Text eingeben.</mat-error>
+        <mat-label>General News Title</mat-label>
+        <input matInput formControlName="title1">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('title1', 'required') && newsletterForm.value.subject!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('title1', 'required')">Bitte einen General News Title eingeben.</mat-error>
       </mat-form-field>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>General News Text</mat-label>
+        <textarea  matInput cdkTextareaAutosize formControlName="text1"></textarea>
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('text1', 'required') && newsletterForm.value.title1!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('text1', 'required')">Bitte einen Text für die General News eingeben.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Tech News Title</mat-label>
+        <input matInput formControlName="title2">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('title2', 'required') && newsletterForm.value.subject!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('title2', 'required')">Bitte einen Tech News Title eingeben.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Tech News Text</mat-label>
+        <textarea  matInput cdkTextareaAutosize formControlName="text2"></textarea>
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('text2', 'required') && newsletterForm.value.title1!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('text2', 'required')">Bitte einen Text für die Tech News eingeben.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Bonus News Title</mat-label>
+        <input matInput formControlName="title3">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('title3', 'required') && newsletterForm.value.subject!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('title3', 'required')">Bitte einen General Bonus Title eingeben.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Bonus News Text</mat-label>
+        <textarea  matInput cdkTextareaAutosize formControlName="text3"></textarea>
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('text3', 'required') && newsletterForm.value.title1!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('text3', 'required')">Bitte einen Text für die Bonus News eingeben.</mat-error>
+      </mat-form-field>
+
       <div class="row">
         <div class="flex-row col s12">
           <button

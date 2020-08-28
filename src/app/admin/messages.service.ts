@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { MessageWebpage } from 'functions/src';
-import { MessageWebpageID } from './messageWebpage';
+import { MessageWebpageID, MessageWebpage } from './messageWebpage';
 import { map } from 'rxjs/operators';
 
 @Injectable({

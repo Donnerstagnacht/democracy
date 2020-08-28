@@ -16,7 +16,12 @@ export class EmailsService {
     const callableSendAllEmails = this.angularFireFunctions.httpsCallable('sendAllEmails');
     callableSendAllEmails({
       subject: newsletter.subject,
-      text: newsletter.text
+      title1: newsletter.title1,
+      text1: newsletter.text1,
+      title2: newsletter.title2,
+      text2: newsletter.text2,
+      title3: newsletter.title3,
+      text3: newsletter.text3
     }).subscribe();
   }
 

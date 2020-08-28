@@ -1,0 +1,36 @@
+<mat-dialog-content>
+  <div class="center">
+    <h4 mat-dialog-title>Überprüf deine Eingaben nocheinmal</h4>
+    <h6>Betreff</h6>
+    <p>{{newsletter.subject}}</p>
+
+    <h6>General News Title</h6>
+    <p>{{newsletter.title1}}</p>
+    <h6>General News Text</h6>
+    <p>{{newsletter.text1}}</p>
+
+    <h6>Tech News Title</h6>
+    <p>{{newsletter.text2}}</p>
+    <h6>Tech News Text</h6>
+    <p>{{newsletter.text2}}</p>
+
+    <h6>Bonus News Title</h6>
+    <p>{{newsletter.text3}}</p>
+    <h6>Bonus News Text</h6>
+    <p>{{newsletter.text3}}</p>
+  </div>
+</mat-dialog-content>
+<h4 mat-dialog-title>Soll der Newsletter abgeschickt werden?</h4>
+<mat-dialog-actions class="flex-row">
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="newsletter"
+    >JA, SENDEN
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]=""
+    >NEIN, NOCH ETWAS ÄNDERN
+  </button>
+</mat-dialog-actions>

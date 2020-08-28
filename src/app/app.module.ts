@@ -48,6 +48,7 @@ import {MatInputModule} from '@angular/material/input';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { AdminNewsletterDialogComponent } from './admin-newsletter-dialog/admin-newsletter-dialog.component';
 
 
 @NgModule({
@@ -81,6 +82,7 @@ import {MatButtonModule} from '@angular/material/button';
     AdminEditSubscriberDialogComponent,
     AdminDeleteMessageDialogComponent,
     AdminSendEmailDialogComponent,
+    AdminNewsletterDialogComponent,
   ],
   imports: [
     BrowserModule,

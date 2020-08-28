@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Modal } from 'materialize-css';
 import { SubscriberService } from '../admin/subscriber.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { NewsletterDialogComponent } from '../newsletter-dialog/newsletter-dialog.component';
@@ -12,8 +11,6 @@ import { GeneralFormsService } from '../shared/general-forms.service';
   styleUrls: ['./newsletter.component.scss']
 })
 export class NewsletterComponent implements OnInit {
-  elem: HTMLElement;
-  instance: Modal;
   subscribeForm = this.fb.group({
     email: ['', [Validators.email, Validators.required]]
   });

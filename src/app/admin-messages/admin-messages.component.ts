@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { MessageWebpageID } from '../admin/messageWebpage';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AdminDeleteMessageDialogComponent } from '../admin-delete-message-dialog/admin-delete-message-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin-messages',
@@ -14,7 +15,10 @@ export class AdminMessagesComponent implements OnInit {
   @Output() sendEmailEvent = new EventEmitter<MessageWebpageID>();
   @Output() deleteMessageEvent = new EventEmitter<string>();
 
-  constructor(public matgDialog: MatDialog) { }
+  constructor(
+    public matgDialog: MatDialog,
+    private matSnackBar: MatSnackBar
+    ) { }
 
   ngOnInit(): void { }
 
@@ -29,7 +33,16 @@ export class AdminMessagesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((deleteMessage: MessageWebpageID) => {
       if (deleteMessage) {
         this.deleteMessageEvent.emit(message.id);
+        this.openSnackbar('Nachricht gelöscht');
       }
+    });
+  }
+
+  openSnackbar(message: string) {
+    this.matSnackBar.open(message, 'ok', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
     });
   }
 

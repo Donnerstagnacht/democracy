@@ -13,6 +13,7 @@ import { EmailsService } from './emails.service';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { AdminSendEmailDialogComponent } from '../admin-send-email-dialog/admin-send-email-dialog.component';
 import { EmailReply } from './emailReply';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin',
@@ -47,7 +48,8 @@ export class AdminComponent implements OnInit {
     private subscriberService: SubscriberService,
     private messageService: MessagesService,
     private emailsService: EmailsService,
-    private matDialog: MatDialog
+    private matDialog: MatDialog,
+    private matSnackBar: MatSnackBar
     ) {}
 
   ngOnInit(): void {
@@ -96,6 +98,7 @@ export class AdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe((sendEmail: EmailReply) => {
       if (sendEmail) {
         this.emailsService.replyByEmail(sendEmail, onMessage);
+        this.openSnackbar('Nachricht versendet');
       }
     });
   }
@@ -106,5 +109,13 @@ export class AdminComponent implements OnInit {
 
   logout(): void {
     this.authService.logoutUser();
+  }
+
+  openSnackbar(message: string) {
+    this.matSnackBar.open(message, 'ok', {
+      duration: 3000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    });
   }
 }
