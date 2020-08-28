@@ -27,15 +27,16 @@
           <div class="row">
             <div class="flex-row col s12">
               <button
-                class="waves-effect waves-light btn red lighten-3 black-text"
+                mat-raised-button
+                color="primary"
                 type="submit"
                 (click)="sendEmail()"
                 [disabled]="!emailReplyForm.valid">ABSENDEN
               </button>
               <button
-              type="button"
-              (click)="noEmail()"
-                class="waves-effect waves-light btn grey lighten-3 black-text"
+                mat-button
+                type="button"
+                (click)="noEmail()"
                 >ABBRECHEN
               </button>
             </div>

@@ -2,6 +2,15 @@
   <h4 mat-dialog-title>Möchtest du diese Nachricht wirklich löschen?</h4>
 </mat-dialog-content>
 <mat-dialog-actions class="flex-row">
-  <button [mat-dialog-close]="messageWebpage" class="center btn-flat grey lighten-3">Ja</button>
-  <button [mat-dialog-close]="" class="center btn red lighten-3 black-text">Nein</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="messageWebpage"
+    >Ja
+  </button>
+  <button
+    mat-button
+    [mat-dialog-close]=""
+    >Nein
+  </button>
 </mat-dialog-actions>

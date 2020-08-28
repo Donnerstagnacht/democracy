@@ -11,7 +11,13 @@
     <p>Responded: {{message.responded}}</p>
   </div>
   <div class="card-action">
-    <button (click)="sendEmail(message)" class="btn-flat black-text">Antworten</button>
-    <button (click)="openDeleteModal(message)" class="btn-flat black-text">Löschen</button>
+    <button
+      mat-flat-button
+      (click)="sendEmail(message)"
+      class="btn-flat black-text">Antworten</button>
+    <button
+      mat-flat-button
+      (click)="openDeleteModal(message)"
+      class="btn-flat black-text">Löschen</button>
   </div>
 </div>

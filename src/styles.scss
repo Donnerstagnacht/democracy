@@ -2,6 +2,7 @@
 @import '~@angular/material/theming';
 @import './leftlife-theme.scss';
 @import './leftlife-mat-inputs-materialize-compatible.scss';
+@import './leftlife-mat-buttons-materialize-compatible.scss';
 @import './app/admin-subscribers/leftlife-tabs.scss';
 @include angular-material-theme($left-life-theme);
 
