@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { UserCredentials } from './userCredentials';
-import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { GeneralFormsService } from '../shared/general-forms.service';
 

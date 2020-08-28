@@ -12,7 +12,6 @@ export class BarBotComponent implements OnInit {
   @Input() logoutButton: boolean;
   open = false;
 
-
   constructor(private barBotCurtainService: BarBotCurtainService) { }
 
   ngOnInit(): void {

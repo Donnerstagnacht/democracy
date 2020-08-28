@@ -3,7 +3,6 @@ import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore 
 import { Observable } from 'rxjs';
 import { EmailSubscriberID, EmailSubscriber } from './emailSubscriber';
 import { map } from 'rxjs/operators';
-import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'

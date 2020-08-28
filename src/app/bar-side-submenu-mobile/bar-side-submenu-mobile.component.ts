@@ -1,6 +1,5 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MenuTab } from '../bar-side/menuTab';
-declare var jQuery: any;
 
 @Component({
   selector: 'app-bar-side-submenu-mobile',

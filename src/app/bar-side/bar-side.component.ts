@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MenuTab } from './menuTab';
-import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,6 +10,7 @@ import { AuthService } from '../auth.service';
 export class BarSideComponent implements OnInit {
   @Input() menuTablList: MenuTab[];
   @Input() logoutButton: boolean;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {

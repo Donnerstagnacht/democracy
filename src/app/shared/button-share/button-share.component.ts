@@ -21,9 +21,7 @@ export class ButtonShareComponent implements OnInit {
       duration: 3000,
       horizontalPosition: 'right',
       verticalPosition: 'top'
-    }
-
-      );
+    });
   }
 
 }
