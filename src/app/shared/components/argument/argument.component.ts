@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Brick } from './brick';
+import { Brick } from '../../models/brick';
 
 @Component({
   selector: 'app-argument',

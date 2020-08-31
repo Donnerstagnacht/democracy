@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BarBotCurtainService } from '../../services/bar-bot-curtain.service';
-import { MenuTab } from '../bar-side/menuTab';
+import { MenuTab } from '../../models/menuTab';
 
 @Component({
   selector: 'app-bar-bot',

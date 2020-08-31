@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
-import { MenuTab } from '../bar-side/menuTab';
+import { MenuTab } from '../../models/menuTab';
 
 @Component({
   selector: 'app-bar-side-submenu',

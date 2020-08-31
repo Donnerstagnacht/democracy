@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MenuTab } from './menuTab';
+import { MenuTab } from '../../models/menuTab';
 import { AuthService } from '../../../authentication/auth.service';
 
 @Component({

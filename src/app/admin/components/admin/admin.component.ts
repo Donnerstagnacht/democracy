@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EmailSubscriber, EmailSubscriberID } from '../../models/emailSubscriber';
 import { MessageWebpageID } from '../../models/messageWebpage';
-import { MenuTab } from '../../../shared/components/bar-side/menuTab';
+import { MenuTab } from '../../../shared/models/menuTab';
 import { AuthService } from '../../../authentication/auth.service';
 
 import { ScrollSpy } from 'materialize-css';
