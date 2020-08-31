@@ -7,19 +7,23 @@ import { LoginComponent } from './authentication/login/login.component';
 import { AdminNewsletterComponent } from './admin/components/admin-newsletter/admin-newsletter.component';
 import { AdminUnsubscribeComponent } from './admin/components/admin-unsubscribe/admin-unsubscribe.component';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-
-
 const routes: Routes = [
-  {path: '', component: WebpageComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'unsubscribe', component: AdminUnsubscribeComponent},
-  {path: 'admin', component: AdminComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
   {
-    path: 'admin/newsletter',
-    component: AdminNewsletterComponent,
-    canActivate: [AngularFireAuthGuard ],
-    data: { authGuardPipe: redirectUnauthorizedToLogin }
+    path: 'home',
+    loadChildren: () => import('./webpage/webpage-routing.module').then(module => module.WebpageRoutingModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full'
   }
 ];
 
