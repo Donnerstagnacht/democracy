@@ -1,10 +1,10 @@
-@import "app/shared/button-share/mat-menu-overwrite-share-button.scss";
+@import './app/shared/components/button-share/mat-menu-overwrite-share-button.scss';
 @import '~@angular/material/theming';
-@import './leftlife-theme.scss';
-@import './leftlife-mat-inputs-materialize-compatible.scss';
-@import './leftlife-mat-buttons-materialize-compatible.scss';
-@import './app/shared/video-carousel/video-carousel-overwrite.scss';
-@import './app/admin-subscribers/leftlife-tabs.scss';
+@import './styles/leftlife-theme.scss';
+@import './styles/leftlife-mat-inputs-materialize-compatible.scss';
+@import './styles/leftlife-mat-buttons-materialize-compatible.scss';
+@import './app/shared/components/video-carousel/video-carousel-overwrite.scss';
+@import './styles/leftlife-tabs.scss';
 @include angular-material-theme($left-life-theme);
 
 .full-width {

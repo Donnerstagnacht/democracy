@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin/admin.component';
-import { WebpageComponent } from './webpage/webpage.component';
+import { AdminComponent } from './admin/components/admin/admin.component';
+import { WebpageComponent } from './webpage/components/webpage/webpage.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { LoginComponent } from './login/login.component';
-import { AdminNewsletterComponent } from './admin-newsletter/admin-newsletter.component';
-import { AdminUnsubscribeComponent } from './admin-unsubscribe/admin-unsubscribe.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { AdminNewsletterComponent } from './admin/components/admin-newsletter/admin-newsletter.component';
+import { AdminUnsubscribeComponent } from './admin/components/admin-unsubscribe/admin-unsubscribe.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
