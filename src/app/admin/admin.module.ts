@@ -16,7 +16,6 @@ import { AdminUnsubscribeDialogComponent } from './components/admin-unsubscribe-
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     AdminComponent,
@@ -29,7 +28,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AdminSendEmailDialogComponent,
     AdminSubscribersComponent,
     AdminUnsubscribeComponent,
-    AdminUnsubscribeDialogComponent
+    AdminUnsubscribeDialogComponent,
   ],
   imports: [
     CommonModule,

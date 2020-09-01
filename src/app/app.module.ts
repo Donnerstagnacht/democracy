@@ -29,8 +29,6 @@ import { AuthenticationModule } from './authentication/authentication.module';
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
 
-    AdminModule,
-    WebpageModule,
     AuthenticationModule
   ],
   providers: [],

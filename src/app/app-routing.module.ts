@@ -9,8 +9,12 @@ import { AdminUnsubscribeComponent } from './admin/components/admin-unsubscribe/
 
 const routes: Routes = [
   {
+    path: 'app',
+    loadChildren: () => import('./app-skeleton/app-skeleton.module').then(module => module.AppSkeletonModule)
+  },
+  {
     path: 'home',
-    loadChildren: () => import('./webpage/webpage-routing.module').then(module => module.WebpageRoutingModule)
+    loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
   },
   {
     path: 'admin',
@@ -20,6 +24,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+/*  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule)
+  },*/
   {
     path: '**',
     redirectTo: 'home',
