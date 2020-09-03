@@ -2,8 +2,6 @@ import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import { ScrollSpy } from 'materialize-css';
 import { MenuTab } from '../../../shared/models/menuTab';
 import { Brick } from '../../../shared/models/brick';
-import { TranslocoService, TRANSLOCO_SCOPE } from '@ngneat/transloco';
-import { filter } from 'rxjs/operators';
 import { LanguageService } from 'src/app/shared/services/language.service';
 import { Observable } from 'rxjs';
 
@@ -11,11 +9,12 @@ import { Observable } from 'rxjs';
   selector: 'app-webpage',
   templateUrl: './webpage.component.html',
   styleUrls: ['./webpage.component.scss'],
-  providers: [{ provide: TRANSLOCO_SCOPE, useValue: 'landing' }],
 })
 export class WebpageComponent implements OnInit {
   // change to https://democracy-life.web.app/ in production
-  link = 'http://localhost:4200/';
+  // https://democracy-life.web.app/home
+  // http://localhost:4200/ in development
+  link = 'https://democracy-life.web.app/home';
   ideenID = 'ideen';
   gruppenID = 'gruppen';
   eventID = 'events';
@@ -29,7 +28,6 @@ export class WebpageComponent implements OnInit {
   teamID = 'team';
   faqID = 'faq';
   impressumID = 'impressum';
-
 
   ideasVideos: string[] = [
     '../assets/videos/Idee Erstellen-12.m4v',
@@ -127,7 +125,7 @@ export class WebpageComponent implements OnInit {
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {
-    this.getOffSetTop('#loesungen');
+    this.getOffSetTop('#solutions');
     this.offSetTopLoesungen = this.offsetRef.offsetTop;
 
     this.getOffSetTop('#prototyp');

@@ -41,7 +41,7 @@
 
     <tbody>
       <tr *ngFor="let subscriber of subscribers | async">
-        <td>{{subscriber.email}}  {{subscriber.id}}</td>
+        <td>{{subscriber.email}}</td>
         <td>
           <a (click)="sendEmail(subscriber)">
             <i class="fas fa-envelope hover black-text"></i>

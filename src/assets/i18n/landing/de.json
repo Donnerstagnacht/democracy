@@ -143,14 +143,14 @@
     },
     {
       "tabName": "LÖSUNGEN",
-      "tabLink": "#loesungen"
+      "tabLink": "#solutions"
     },
     {
       "tabName": "PROTOTYP",
       "tabLink": "#prototyp"
     },
     {
-      "tabName": "SUPPORT",
+      "tabName": "HELFE UNS",
       "tabLink": "#support"
     },
     {
@@ -188,6 +188,7 @@
   },
 
   "newsLetter": {
+    "clickDummy": "Klick Dummy",
     "newsletterInfo": "Gespannt auf Neuigkeiten? Bleibe mit unserem Newsletter immer auf dem neusten Stand.",
     "emailError": "Bitte eine gültige Email eingeben",
     "subscribe": "ABONIEREN"
@@ -278,6 +279,59 @@
     "education": "Ausbildung"
   },
 
+  "functionalHeadline": "Zu Funktionen",
+  "legalHeadline": "Zum Recht",
+  "introductionHeadline": "Zur Einführung",
+  "implementationHeadline": "Zur Implementation",
+
+  "functionalQuestions": [
+    {
+      "question": "Welches Alleinstellungsmerkmal hat unsere App gegenüber anderen sozialen Netzwerken?",
+      "answer": "Es gibt kein anderes soziales Netzwerk, dass es innerparteiliche Prozesse in Realtime abbildet."
+    }
+  ],
+
+  "legalQuestions": [
+    {
+      "question": "Werden durch die App Entscheidungen online getroffen?",
+      "answer": "Nein, es werden keine Entscheidungen online getroffen. Alle Entscheidungen werden offline getroffen und gleichzeitig online gespiegelt. Der Prozess zur Entscheidungsfindung kann jedoch online erfolgen, die Entscheidung selber findet aber immer bei einem Treffen statt."
+    },
+    {
+      "question": "Müssen für die Einführung dieser App Satzungen geändert werden?",
+      "answer": "Nein, die App spiegelt nur Entscheidungen, welche auf den in der Satzung bisher vorgesehenen Wegen bei realen Treffen zustande kommen. Es werden allerdings die Verwaltungsprozesse rund um die Entscheidung automatisiert, sodass Inhalte der Satzungen (z.B. Entscheidungen) effizienter abgearbeitet werden können. Demnach ist das System mit bisherigen Satzungen konform."
+    }
+  ],
+
+  "introductionQuestions": [
+    {
+      "question": "Wie würde die Nutzung eingeführt werden?",
+      "answer": "Sobald die Beta Version zur Verfügung steht, können sich Gliederungen als Tester melden. Der Test müsste dann demokratisch vor Ort beschlossen werden."
+    },
+    {
+      "question": "Wie steht der Generalsekretär zu diesem Projekt?",
+      "answer": "Sowohl der Parteivorstand und der Generalsekretär sind über dieses Projekt informiert. Das Projekt wurde zudem mehrfach in Berlin vorgestellt, wo Interesse bekundet wurde. Der Bundesparteitag 2019 hat die Einführung eines solchen Systems zudem formal im Leitantrag beschlossen."
+    }
+  ],
+
+  "implementationQuestions": [
+    {
+      "question": "Mit welchem Programm wurde der Klick Dummy erstellt?",
+      "answer": "Der Prototyp wurde mit dem kostenfreien Programm Adobe XD der Adobe Creative Cloud erstellt. Adobe XD oder Figma sind unsere bisherigen Favoriten zum Prototype Design."
+    },
+    {
+      "question": "Gibt es schon einen Vorschlag zur Implementation?",
+      "answer": "Ja, wir würden eine progressive Web App bevorzugen, da diese plattformunabhängig ist. Dazu präferieren wir aktuell Angular + AngularMaterial in Verbindung mit AngularFire und Firestore. Angular ist eine modernes Framework zur Frontentendentwicklung und Firestore eine moderne NoSQL Datenbank im Rahmen eines SAAS (Software as a Service) Angebots."
+    },
+    {
+      "question": "Wo finde ich weitere Informationen zur technischen Umsetzung?",
+      "answer": "Weitere Informationen zur technischen Umsetzung findest du in unserem Github Repository. Das Projekt ist Open Source, wodurch der ganze Quellcode online einsehbar und nachvollziehbar ist."
+    },
+    {
+      "question": "Warum wird mit Firestore über eine Google Datenbank nachgedacht?",
+      "answer": "Google Firestore ist eine hochmoderne und Cloud basierte NoSQL Datenbank im Rahmen eines SAAS (Software as a Service Angebots), die mit einer großzügigen Free-Tier und viele standartisierte Backend-Services kostenlos zur Verfügung steht. Da dieses Projekt bisher mit einem ehrenamtlichen Entwickler über äußerst limitierte Ressourcen verfügt, bieted Firestore einen guten Start um schnell zum Ziel zu kommen. Die Datenbank ist zudem bei richtiger Verwendung DSGVO konform."
+    }
+  ],
+
   "imprint": {
     "imprint": "Impressum",
     "operator": "Betreiber dieser Website",
@@ -300,5 +354,7 @@
     "email": "Kontaktemail",
     "subject": "Betreff",
     "message": "Nachricht"
-  }
+  },
+
+  "videoHelper": "Swipe rechts für mehr Videos!"
 }

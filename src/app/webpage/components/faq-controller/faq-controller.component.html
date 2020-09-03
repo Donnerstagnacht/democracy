@@ -9,14 +9,14 @@
         <app-button-share class="inline-block padding-left-16" [link]="link"></app-button-share>
       </div>
       <div>
-        <h5 class="center">Zu Funktionen</h5>
-        <app-faq [questions]="functionalQuestions"></app-faq>
-        <h5 class="center">Zum Recht</h5>
-        <app-faq [questions]="legalQuestions"></app-faq>
-        <h5 class="center">Zur Einführung</h5>
-        <app-faq [questions]="introductionQuestions"></app-faq>
-        <h5 class="center">Zur Implementation</h5>
-        <app-faq [questions]="implementationQuestions"></app-faq>
+        <h5 class="center">{{functionalHeadline$ | async}}</h5>
+        <app-faq [questions$]="functionalQuestions$"></app-faq>
+        <h5 class="center">{{legalHeadline$ | async}}</h5>
+        <app-faq [questions$]="legalQuestions$"></app-faq>
+        <h5 class="center">{{introductionHeadline$ | async}}</h5>
+        <app-faq [questions$]="introductionQuestions$"></app-faq>
+        <h5 class="center">{{implementationHeadline$ | async}}</h5>
+        <app-faq [questions$]="implementationQuestions$"></app-faq>
       </div>
     </div>
   </div>

@@ -33,6 +33,10 @@ p {
   background-color: mat-color($left-life-primary, 100)!important;
 }
 
+.responded {
+  background-color:  mat-color($left-life-acceptance);
+}
+
 /** * Menu HOver colour */
 /* ul > li .active, */
 ul > li .active, nav ul a:hover, .curtain-hover:hover  {

@@ -1,11 +1,3 @@
-@import '~@angular/material/theming';
-@import '../../../../styles/leftlife-theme.scss';
-
-.mark {
-  color: mat-color($left-life-primary, 900) !important;
-  background-color: transparent;
-}
-
 .margin-top {
   margin-top: 32px;
 }
@@ -28,23 +20,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  .headline {
-    margin-top: 0px;
-    margin-bottom: 30px;
-    min-height: 350px!important;
-  }
-
   .flex-container {
     display: block;
   }
 
-  .margin-top {
-    margin-top: 0px;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .landing-wrapper {
-    margin-top: 48px;
-  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { Collapsible } from 'materialize-css';
 import { Question } from '../../../webpage/models/question';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -9,10 +10,7 @@ import { Question } from '../../../webpage/models/question';
   styleUrls: ['./faq.component.scss']
 })
 export class FaqComponent implements OnInit {
-  @Input() questions: Question[] = [{
-    question: 'Welches Alleinstellungsmerkmal hat unsere App gegenüber anderen sozialen Netzwerken?',
-    answer: 'Es gibt kein anderes soziales Netzwerk, dass innerparteiliche Prozesse in Realtime abbildet.'
-  }];
+  @Input() questions$: Observable<Question[]>;
 
   elem: HTMLElement;
   instance: Collapsible;
@@ -21,6 +19,7 @@ export class FaqComponent implements OnInit {
   constructor(private elRef: ElementRef) { }
 
   ngOnInit(): void {
+    this.questions$.subscribe();
     this.elem = this.elRef.nativeElement.querySelector('.collapsible');
     this.instance = Collapsible.init(this.elem);
   }

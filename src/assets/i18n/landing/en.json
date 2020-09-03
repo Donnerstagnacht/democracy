@@ -11,8 +11,8 @@
 
   "ideaArguments": [
     {
-      "title": "Develope",
-      "text": "At the heart of a party are political ideas, motions and debates. Our app allows you to develop ideas together. An integrated proposal and voting system structures the creation process"
+      "title": "Develop",
+      "text": "At the heart of a party are political ideas, motions and debates. Our app allows you to develop ideas together. An integrated proposal and voting system structures the creation process."
     },
     {
       "title": "Automate",
@@ -144,14 +144,14 @@
     },
     {
       "tabName": "SOLUTIONS",
-      "tabLink": "#loesungen"
+      "tabLink": "#solutions"
     },
     {
       "tabName": "PROTOTYPE",
       "tabLink": "#prototyp"
     },
     {
-      "tabName": "SUPPORT",
+      "tabName": "HELP US",
       "tabLink": "#support"
     },
     {
@@ -190,13 +190,14 @@
   },
 
   "newsLetter": {
+    "clickDummy": "Click Dummy",
     "newsletterInfo": "Curious about news? Stay up to date with our newsletter.",
     "emailError": "Please enter a valid email",
     "subscribe": "SUBSCRIBE"
   },
 
   "support": {
-    "supportHeadline": "Support us!",
+    "supportHeadline": "Help us!",
     "gitHub": "Developer? Visit us on GitHub"
   },
 
@@ -280,6 +281,59 @@
     "education": "Education"
   },
 
+  "functionalHeadline": "About functions",
+  "legalHeadline": "About law",
+  "introductionHeadline": "About introduction",
+  "implementationHeadline": "About implementation",
+
+  "functionalQuestions": [
+    {
+      "question": "What is the unique selling point of our app compared to other social networks?",
+      "answer": "There is no other social network that maps inner-party processes in real time."
+    }
+  ],
+
+  "legalQuestions": [
+    {
+      "question": "Does the app make decisions online?",
+      "answer": "No, no decisions are made online. All decisions are made offline and simultaneously mirrored online. However, the decision making process can be done online, but the decision itself always takes place at a meeting."
+    },
+    {
+      "question": "Do statutes have to be changed for the introduction of this app?",
+      "answer": "No, the app only mirrors decisions that are made in real meetings in the ways previously provided for in the statutes. However, the administrative processes surrounding the decision are automated so that the contents of the statutes (e.g. decisions) can be processed more efficiently. Accordingly, the system conforms to previous statutes."
+    }
+  ],
+
+  "introductionQuestions": [
+    {
+      "question": "How would the use be introduced?",
+      "answer": "As soon as the beta version is available, outlines can register as testers. The test would then have to be decided democratically on site."
+    },
+    {
+      "question": "What is the General Secretary's position on this project?",
+      "answer": "Both the party executive committee and the secretary general are informed about this project. The project was also presented several times in Berlin, where interest was expressed. The Federal Party Congress 2019 has also formally approved the introduction of such a system in the main proposal."
+    }
+  ],
+
+  "implementationQuestions": [
+    {
+      "question": "Which program was used to create the click dummy?",
+      "answer": "The prototype was created with the free Adobe XD program from the Adobe Creative Cloud. Adobe XD or Figma are our previous favorites for prototype design."
+    },
+    {
+      "question": "Is there already a proposal for implementation?",
+      "answer": "Yes, we would prefer a progressive web app, as it is platform independent. For this we currently prefer Angular + AngularMaterial in combination with AngularFire and Firestore. Angular is a modern framework for frontend development and Firestore is a modern NoSQL database as part of a SAAS (Software as a Service) offering."
+    },
+    {
+      "question": "Where can I find more information on technical implementation?",
+      "answer": "More information about the technical implementation can be found in our Github repository. The project is open source, so all source code can be viewed and tracked online."
+    },
+    {
+      "question": "Why is a Google database being considered with Firestore?",
+      "answer": "Google Firestore is a state-of-the-art, cloud based NoSQL database as part of a SAAS (Software as a Service offering), which is available free of charge with a generous free tier and many standardized backend services. As this project has very limited resources with one volunteer developer, Firestore offers a good start to get to the goal quickly. The database is also DSGVO compliant when used correctly. Translated with www.DeepL.com/Translator (free version)"
+    }
+  ],
+
   "imprint": {
     "imprint": "Imprint",
     "operator": "Operator of this Website",
@@ -302,6 +356,8 @@
     "email": "Contact mail",
     "subject": "Subject",
     "message": "Message"
-  }
+  },
+
+  "videoHelper": "Swipe right for more videos!"
 
 }

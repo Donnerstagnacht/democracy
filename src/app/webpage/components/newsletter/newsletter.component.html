@@ -1,40 +1,40 @@
 <div class="card white">
   <div class="card-content">
-    <table class="highlight centered">
-      <tbody>
-        <tr>
-          <td>Klick Dummy</td>
-          <td class="green-text">Live</td>
-        </tr>
-        <tr>
-          <td>Beta Version</td>
-          <td class="primary-900">01.03.2021</td>
-        </tr>
-      </tbody>
-    </table>
-    <h5 class="center">Newsletter</h5>
     <ng-container *transloco="let t; scope: 'landing', read: 'landing.newsLetter'">
-    <p>
-      {{t('newsletterInfo')}}
-    </p>
-    <form id="subscribeform" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
-      <mat-form-field class="full-width" appearance="standard">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email">
-        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && subscribeForm.value.email!==''">done</mat-icon>
-        <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
-      </mat-form-field>
+      <table class="highlight centered">
+        <tbody>
+          <tr>
+            <td>{{t('clickDummy')}}</td>
+            <td class="green-text">Live</td>
+          </tr>
+          <tr>
+            <td>Beta Version</td>
+            <td class="primary-900">01.03.2021</td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 class="center">Newsletter</h5>
+      <p>
+        {{t('newsletterInfo')}}
+      </p>
+      <form id="subscribeform" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width" appearance="standard">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && subscribeForm.value.email!==''">done</mat-icon>
+          <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
+        </mat-form-field>
 
-      <div class="center">
-        <button
-          mat-raised-button
-          color="primary"
-          id="subscribeButton"
-          type="submit"
-          [disabled]="!subscribeForm.valid"
-        >{{t('subscribe')}}</button>
-      </div>
-    </form>
+        <div class="center">
+          <button
+            mat-raised-button
+            color="primary"
+            id="subscribeButton"
+            type="submit"
+            [disabled]="!subscribeForm.valid"
+          >{{t('subscribe')}}</button>
+        </div>
+      </form>
     </ng-container>
   </div>
 </div>

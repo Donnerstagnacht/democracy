@@ -9,13 +9,9 @@ import { AdminUnsubscribeComponent } from './admin/components/admin-unsubscribe/
 
 const routes: Routes = [
   {
-    path: 'app',
-    loadChildren: () => import('./app-skeleton/app-skeleton.module').then(module => module.AppSkeletonModule)
-  },
-  {
     path: 'home',
-    component: WebpageComponent
-    // loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
+    // component: WebpageComponent
+    loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
   },
   {
     path: 'admin',
