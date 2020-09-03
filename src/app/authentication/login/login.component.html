@@ -27,24 +27,6 @@
               [disabled]="!loginForm.valid"
               >{{t('login')}}
             </button>
-         <!--   <button
-              mat-flat-button
-              (click)="changeLoginMode()"
-              >{{t('registerFirst')}}
-            </button>-->
-          </div>
-          <div class="flex-row" *ngIf="!loginMode">
-      <!--      <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="!loginForm.valid"
-            >{{t('register')}}</button>-->
-            <button
-              mat-flat-button
-              (click)="changeLoginMode()"
-              >{{t('login')}}
-            </button>
           </div>
         </form>
       </div>
@@ -62,3 +44,23 @@
     </div>
   </div>
 </ng-container>
+
+        <!--<button
+              mat-flat-button
+              (click)="changeLoginMode()"
+              >{{t('registerFirst')}}
+            </button>
+
+          <div class="flex-row" *ngIf="!loginMode">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="!loginForm.valid"
+            >{{t('register')}}</button>
+            <button
+              mat-flat-button
+              (click)="changeLoginMode()"
+              >{{t('login')}}
+            </button>
+          </div>-->
