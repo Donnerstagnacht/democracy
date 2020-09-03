@@ -1,11 +1,12 @@
-<div class="center">
-  <p>Erolgreich abgemeldet</p>
-  <button
-    mat-raised-button
-    color="primary"
-    mat-dialog-close
-    type="submit"
-  >OK</button>
-</div>
-
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.unsubscribeForm'">
+  <div class="center">
+    <p>{{t('successDialog')}}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      type="submit"
+    >OK</button>
+  </div>
+</ng-container>
 

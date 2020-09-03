@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BarBotCurtainService } from '../../services/bar-bot-curtain.service';
 import { MenuTab } from '../../models/menuTab';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bar-bot',
@@ -8,13 +9,16 @@ import { MenuTab } from '../../models/menuTab';
   styleUrls: ['./bar-bot.component.scss']
 })
 export class BarBotComponent implements OnInit {
-  @Input() menuTabList: MenuTab[];
+  @Input() menuTabList$: Observable<MenuTab[]>;
   @Input() logoutButton: boolean;
   open = false;
+
+  length: number;
 
   constructor(private barBotCurtainService: BarBotCurtainService) { }
 
   ngOnInit(): void {
+    this.menuTabList$.subscribe((array) => {this.length = array.length; });
   }
 
  openNav(): void {
@@ -23,9 +27,7 @@ export class BarBotComponent implements OnInit {
 
 /* Closes the curtain menu on mobile*/
  closeNav(): void {
-   if (this.menuTabList.length > 3) {
     this.barBotCurtainService.closeNav();
-   }
  }
 
 }

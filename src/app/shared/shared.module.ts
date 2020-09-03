@@ -28,6 +28,9 @@ import { BarSideComponent } from './components/bar-side/bar-side.component';
 import { BarSideSubmenuComponent } from './components/bar-side-submenu/bar-side-submenu.component';
 import { BarSideSubmenuMobileComponent } from './components/bar-side-submenu-mobile/bar-side-submenu-mobile.component';
 import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tablet/bar-side-submenu-tablet.component';
+import { TranslocoModule } from '@ngneat/transloco';
+import { SwitchLanguageComponent } from './components/switch-language/switch-language.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tab
     BarSideComponent,
     BarSideSubmenuComponent,
     BarSideSubmenuMobileComponent,
-    BarSideSubmenuTabletComponent
+    BarSideSubmenuTabletComponent,
+    SwitchLanguageComponent
   ],
   imports: [
     CommonModule,
@@ -63,6 +67,10 @@ import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tab
     TextFieldModule,
     MatSelectModule,
     MatButtonModule,
+
+    TranslocoModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MatMenuModule,
@@ -82,6 +90,7 @@ import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tab
     BarSideSubmenuComponent,
     BarSideSubmenuMobileComponent,
     BarSideSubmenuTabletComponent,
+    SwitchLanguageComponent,
 
     MatCardModule,
     MatIconModule,
@@ -93,6 +102,8 @@ import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tab
     TextFieldModule,
     MatSelectModule,
     MatButtonModule,
+
+    TranslocoModule,
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TeamMember } from '../../models/team-member';
+import { Observable } from 'rxjs';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-team-member-controller',
@@ -26,9 +28,13 @@ export class TeamMemberControllerComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  teamMembers$: Observable<TeamMember[]>;
+
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit(): void {
+    this.teamMembers$ = this.languageService.getTranslationObservable('teamMembers', 'landing');
+    this.teamMembers$.subscribe();
   }
 
 }

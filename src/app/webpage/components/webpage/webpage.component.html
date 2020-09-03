@@ -1,9 +1,9 @@
 <!--Mobile Nav-->
-<app-bar-bot [menuTabList]="menuTabList"></app-bar-bot>
-<app-bar-bot-curtain [menuTabList]="menuTabList"></app-bar-bot-curtain>
+<app-bar-bot [menuTabList$]="menuTabList$"></app-bar-bot>
+<app-bar-bot-curtain [menuTabList$]="menuTabList$"></app-bar-bot-curtain>
 
 <!-- Desktop side nav-->
-<app-bar-side [menuTablList]="menuTabList"></app-bar-side>
+<app-bar-side [menuTablList$]="menuTabList$"></app-bar-side>
 
 <!--Landing Page-->
 <app-landing-page
@@ -17,7 +17,9 @@
   </div>
   <div class="col s12 m12 l8">
     <div class="container">
-      <h3 id="loesungen" class="center scrollspy">Lösungen</h3> <!-- id="loesungen" und class="scrollspy here => side nav scrollspy for loesungen is not working correctly -->
+      <ng-container *transloco="let t; scope: 'landing', read: 'landing'">
+      <h3 id="loesungen" class="center scrollspy">{{ t('solutions') }}</h3> <!-- id="loesungen" und class="scrollspy here => side nav scrollspy for loesungen is not working correctly -->
+      </ng-container>
     </div>
   </div>
   <div class="col l2">
@@ -26,12 +28,12 @@
 
 <!--Loesung navs mobile & tablet-->
 <app-bar-side-submenu-mobile
-  [menuTabList]="menuLoesungTabList"
+  [menuTabList$]="menuLoesungTabList$"
   [stickyStart]="offSetTopLoesungen"
   [stickyEnd]="offSetTopPrototyp-100"
 ></app-bar-side-submenu-mobile>
 <app-bar-side-submenu-tablet
-  [menuTabList]="menuLoesungTabList"
+  [menuTabList$]="menuLoesungTabList$"
   [stickyStart]="offSetTopLoesungen"
   [stickyEnd]="offSetTopPrototyp-100"
 ></app-bar-side-submenu-tablet>
@@ -48,8 +50,8 @@
             id="{{ideenID}}"
             class="scrollspy2"
             [link]="link + '#' + ideenID"
-            [headline]="ideasHeadline"
-            [bricks]="ideasBrick">
+            [headline]="ideaHeadline$"
+            [arguments]="ideaArguments$">
           </app-argument>
         </div>
         <div class="col s12 m6">
@@ -64,8 +66,8 @@
             id="{{gruppenID}}"
             class="scrollspy2"
             [link]="link + '#' + gruppenID"
-            [headline]="groupsHeadline"
-            [bricks]="groupsBrick">
+            [headline]="groupHeadline$"
+            [arguments]="groupArguments$">
           </app-argument>
         </div>
         <div class="col s12 m6 switch-eins">
@@ -80,8 +82,8 @@
             id="{{eventID}}"
             class="scrollspy2"
             [link]="link + '#' + eventID"
-            [headline]="eventsHeadline"
-            [bricks]="eventsBrick">
+            [headline]="eventHeadline$"
+            [arguments]="eventArguments$">
           </app-argument>
         </div>
         <div class="col s12 m6">
@@ -96,8 +98,8 @@
           id="{{searchID}}"
           class="scrollspy2"
           [link]="link + '#' + searchID"
-          [headline]="searchHeadline"
-          [bricks]="searchBrick">
+          [headline]="searchHeadline$"
+          [arguments]="searchArguments$">
         </app-argument>
         </div>
         <div class="col s12 m6">
@@ -112,8 +114,8 @@
             id="{{kommunikationID}}"
             class="scrollspy2"
             [link]="link + '#' + kommunikationID"
-            [headline]="communicationHeadline"
-            [bricks]="communicationBrick">
+            [headline]="communicationHeadline$"
+            [arguments]="communicationArguments$">
           </app-argument>
         </div>
         <div class="col s12 m6">
@@ -128,8 +130,8 @@
             id="{{datenID}}"
             class="scrollspy2"
             [link]="link + '#' + datenID"
-            [headline]="dataHeadline"
-            [bricks]="dataBrick">
+            [headline]="dataHeadline$"
+            [arguments]="dataArguments$">
           </app-argument>
         </div>
         <div class="col s12 m6">
@@ -140,7 +142,7 @@
   </div>
   <!--loesung menu desktop-->
   <app-bar-side-submenu
-    [menuTabList]="menuLoesungTabList"
+    [menuTabList$]="menuLoesungTabList$"
     [stickyStart]="offSetTopLoesungen"
     [stickyEnd]="offSetTopPrototyp-100">
   </app-bar-side-submenu>
@@ -153,32 +155,32 @@
   <div class="col s12 m12 l8">
     <div class="container">
       <div id="{{prototypID}}" class="row scrollspy">
-        <div class="center">
-            <h3 class="inline-block padding-right-16">Prototyp</h3>
-            <app-button-share class="inline-block padding-left-16" [link]="link + '#' + prototypID"></app-button-share>
-        </div>
-        <div class="col s12 m6">
-          <h6>Visualisieren</h6>
-          <p class="justify">
-            Über Technologie zu reden, die nicht da ist, ist sehr abstrakt.
-          </p>
-          <p class="justify">
-            Wir wollen die Ideen, wie Politik durch Technologie in einer globalen und digitalen Welt
-            besser werden kann, visualisieren und anfassbar machen.
-          </p>
-          <h6>Diskutieren</h6>
-          <p class="justify">
-            Der Prototyp ist eine Grundlage für eine Diskussion und gleichzeitig eine Einladung:
-            Mitzumachen und die Tools der Politik von morgen zu gestalten!
-          </p>
-          <h6>Testen</h6>
-          <p class="justify">Schon im März 2021 wollen wir eine Beta Version zum Testen veröffentlichen.</p>
-          <p>Bis dahin, click auf einen Button im visuellen Prototypen, um unsere Ideen zu testen!</p>
-        </div>
+        <ng-container *transloco="let t; scope: 'landing', read: 'landing.prototype'">
+          <div class="center">
+              <h3 class="inline-block padding-right-16">{{t('prototypeHeadline')}}</h3>
+              <app-button-share class="inline-block padding-left-16" [link]="link + '#' + prototypID"></app-button-share>
+          </div>
+          <div class="col s12 m6">
+            <h6>{{t('visualizeHeadline')}}</h6>
+            <p class="justify">
+              {{t('visualizeText-1')}}
+            </p>
+            <p class="justify">
+              {{t('visualizeText-2')}}
+            </p>
+            <h6>{{t('discussHeadline')}}</h6>
+            <p class="justify">
+              {{t('discussText')}}
+            </p>
+            <h6>{{t('testHeadline')}}</h6>
+            <p class="justify">{{t('testText-1')}}</p>
+            <p>{{t('testText-2')}}</p>
+          </div>
 
-        <div class="col s12 m6">
-          <app-newsletter></app-newsletter>
-        </div>
+          <div class="col s12 m6">
+            <app-newsletter></app-newsletter>
+          </div>
+        </ng-container>
       </div>
       <div id="{{clickDummyID}}" class="center">
         <h4 class="inline-block padding-right-16">Klick Dummy</h4>
@@ -200,15 +202,17 @@
   </div>
   <div class="col s12 m12 l8">
     <div id="{{supportID}}" class="container scrollspy">
-      <div class="center">
-        <h3 class="inline-block padding-right-16">Unterstütz uns!</h3>
-        <app-button-share class="inline-block padding-left-16" [link]="link + '#' + supportID"></app-button-share>
-      </div>
-      <div class="center">
-        <h5>Entwickler? Besuche uns auf GitHub</h5>
-        <a href="https://github.com/Donnerstagnacht/democracy" target="_blank" class=""><i class="fa fa-github hover center black-text"></i></a>
-      </div>
-      <app-highlight [highlight]="highlight"></app-highlight>
+      <ng-container *transloco="let t; scope: 'landing', read: 'landing.support'">
+        <div class="center">
+          <h3 class="inline-block padding-right-16">{{t('supportHeadline')}}</h3>
+          <app-button-share class="inline-block padding-left-16" [link]="link + '#' + supportID"></app-button-share>
+        </div>
+        <div class="center">
+          <h5>{{t('gitHub')}}</h5>
+          <a href="https://github.com/Donnerstagnacht/democracy" target="_blank" class=""><i class="fa fa-github hover center black-text"></i></a>
+        </div>
+      </ng-container>
+      <app-highlight [highlight$]="highlight$"></app-highlight>
       <app-card-controller></app-card-controller>
     </div>
   </div>
@@ -223,16 +227,18 @@
   <div class="col s12 m12 l8">
     <div id="{{contactID}}" class="scrollspy container">
       <div class="center">
-        <h5>
-          Fragen? Interesse?
-        </h5>
-        <p>
-          Dann besuche uns in den Sozialen Medien
-        </p>
-        <app-bar-share></app-bar-share>
-        <p>
-          Oder schreibe uns eine Nachricht
-        </p>
+        <ng-container *transloco="let t; scope: 'landing', read: 'landing.contact'">
+          <h5>
+            {{t('contactHeadline')}}
+          </h5>
+          <p>
+            {{t('visitUsSocialMedia')}}
+          </p>
+          <app-bar-share></app-bar-share>
+          <p>
+            {{t('messageUs')}}
+          </p>
+        </ng-container>
       </div>
       <!-- Kontaktform-->
       <div class=" row">

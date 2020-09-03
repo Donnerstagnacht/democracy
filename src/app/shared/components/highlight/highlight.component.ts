@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-highlight',
@@ -6,11 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./highlight.component.scss']
 })
 export class HighlightComponent implements OnInit {
-  @Input() highlight: string;
+  @Input() highlight$: Observable<string>;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.highlight$.subscribe();
   }
 
 }

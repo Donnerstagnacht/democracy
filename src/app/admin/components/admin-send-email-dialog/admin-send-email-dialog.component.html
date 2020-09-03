@@ -1,27 +1,28 @@
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.sendMessageDialog'">
   <div class="valign-wrapper">
   <div class="container ">
     <div class="row">
       <div class="col l2">
       </div>
       <div class="col s12 m12 l8">
-        <p class="center">Mail to: </p>
+        <p class="center">{{t('mailTo')}}</p>
         <div class="center">
           <p id="emailTo" class="chip center">{{sendEmailData.email}}</p>
         </div>
         <p class="center">ID: {{sendEmailData.id}}</p>
         <form [formGroup]="emailReplyForm" (ngSubmit)="sendEmail()">
           <mat-form-field class="full-width" appearance="standard">
-            <mat-label>Betreff</mat-label>
+            <mat-label>{{t('subject')}}</mat-label>
             <input matInput formControlName="subject">
             <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('subject', 'required') && emailReplyForm.value.subject!==''">done</mat-icon>
-            <mat-error *ngIf="errorHandling('subject', 'required')">Bitte einen Betreff eingeben.</mat-error>
+            <mat-error *ngIf="errorHandling('subject', 'required')">{{t('subjectError')}}</mat-error>
           </mat-form-field>
 
           <mat-form-field class="full-width" appearance="standard">
-            <mat-label>Nachricht</mat-label>
+            <mat-label>{{t('message')}}</mat-label>
             <textarea  matInput cdkTextareaAutosize formControlName="text"></textarea>
             <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('text', 'required') && emailReplyForm.value.text!==''">done</mat-icon>
-            <mat-error *ngIf="errorHandling('text', 'required')">Bitte eine Nachricht eingeben.</mat-error>
+            <mat-error *ngIf="errorHandling('text', 'required')">{{t('messageError')}}</mat-error>
           </mat-form-field>
 
           <div class="row">
@@ -31,13 +32,13 @@
                 color="primary"
                 type="submit"
                 (click)="sendEmail()"
-                [disabled]="!emailReplyForm.valid">ABSENDEN
+                [disabled]="!emailReplyForm.valid">{{t('send')}}
               </button>
               <button
                 mat-button
                 type="button"
                 (click)="noEmail()"
-                >ABBRECHEN
+                >{{t('cancel')}}
               </button>
             </div>
           </div>
@@ -48,3 +49,4 @@
     </div>
   </div>
 </div>
+</ng-container>

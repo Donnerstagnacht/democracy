@@ -1,0 +1,93 @@
+{
+  "adminTabList": [
+    {
+      "tabName": "NEWSLETTER",
+      "tabLink": "#admin/newsletter"
+    },
+    {
+      "tabName": "SUBSCRIBERS",
+      "tabLink": "#admin/subscribers"
+    },
+    {
+      "tabName": "MESSAGES",
+      "tabLink": "#admin/messages"
+    }
+  ],
+
+  "newsletter": {
+    "subject": "Betreff",
+    "subjectError": "Bitte einen Betreff eingeben",
+
+    "generalNewsTitle": "General News Title",
+    "generalNewsTitleError": "Bitte einen General News Text eingeben",
+    "generalNewsText": "General News Text",
+    "generalNewsTextError": "Bitte einen General News Text eingeben",
+
+    "techNewsTitle": "Tech News Title",
+    "techNewsTitleError": "Bitte einen Tech News Title eingeben",
+    "techNewsText": "Tech News Text",
+    "techNewsTextError": "Bitte einen Tech News Text eingeben",
+
+    "bonusNewsTitle": "Bonus News Title",
+    "bonusNewsTitleError": "Bitte einen Bonus News Title eingeben",
+    "bonusNewsText": "Bonus News Text",
+    "bonusNewsTextError": "Bitte einen Bonus News Text eingeben",
+
+    "send": "ABSENDEN"
+  },
+
+  "subscriber": {
+    "send": "Senden",
+    "edit": "Ändern",
+    "delete": "Löschen",
+    "addEmail": "EMAIL HINZUFÜGEN",
+    "addEmailError": "Bitte eine gültige Email eingeben",
+    "filterEmail": "EMAILS FILTERN",
+    "addButton": "HINZUFÜGEN"
+  },
+
+  "deleteEmailDialog": {
+    "deleteQuestion": "Möchtest du diesen Kontakt löschen?",
+    "yes": "JA",
+    "no": "NEIN"
+  },
+
+  "editEmailDialog": {
+    "editQuestion": "Die neue Email lautet",
+    "emailError": "Bitte eine gültige Email eingeben",
+    "save": "SPEICHERN",
+    "cancel": "ABBRECHEN"
+  },
+
+  "subscriberDeleteSuccess": "Subscriber gelöscht",
+  "subscriberEditSuccess": "Subscriber geändert",
+
+  "sendMessageDialog": {
+    "mailTo": "Mail zu:",
+    "subject": "Betreff",
+    "subjectError": "Bitte einen Betreff eingeben",
+    "message": "Nachricht",
+    "messageError": "Bitte eine Nachricht eingeben",
+    "send": "ABSENDEN",
+    "cancel": "ABBRECHEN"
+  },
+
+  "message": {
+    "answer": "ANTWORTEN",
+    "delete": "LÖSCHEN"
+  },
+
+  "deleteMessageDialog": {
+    "deleteQuestion": "Möchtest du diese Nachricht wirklich löschen?",
+    "yes": "JA",
+    "no": "NEIN"
+  },
+
+  "unsubscribeForm": {
+    "unsubscribeQuestion": "Möchtest du dich wirklich vom Newsletter abmelden?",
+    "email": "Email",
+    "emailError": "Bitte eine gültige Email eingeben",
+    "unsubscribeButton": "ABMELDEN",
+    "successDialog": "Schade, dass du nicht mehr dabei bist. Wir haben dich erfolgreich abgemeldet"
+  }
+}

@@ -1,22 +1,24 @@
-<mat-dialog-content>
-  <div class="center">
-    <h4 mat-dialog-title>Danke für deine Nachricht {{newMessage.firstName}}!</h4>
-    <p>Wir melden uns sobald wie möglich!</p>
-    <h6>Thema</h6>
-    <p>{{newMessage.topic}}</p>
-    <h6>Kontaktemail</h6>
-    <p>{{newMessage.email}}</p>
-    <h6>Betreff</h6>
-    <p>{{newMessage.subject}}</p>
-    <h6>Nachricht</h6>
-    <p>{{newMessage.message}}</p>
-  </div>
-</mat-dialog-content>
-<mat-dialog-actions align="center">
-  <button
-    mat-raised-button
-    color="primary"
-    mat-dialog-close
-    type="submit">OK
-  </button>
-</mat-dialog-actions>
+<ng-container *transloco="let t; scope: 'landing', read: 'landing.messageDialog'">
+  <mat-dialog-content>
+    <div class="center">
+      <h4 mat-dialog-title>{{t('messageDialogHeadline')}} {{newMessage.firstName}}!</h4>
+      <p>{{t('soonAsPossible')}}</p>
+      <h6>{{t('topic')}}</h6>
+      <p>{{newMessage.topic}}</p>
+      <h6>{{t('email')}}</h6>
+      <p>{{newMessage.email}}</p>
+      <h6>{{t('subject')}}</h6>
+      <p>{{newMessage.subject}}</p>
+      <h6>{{t('message')}}</h6>
+      <p>{{newMessage.message}}</p>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      type="submit">OK
+    </button>
+  </mat-dialog-actions>
+</ng-container>

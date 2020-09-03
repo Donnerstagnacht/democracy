@@ -1,61 +1,63 @@
-<h3 class="center" >
-  Subscribers
-</h3>
-<mat-tab-group [disableRipple]="true" mat-stretch-tabs [color]="'primary'">
-  <mat-tab label="EMAILS HINZUFÜGEN">
-    <form [formGroup]="addEmailForm" (ngSubmit)="addEmail()">
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.subscriber'">
+  <h3 class="center" >
+    Subscribers
+  </h3>
+  <mat-tab-group [disableRipple]="true" mat-stretch-tabs [color]="'primary'">
+    <mat-tab label="{{t('addEmail')}}">
+      <form [formGroup]="addEmailForm" (ngSubmit)="addEmail()">
+        <mat-form-field class="full-width" appearance="standard">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="addEmail">
+          <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandlingAddEmail('addEmail', 'email') && addEmailForm.value.addEmail!==''">done</mat-icon>
+          <mat-error *ngIf="errorHandlingAddEmail('addEmail', 'email')">{{t('addEmailError')}}</mat-error>
+        </mat-form-field>
+        <div class="center">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="!addEmailForm.valid"
+          >{{t('addButton')}}</button>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="{{t('filterEmail')}}">
       <mat-form-field class="full-width" appearance="standard">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="addEmail">
-        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandlingAddEmail('addEmail', 'email') && addEmailForm.value.addEmail!==''">done</mat-icon>
-        <mat-error *ngIf="errorHandlingAddEmail('addEmail', 'email')">Bitte eine Email eingeben.</mat-error>
+        <input matInput type="text" [ngModel]="filterString" (ngModelChange)="filterString=$event; filterEmail()">
       </mat-form-field>
-      <div class="center">
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="!addEmailForm.valid"
-        >HINZUFÜGEN</button>
-      </div>
-    </form>
-  </mat-tab>
-  <mat-tab label="EMAILS FILTERN">
-    <mat-form-field class="full-width" appearance="standard">
-      <mat-label>Betreff</mat-label>
-      <input matInput type="text" [ngModel]="filterString" (ngModelChange)="filterString=$event; filterEmail()">
-    </mat-form-field>
-  </mat-tab>
-</mat-tab-group>
+    </mat-tab>
+  </mat-tab-group>
 
-<table class="highlight responsive-table">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Senden</th>
-      <th>Ändern</th>
-      <th>Löschen</th>
-    </tr>
-  </thead>
+  <table class="highlight responsive-table">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>{{t('send')}}</th>
+        <th>{{t('edit')}}</th>
+        <th>{{t('delete')}}</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr *ngFor="let subscriber of subscribers | async">
-      <td>{{subscriber.email}}  {{subscriber.id}}</td>
-      <td>
-        <a (click)="sendEmail(subscriber)">
-          <i class="fas fa-envelope hover black-text"></i>
-        </a>
-      </td>
-      <td>
-        <a (click)="edit(subscriber)">
-          <i class="fas fa-pen hover black-text"></i>
-        </a>
-      </td>
-      <td>
-        <a (click)="delete(subscriber)">
-          <i class="fas fa-trash hover black-text"></i>
-        </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr *ngFor="let subscriber of subscribers | async">
+        <td>{{subscriber.email}}  {{subscriber.id}}</td>
+        <td>
+          <a (click)="sendEmail(subscriber)">
+            <i class="fas fa-envelope hover black-text"></i>
+          </a>
+        </td>
+        <td>
+          <a (click)="edit(subscriber)">
+            <i class="fas fa-pen hover black-text"></i>
+          </a>
+        </td>
+        <td>
+          <a (click)="delete(subscriber)">
+            <i class="fas fa-trash hover black-text"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../../../shared/models/card-argument';
+import { Observable } from 'rxjs';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-card-controller',
@@ -31,9 +33,13 @@ export class CardControllerComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  cards$: Observable<Card[]>;
+
+  constructor(private languageService: LanguageService) { }
 
   ngOnInit(): void {
+    this.cards$ = this.languageService.getTranslationObservable('cards', 'landing');
+    this.cards$.subscribe();
   }
 
 }

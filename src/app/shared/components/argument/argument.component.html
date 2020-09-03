@@ -1,12 +1,16 @@
 <span class="flex-container">
-  <h4 class="red-dark">{{headline}}</h4>
+  <h4 class="red-dark">{{headline | async}}</h4>
  <app-button-share
     class="share"
     [link]="link"></app-button-share>
 </span>
-<div *ngFor="let brick of bricks">
-  <h6>{{brick.title}}</h6>
-  <p class="justify">
-    {{brick.text}}
-  </p>
+<div *ngIf="arguments">
+  <div *ngFor="let argument of arguments | async">
+    <h6>{{argument.title}}</h6>
+    <p class="justify">
+      {{argument.text}}
+    </p>
+  </div>
 </div>
+
+

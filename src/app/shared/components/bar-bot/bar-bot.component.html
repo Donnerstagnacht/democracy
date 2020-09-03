@@ -1,10 +1,12 @@
 <nav class="menu-bar z-depth-3 white hide-on-large-only">
   <ul class="flex-row">
-    <li *ngFor="let menuTab of menuTabList | slice:0:3">
+    <li *ngFor="let menuTab of menuTabList$ | async | slice:0:3">
       <a class="black-text padding" (click)="closeNav()" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
     </li>
     <li>
-      <a id="mehr" class="black-text padding" (click)="openNav()" *ngIf="menuTabList.length > 3 || logoutButton">MEHR</a>
+      <ng-container *transloco="let t; scope: 'landing', read: 'landing'">
+        <a id="mehr" class="black-text padding" (click)="openNav()" *ngIf="length > 3 || logoutButton">{{ t('more') }}</a>
+      </ng-container>
     </li>
   </ul>
 </nav>

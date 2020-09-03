@@ -1,16 +1,19 @@
-<div class="center">
-  <h4 mat-dialog-title >Willkommen in unserem Newsletterservice!</h4>
-  <mat-dialog-content>
-    <p>Wir freuen uns, dass du dabei bist. Falls du Fragen oder Anregungen hast, zögere nicht uns zu kontaktieren! </p>
-  </mat-dialog-content>
-  <mat-dialog-actions align="center">
-    <button
-      mat-raised-button
-      color="primary"
-      mat-dialog-close
-      type="submit">OK
-    </button>
-  </mat-dialog-actions>
-</div>
+<ng-container *transloco="let t; scope: 'landing', read: 'landing.subscribeDialog'">
+  <div class="center">
+    <h4 mat-dialog-title >{{t('subscribeHeadline')}}</h4>
+    <mat-dialog-content>
+      <p>{{t('subscribeMessage')}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+      <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close
+        type="submit">OK
+      </button>
+    </mat-dialog-actions>
+  </div>
+</ng-container>
+
 
 

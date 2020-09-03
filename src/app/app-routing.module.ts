@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
+    component: WebpageComponent
+    // loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
   },
   {
     path: 'admin',

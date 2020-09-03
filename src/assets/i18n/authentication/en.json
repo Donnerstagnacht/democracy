@@ -1,0 +1,11 @@
+{
+  "loginForm": {
+    "login": "LOGIN",
+    "register": "REGISTER",
+    "registerFirst": "REGISTER FIRST",
+    "email": "Email",
+    "emailError": "Please enter a valid Email",
+    "password": "Password",
+    "passwordError": "Please enter a password with at least 6 characters"
+  }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Typed from 'typed.js';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,17 +10,17 @@ import Typed from 'typed.js';
 export class LandingPageComponent implements OnInit {
   counter = 1;
 
-  constructor() {
-   }
+  constructor() {}
 
   ngOnInit(): void {
+    /*
     const typed = new Typed('#typed', {
-      stringsElement: '#typed-strings',
+      strings: [this.slogang],
       typeSpeed: 40,
       backSpeed: 50,
       loop: false,
       showCursor: false,
-    });
+    });*/
     this.delay();
   }
 

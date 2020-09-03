@@ -1,0 +1,9 @@
+<mat-form-field class="padding">
+  <mat-select [(ngModel)]="selectedLanguage" (ngModelChange)="changeLanguage()">
+    <mat-option *ngFor="let language of languages" [value]="language.id">
+      {{ language.label }}
+    </mat-option>
+  </mat-select>
+  <mat-hint>{{ switchLanguage$ | async}}</mat-hint>
+</mat-form-field>
+

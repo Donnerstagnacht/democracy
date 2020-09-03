@@ -1,6 +1,6 @@
 <div class="col hide-on-med-and-down l2">
   <ul id="submenu" class="table-of-contents" [class.sticky]="sticky === true">
-    <li class="side" *ngFor="let menuTab of menuTabList">
+    <li class="side" *ngFor="let menuTab of menuTabList$ | async">
       <a href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
     </li>
   </ul>

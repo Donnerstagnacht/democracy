@@ -13,13 +13,16 @@
       </tbody>
     </table>
     <h5 class="center">Newsletter</h5>
-    <p>Gespannt auf Neuigkeiten? Bleibe mit unserem Newsletter immer auf dem neusten Stand.</p>
+    <ng-container *transloco="let t; scope: 'landing', read: 'landing.newsLetter'">
+    <p>
+      {{t('newsletterInfo')}}
+    </p>
     <form id="subscribeform" [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width" appearance="standard">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
         <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && subscribeForm.value.email!==''">done</mat-icon>
-        <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine gültige Email eingeben</mat-error>
+        <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
       </mat-form-field>
 
       <div class="center">
@@ -29,8 +32,9 @@
           id="subscribeButton"
           type="submit"
           [disabled]="!subscribeForm.valid"
-        >ABONNIEREN</button>
+        >{{t('subscribe')}}</button>
       </div>
     </form>
+    </ng-container>
   </div>
 </div>

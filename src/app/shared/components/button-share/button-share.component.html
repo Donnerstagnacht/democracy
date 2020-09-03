@@ -6,7 +6,9 @@
   <a mat-menu-item (cbOnSuccess)="openSnackbar()" ngxClipboard [cbContent]="link">
     <div>
       <i class="fa fa-copy "></i>
-      <span>Kopieren</span>
+      <ng-container *transloco="let t; scope: 'landing', read: 'landing'">
+        <span>{{t('copy')}}</span>
+      </ng-container>
     </div>
   </a>
   <a mat-menu-item href="https://api.whatsapp.com/send?text={{link}}" target="_blank">

@@ -1,16 +1,18 @@
-<mat-dialog-content>
-  <h4 mat-dialog-title>Möchtest du diese Nachricht wirklich löschen?</h4>
-</mat-dialog-content>
-<mat-dialog-actions class="flex-row">
-  <button
-    mat-raised-button
-    color="primary"
-    [mat-dialog-close]="messageWebpage"
-    >JA
-  </button>
-  <button
-    mat-button
-    [mat-dialog-close]=""
-    >NEIN
-  </button>
-</mat-dialog-actions>
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.deleteMessageDialog'">
+  <mat-dialog-content>
+    <h4 mat-dialog-title>{{t('deleteQuestion')}}</h4>
+  </mat-dialog-content>
+  <mat-dialog-actions class="flex-row">
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="messageWebpage"
+      >{{t('yes')}}
+    </button>
+    <button
+      mat-button
+      [mat-dialog-close]=""
+      >{{t('no')}}
+    </button>
+  </mat-dialog-actions>
+</ng-container>

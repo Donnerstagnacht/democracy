@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BarBotCurtainService } from '../../services/bar-bot-curtain.service';
 import { MenuTab } from '../../models/menuTab';
 import { AuthService } from '../../../authentication/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bar-bot-curtain',
@@ -9,7 +10,7 @@ import { AuthService } from '../../../authentication/auth.service';
   styleUrls: ['./bar-bot-curtain.component.scss']
 })
 export class BarBotCurtainComponent implements OnInit {
-  @Input() menuTabList: MenuTab[];
+  @Input() menuTabList$: Observable<MenuTab[]>;
   @Input() logoutButton: boolean;
 
   constructor(
@@ -18,6 +19,7 @@ export class BarBotCurtainComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.menuTabList$.subscribe();
   }
 
   openNav(): void {

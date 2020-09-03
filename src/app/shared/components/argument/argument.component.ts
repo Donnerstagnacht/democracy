@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Brick } from '../../models/brick';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-argument',
@@ -7,13 +8,14 @@ import { Brick } from '../../models/brick';
   styleUrls: ['./argument.component.scss']
 })
 export class ArgumentComponent implements OnInit {
-  @Input() bricks: Brick[];
-  @Input() headline: string;
+  @Input() arguments: Observable<Brick[]>;
+  @Input() headline: Observable<string>;
   @Input() link: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.arguments.subscribe((bricks) => {});
   }
 
 }

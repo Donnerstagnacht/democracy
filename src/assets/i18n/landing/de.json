@@ -1,0 +1,304 @@
+{
+  "landing": {
+    "title": "Die App für alle, die",
+    "slogan1": "...an Gerechtigkeit glauben",
+    "slogan2": "...die Welt verbessern wollen",
+    "slogan3": "...Politik gestalten möchten",
+    "slogan4": "...Sozialdemokraten sind"
+  },
+  "solutions": "Lösungen",
+
+  "ideaArguments": [
+    {
+      "title": "Entwickeln",
+      "text": "Das Herz einer Partei sind politische Ideen, Anträge und Debatten. Unsere App ermöglicht es Ideen gemeinsam zu entwickeln. Ein integriertes Vorschlags- und Abstimmungssystem strukturiert den Erstellprozess"
+    },
+    {
+      "title": "Automatisieren",
+      "text": "Die Idee wird automatisch an Events zur Beratung und Entscheidung weitergeleitet."
+    },
+    {
+      "title": "Teilen",
+      "text": "Ideen werden beworben und in andere soziale Netzwerke geteilt. Wer die Idee gut findet, kann die Idee klonen."
+    },
+    {
+      "title": "Vereinfachen",
+      "text": "Neue Supporter stärken die Relevanz. Mehr Raum für die Idee, weniger Raum für die Bürokratie."
+    }
+  ],
+
+  "groupArguments": [
+      {
+        "title": "Organisieren",
+        "text": "Jede Gliederung hat ihren eigenen 'Space'. Ein gewähltes Administratorenteam leitet den Space. Ein Wiki bietet eine Übersicht über gewählte Mandatsträger, Untergruppen und politische Kerninhalte."
+      },
+      {
+        "title": "Diskutieren",
+        "text": "Jeder Space enthält einen Stream, in dem gemeinsam diskutiert wird. Tools zum Projektmanagement und ein Event-Tool ermöglichen mehr Power im Wahlkampf!"
+      },
+      {
+        "title": "Informieren",
+        "text": "Alle Mitglieder werden automatisch über News informiert."
+      }
+  ],
+
+  "eventArguments": [
+    {
+      "title": "Entscheiden",
+      "text": "Unser System automatisiert Veranstaltungen im Hintergrund und schafft Zeit für das Wesentliche: Politik zu gestalten und Entscheidungen zu treffen!"
+    },
+    {
+      "title": "Koordinieren",
+      "text": "Unser Managementsystem für Events erstellt eine automatisierte Timeline. Themen werden integriert (z.B. Wahlen, Ideen usw.), Debatten koordiniert."
+    },
+    {
+      "title": "Aktualisieren",
+      "text": "Protokolle, ToDo Listen und Antragsweiterleitung werden gestartet. Enscheidungen liegen in Real Time weltweit vor. Politik wird schneller und nachvollziehbarer."
+    }
+  ],
+
+  "searchArguments": [
+    {
+      "title": "Inkludieren",
+      "text": "Unser System schafft einen dezentralen Zugang zu allen Informationen über politische Ideen, Schwerpuntke von Politikern, Anträge, Events, Aufgaben und Gliederungen - zu jedem Zeitpunkt und jedem Ort dieser Welt!"
+    },
+    {
+      "title": "Finden",
+      "text": "Damit Informationen einen Mehrwert liefern, müssen die richtigen Informationen zum richtigen Zeitpunkt greifbar sein. Dazu liefern wir ein intelligentes Suchsystem mit."
+    },
+    {
+      "title": "Nutzen",
+      "text": "State of the art searching ermöglicht bessere Entscheidungen und einen Wissensvorsprung für bessere Kampagnen und bessere Wahlkämpfe."
+    }
+  ],
+
+  "communicationArguments": [
+    {
+      "title": "Chatten",
+      "text": "Moderne Chats ermöglichen moderne Kommunikation. Plattformübergreifende Integration ermöglicht die Integration klassischer Emailkommunikation."
+    },
+    {
+      "title": "Einbinden",
+      "text": "Unsere Streams binden alle Mitglieder in Diskussionen ein - unabhänig davon, ob sie Kinder ins Bett bringen oder Nachtschicht haben. Streams bilden das Herzstück unser internen Kommunikation. Perspektivisch können Verhinderte über Videochats zu Veranstaltungen dazukommen."
+    },
+    {
+      "title": "Erneuern",
+      "text": "Moderne Kommunikationstools ermöglichen moderne Arbeitsweisen und damit die Einbindung junger und neuer Mitglieder!"
+    }
+  ],
+
+  "dataArguments": [
+    {
+      "title": "Vertraulich",
+      "text": "Die App benötigt nur Informationen, die bereits bekannt sind: Wo du wohnst, wo du politisch aktiv bist und welche Themen dich interessieren! Es werden keine zusätzlichen Informationen erhoben oder ausgewertet."
+    },
+    {
+      "title": "Global & barrierefrei",
+      "text": "Unser Netzwerk ist mehrsprachig, lässt sich vom Browser vorlesen und ist somit global und barrierefrei zugänglich."
+    },
+    {
+      "title": "Universal",
+      "text": "Die App selbst ist als Progressive Web App plattformunabhängig im Browser als auch in App-Stores z.B. im Google Playstore verfügbar. Damit sind alle Funktionen unabhängig von der technischen Ausstattung."
+    }
+  ],
+
+  "ideasHeadline": "Ideen & Anträge",
+  "groupsHeadline": "Gruppen",
+  "eventsHeadline": "Events",
+  "searchHeadline": "Smart Search",
+  "communicationHeadline": "Kommunikation",
+  "dataHeadline": "Daten & Inklusion",
+
+  "menuLoesungTabList": [
+    {
+      "tabName": "Ideen",
+      "tabLink": "#ideen"
+    },
+    {
+      "tabName": "Gruppen",
+      "tabLink": "#gruppen"
+    },
+    {
+      "tabName": "Events",
+      "tabLink": "#events"
+    },
+    {
+      "tabName": "Smart Search",
+      "tabLink": "#search"
+    },
+    {
+      "tabName": "Kommunikation",
+      "tabLink": "#kommunikation"
+    },
+    {
+      "tabName": "Daten & Inklusion",
+      "tabLink": "#daten"
+    }
+  ],
+
+  "menuTabList": [
+    {
+      "tabName": "HOME",
+      "tabLink": "#"
+    },
+    {
+      "tabName": "LÖSUNGEN",
+      "tabLink": "#loesungen"
+    },
+    {
+      "tabName": "PROTOTYP",
+      "tabLink": "#prototyp"
+    },
+    {
+      "tabName": "SUPPORT",
+      "tabLink": "#support"
+    },
+    {
+      "tabName": "KONTAKT",
+      "tabLink": "#kontakt"
+    },
+    {
+      "tabName": "TEAM",
+      "tabLink": "#team"
+    },
+    {
+      "tabName": "FAQ",
+      "tabLink": "#faq"
+    },
+    {
+      "tabName": "IMPRESSUM",
+      "tabLink": "#impressum"
+    }
+  ],
+
+  "more": "MEHR",
+  "switchLanguage": "Sprache wählen",
+  "prototype": {
+    "prototypeHeadline": "Prototyp",
+    "visualizeHeadline": "Visualisieren",
+    "visualizeText-1": "Über Technologie zu reden, die nicht da ist, ist sehr abstrakt.",
+    "visualizeText-2": "Wir wollen die Ideen, wie Politik durch Technologie in einer globalen und digitalen Welt besser werden kann, visualisieren und anfassbar machen.",
+
+    "discussHeadline": "Diskutieren",
+    "discussText": "Der Prototyp ist eine Grundlage für eine Diskussion und gleichzeitig eine Einladung: Mitzumachen und die Tools der Politik von morgen zu gestalten!",
+
+    "testHeadline": "Testen",
+    "testText-1": "Schon im März 2021 wollen wir eine Beta Version zum Testen veröffentlichen.",
+    "testText-2": "Bis dahin, click auf einen Button im visuellen Prototypen, um unsere Ideen zu testen!"
+  },
+
+  "newsLetter": {
+    "newsletterInfo": "Gespannt auf Neuigkeiten? Bleibe mit unserem Newsletter immer auf dem neusten Stand.",
+    "emailError": "Bitte eine gültige Email eingeben",
+    "subscribe": "ABONIEREN"
+  },
+
+  "support": {
+    "supportHeadline": "Unterstütz uns!",
+    "gitHub": "Entwickler? Besuche uns auf GitHub"
+  },
+
+  "highLight": "Wir können jederzeit Unterstützung gebrauchen!",
+
+  "cards": [
+    {
+      "cardTitle": "Design mit uns!",
+      "cardText": "Lass deinen Vorstellungen beim Designen von Prototypen freien Lauf! Bring deine Kreativität ein, verbessere unser User Interface und sorge für eine geschmeidigere User Experience!"
+    },
+    {
+      "cardTitle": "Programmiere mit uns!",
+      "cardText": "Programmiere ein globales Tool für Politiker und Politikinteressierte weltweit! Wir möchten dich in unserem Team, wenn du Lust hast eine moderne Frondend Application zu entwickeln, leistungsstarke Backends zu designen oder Suchfunktionen zu optimieren!"
+    },
+    {
+      "cardTitle": "Erzähl von uns!",
+      "cardText": "Erzähl deinen Freunden, Verwandten, Arbeitskollegen und allen Menschen von denen du glaubst, dass sie uns cool finden würden!"
+    },
+    {
+      "cardTitle": "Spende für uns!",
+      "cardText": "Spende uns einen einmaligen oder monatlichen Beitrag, damit das Projekt sein Ziel erreicht!"
+    }
+  ],
+
+  "contact": {
+    "contactHeadline": "Fragen? Interesse?",
+    "visitUsSocialMedia": "Dann besuche uns in den Sozialen Medien",
+    "messageUs": "Oder schreibe uns eine Nachricht"
+  },
+
+  "contactForm": {
+    "firstName": "Vorname",
+    "firstNameError": "Bitte einen Vornamen eingeben",
+
+    "lastName": "Nachname",
+    "lastNameError": "Bitte einen Nachnamen eingeben",
+
+    "email": "Email",
+    "emailError": "Bitte eine Email eingeben.",
+
+    "chooseTopic": "Wähle ein Thema",
+    "chooseTopicError": "Bitte ein Thema auswählen",
+
+    "subject": "Betreff",
+    "subjectError": "Bitte einen Betreff eingeben",
+
+    "message": "Nachricht",
+    "messageError": "Bitte eine Nachricht eingeben",
+
+    "send": "SENDEN"
+  },
+
+  "topics": [
+    "Fragen zur Idee",
+    "Erzähl von uns",
+    "Spenden",
+    "Design",
+    "Programmierung",
+    "Sonstiges"
+  ],
+
+  "teamMembers": [
+    {
+      "name": "Tobias Hassebrock",
+      "image": "../assets/images/profile-small.jpg",
+      "motivationArguments": [
+        "Ich bin überzeugt, dass globale Herausforderungen, wie der Klimawandel oder die Coronakrise auch globale Lösungen brauchen.",
+        "Gleichzeitig muss Politik lokale Probleme lösen. Lokale Probleme gibt es aber meist mehrfach auf der Welt.",
+        "Beide Problemtypen sind mit einer vernetzen Plattform besser zu lösen. Das ist unser Ziel!"
+      ],
+      "educationArguments": [
+        "Bachelor Politikwissenschaft",
+        "Bachelor Volkswirtschaft",
+        "Grundlagen Webdevelopment"
+      ]
+    }
+  ],
+
+  "teamMemberComponent": {
+    "motivationEducation": "Motivation & Ausbildung",
+    "education": "Ausbildung"
+  },
+
+  "imprint": {
+    "imprint": "Impressum",
+    "operator": "Betreiber dieser Website",
+    "content": "Inhaltlich verantwortlich",
+    "dataSecurity": "Datenschutzbeauftragter",
+    "adressOperator": "(Anschrift Betreiber)"
+  },
+
+  "copy": "kopieren",
+
+  "subscribeDialog": {
+    "subscribeHeadline": "Willkommen in unserem Newsletterservice!",
+    "subscribeMessage": "Wir freuen uns, dass du dabei bist. Falls du Fragen oder Anregungen hast, zögere nicht uns zu kontaktieren! Eventuell landet unser Newsletter im Spam. Bitte markiere ihn als 'Nicht Spam'."
+  },
+
+  "messageDialog": {
+    "messageDialogHeadline": "Danke für deine Nachricht",
+    "soonAsPossible": "Wir melden uns sobald wie möglich!",
+    "topic": "Thema",
+    "email": "Kontaktemail",
+    "subject": "Betreff",
+    "message": "Nachricht"
+  }
+}

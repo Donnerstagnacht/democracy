@@ -8,7 +8,7 @@
         <app-button-share class="inline-block padding-left-16" [link]="link"></app-button-share>
       </div>
       <div class="row">
-        <div class="col s12 m6" *ngFor="let teamMember of teamMembers">
+        <div class="col s12 m6" *ngFor="let teamMember of teamMembers$ | async">
           <app-team-member [teamMember]="teamMember"></app-team-member>
         </div>
       </div>

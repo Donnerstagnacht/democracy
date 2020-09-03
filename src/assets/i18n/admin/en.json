@@ -1,0 +1,94 @@
+{
+  "adminTabList": [
+    {
+      "tabName": "NEWSLETTER",
+      "tabLink": "#admin/newsletter"
+    },
+    {
+      "tabName": "SUBSCRIBERS",
+      "tabLink": "#admin/subscribers"
+    },
+    {
+      "tabName": "MESSAGES",
+      "tabLink": "#admin/messages"
+    }
+  ],
+
+  "newsletter": {
+    "subject": "Subject",
+    "subjectError": "Please enter a subject",
+
+    "generalNewsTitle": "General News Title",
+    "generalNewsTitleError": "Please enter a General News Title",
+    "generalNewsText": "General News Text",
+    "generalNewsTextError": "Please enter a General News Text",
+
+    "techNewsTitle": "Tech News Title",
+    "techNewsTitleError": "Please enter a Tech News Title",
+    "techNewsText": "Tech News Text",
+    "techNewsTextError": "Please enter a Tech News Text",
+
+    "bonusNewsTitle": "Bonus News Title",
+    "bonusNewsTitleError": "Please enter a Bonus News Title",
+    "bonusNewsText": "Bonus News Text",
+    "bonusNewsTextError": "Please enter a Bonus News Text",
+
+    "send": "SEND"
+  },
+
+  "subscriber": {
+    "send": "Send",
+    "edit": "Edit",
+    "delete": "Delete",
+    "addEmail": "ADD EMAIL",
+    "addEmailError": "Please enter a valid Email",
+    "filterEmail": "Filter Emails",
+    "addButton": "ADD"
+  },
+
+  "deleteEmailDialog": {
+    "deleteQuestion": "Do you want to delete this contact?",
+    "yes": "YES",
+    "no": "NO"
+  },
+
+  "editEmailDialog": {
+    "editQuestion": "The new email is",
+    "emailError": "Please enter a valid Email",
+    "save": "SAVE",
+    "cancel": "CANCEL"
+  },
+
+  "subscriberDeleteSuccess": "Subscriber deleted",
+  "subscriberEditSuccess": "Subscriber edited",
+
+  "sendMessageDialog": {
+    "mailTo": "Mail to:",
+    "subject": "Subject",
+    "subjectError": "Please enter a subject",
+    "message": "Message",
+    "messageError": "Please enter a message",
+    "send": "SEND",
+    "cancel": "CANCEL"
+  },
+
+  "message": {
+    "answer": "RESPOND",
+    "delete": "DELETE"
+  },
+
+  "deleteMessageDialog": {
+    "deleteQuestion": "Do you want to delete this message?",
+    "yes": "YES",
+    "no": "NO"
+  },
+
+  "unsubscribeForm": {
+    "unsubscribeQuestion": "Do you really want to unsubscribe from the newsletter?",
+    "email": "Email",
+    "emailError": "Please enter a valid Email",
+    "unsubscribeButton": "UNSUBSCRIBE",
+    "successDialog": "It's a pity you are no longer with us. We have successfully unsubscribed you."
+  }
+
+}

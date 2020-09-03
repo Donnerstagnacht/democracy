@@ -14,6 +14,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { AdminSendEmailDialogComponent } from '../admin-send-email-dialog/admin-send-email-dialog.component';
 import { EmailReply } from '../../models/emailReply';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-admin',
@@ -39,6 +40,8 @@ export class AdminComponent implements OnInit {
     },
   ];
 
+  menuTabList$: Observable<MenuTab[]>;
+
   elem: HTMLElement;
   instance: ScrollSpy;
 
@@ -49,7 +52,8 @@ export class AdminComponent implements OnInit {
     private messageService: MessagesService,
     private emailsService: EmailsService,
     private matDialog: MatDialog,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private languageService: LanguageService
     ) {}
 
   ngOnInit(): void {
@@ -58,6 +62,8 @@ export class AdminComponent implements OnInit {
 
     this.subscribers = this.subscriberService.getSubscribers();
     this.messagesWebpage = this.messageService.getMessages();
+    this.menuTabList$ = this.languageService.getTranslationObservable('adminTabList', 'admin');
+    this.menuTabList$.subscribe();
   }
 
   createSubscriber(subscriber: EmailSubscriber) {

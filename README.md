@@ -8,10 +8,10 @@ The goal of this project is to build an application which supports political par
 4. [Angular Material](https://material.angular.io/)
 5. [MaterializeCSS](https://materializecss.com/)
 6. [SendGrid](https://sendgrid.com/)
+7. [Transloco](https://github.com/ngneat/transloco)
 
 # Other included libraries
-7. [jQuery](https://jquery.com/)
-8. [Typed.js](https://github.com/mattboldt/typed.js/)
+8. [jQuery](https://jquery.com/)
 9. [slick](https://kenwheeler.github.io/slick/)
 10. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
 

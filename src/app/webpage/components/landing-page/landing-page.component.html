@@ -1,29 +1,28 @@
+
 <div id="home" class="row">
   <div class="col l2">
   </div>
   <div class="col s12 m12 l8">
     <div class="container">
-      <div class="row landing-wrapper">
-        <div class="col s12 m6 headline">
-          <h2 class="">Die App für alle, die</h2>
-          <div id="typed-strings">
-            <p class="absatz  typewriter1">
-       <!--       ...Kämpfer der <mark class="mark">Gerechtigkeit</mark><br>
-              ^1000 ... <mark class="mark">Weltverbesserer</mark><br>
-              ^1000 ... <mark class="mark">Politikgestalter</mark><br>
-              ^1000 ...<mark class="mark">Sozialdemokraten</mark>
-            </p>-->
-            <p class="absatz  typewriter1">
-              ...an <mark class="mark">Gerechtigkeit</mark> glauben.<br>
-              ^1000 ...unsere <mark class="mark">Welt</mark> verbessern wollen.<br>
-              ^1000 ...Politik <mark class="mark">gestalten</mark> möchten.<br>
-              ^1000 ...<mark class="mark">Sozialdemokraten</mark> sind.
-            </p>
-          </div>
-          <span id="typed" class="typewriter1"></span>
+      <div class="row flex-container">
+        <div class="col s12 m6 headline ">
+            <ng-container *transloco="let t; scope: 'landing', read: 'landing.landing'">
+              <h2 class="">{{ t('title') }}</h2>
+                <!--    <p class="typewriter1">  scope: 'landing', read: 'landing'
+                ...an <mark class="mark">Gerechtigkeit</mark> glauben.<br>
+                ...unsere <mark class="mark">Welt</mark> verbessern wollen.<br>
+                ...Politik <mark class="mark">gestalten</mark> möchten.<br>
+                ...<mark class="mark">Sozialdemokraten</mark> sind.
+                </p>-->
+
+                <p class="subheading">{{ t('slogan1') }}</p>
+                <p class="subheading mark">{{ t('slogan2') }}</p>
+                <p class="subheading">{{ t('slogan3') }}</p>
+                <p class="subheading mark">{{ t('slogan4') }}</p>
+              </ng-container>
         </div>
         <div class="col s12 m6">
-          <div class="center phone">
+          <div class="center margin-top">
             <img *ngIf="counter===1" class="iphone-x" src="../assets/images/group-wiki.png" alt="group-wiki">
             <img *ngIf="counter===2" class="iphone-x" src="../assets/images/group-stream.png" alt="group-stream">
             <img *ngIf="counter===3" class="iphone-x" src="../assets/images/group-tasks.png" alt="group-tasks">

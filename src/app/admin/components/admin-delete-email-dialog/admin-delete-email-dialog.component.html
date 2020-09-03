@@ -1,17 +1,19 @@
-<mat-dialog-content>
-  <h4 mat-dialog-title>Möchtest du diesen Kontakt wirklich löschen?</h4>
-  <p>Email: {{subscriber.email}}</p>
-</mat-dialog-content>
-<mat-dialog-actions class="flex-row">
-  <button
-    mat-raised-button
-    color="primary"
-    [mat-dialog-close]="subscriber"
-    >JA
-  </button>
-  <button
-    mat-flat-button
-    [mat-dialog-close]=""
-    >NEIN
-  </button>
-</mat-dialog-actions>
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.deleteEmailDialog'">
+  <mat-dialog-content>
+    <h4 mat-dialog-title>{{t('deleteQuestion')}}</h4>
+    <p>Email: {{subscriber.email}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions class="flex-row">
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="subscriber"
+      >{{t('yes')}}
+    </button>
+    <button
+      mat-flat-button
+      [mat-dialog-close]=""
+      >{{t('no')}}
+    </button>
+  </mat-dialog-actions>
+</ng-container>

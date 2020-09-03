@@ -5,6 +5,8 @@ import { MessagesService } from '../../../admin/services/messages.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ContactDialogComponent } from '../contact-dialog/contact-dialog.component';
 import { GeneralFormsService } from '../../../shared/services/general-forms.service';
+import { LanguageService } from 'src/app/shared/services/language.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
@@ -21,24 +23,20 @@ export class ContactComponent implements OnInit {
     message: ['', Validators.required],
   });
 
-  topics: string[] = [
-    'Fragen zur Idee',
-    'Erzähl von uns',
-    'Spenden',
-    'Design',
-    'Programmierung',
-    'Sonstiges'
-  ];
+  topics$: Observable<string[]>;
 
   constructor(
     private fb: FormBuilder,
-    private elRef: ElementRef,
     private messagesService: MessagesService,
     private matDialogRef: MatDialog,
-    private generalFormsService: GeneralFormsService
+    private generalFormsService: GeneralFormsService,
+    private languageService: LanguageService
   ) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.topics$ = this.languageService.getTranslationObservable('topics', 'landing');
+    this.topics$.subscribe();
+    }
 
   onSubmit() {
     const newMessage: MessageWebpage = {

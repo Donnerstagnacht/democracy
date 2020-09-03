@@ -3,7 +3,7 @@
       class="flex-row hide-on-small-only hide-on-large-only"
       [class.sticky-mobile]="sticky === true"
       [class.z-depth-3]="sticky === true">
-      <li *ngFor="let menuTab of menuTabList">
+      <li *ngFor="let menuTab of menuTabList$">
         <a class="submenu-tablet-child black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
       </li>
     </ul>

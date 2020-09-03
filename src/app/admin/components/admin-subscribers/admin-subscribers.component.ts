@@ -9,6 +9,7 @@ import { AdminDeleteEmailDialogComponent } from '../admin-delete-email-dialog/ad
 import { AdminEditSubscriberDialogComponent } from '../admin-edit-subscriber-dialog/admin-edit-subscriber-dialog.component';
 import { GeneralFormsService } from '../../../shared/services/general-forms.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-admin-subscribers',
@@ -28,7 +29,7 @@ export class AdminSubscribersComponent implements OnInit {
   });
 
   addEmailForm = this.fb.group({
-    addEmail: ['', [Validators.required]]
+    addEmail: ['', [Validators.email]]
   });
 
   tabsTableRef: HTMLElement;
@@ -36,12 +37,16 @@ export class AdminSubscribersComponent implements OnInit {
 
   filterString: string;
 
+  subscriberDeleteSuccessMessage$: Observable<string>;
+  subscriberEditSuccessMessage$: Observable<string>;
+
   constructor(
     private elRef: ElementRef,
     private fb: FormBuilder,
     private matDialogRef: MatDialog,
     private generalFormsService: GeneralFormsService,
-    private matSnackBar: MatSnackBar
+    private matSnackBar: MatSnackBar,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
@@ -49,6 +54,9 @@ export class AdminSubscribersComponent implements OnInit {
 
     this.tabsTableRef = this.elRef.nativeElement.querySelector('#tabsTable');
     this.tabsTable = Tabs.init(this.tabsTableRef);
+
+    this.subscriberDeleteSuccessMessage$ = this.languageService.getTranslationObservable('subscriberDeleteSuccess', 'admin');
+    this.subscriberEditSuccessMessage$ = this.languageService.getTranslationObservable('subscriberEditSuccess', 'admin');
   }
 
   edit(subscriber: EmailSubscriberID) {
@@ -58,7 +66,9 @@ export class AdminSubscribersComponent implements OnInit {
     dialogRef.afterClosed().subscribe((editSubscriber: EmailSubscriberID) => {
       if (editSubscriber) {
         this.editSubscriberEvent.emit(subscriber);
-        this.openSnackbar('Subscriber geändert');
+        this.subscriberEditSuccessMessage$.subscribe((subscriberEditSuccessMessage => {
+          this.openSnackbar(subscriberEditSuccessMessage);
+        }));
       }
     });
   }
@@ -70,7 +80,9 @@ export class AdminSubscribersComponent implements OnInit {
     dialogRef.afterClosed().subscribe((deleteSubscriber: EmailSubscriberID) => {
       if (deleteSubscriber) {
         this.deleteSubscriberEvent.emit(subscriber);
-        this.openSnackbar('Subscriber gelöscht');
+        this.subscriberDeleteSuccessMessage$.subscribe((subscriberDeleteSuccessMessage => {
+          this.openSnackbar(subscriberDeleteSuccessMessage);
+        }));
       }
     });
   }

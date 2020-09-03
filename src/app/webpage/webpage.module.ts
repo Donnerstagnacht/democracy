@@ -15,7 +15,6 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { NewsletterDialogComponent } from './components/newsletter-dialog/newsletter-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [
     CardControllerComponent,
@@ -33,7 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    WebpageRoutingModule
-  ]
+    WebpageRoutingModule,
+  ],
 })
 export class WebpageModule { }

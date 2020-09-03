@@ -1,0 +1,307 @@
+{
+  "landing": {
+    "title": "The app for all who",
+    "slogan1": "...believe in justice",
+    "slogan2": "...want to improve the world",
+    "slogan3": "..love shaping politics",
+    "slogan4": "...are social democrats"
+  },
+
+  "solutions": "Solutions",
+
+  "ideaArguments": [
+    {
+      "title": "Develope",
+      "text": "At the heart of a party are political ideas, motions and debates. Our app allows you to develop ideas together. An integrated proposal and voting system structures the creation process"
+    },
+    {
+      "title": "Automate",
+      "text": "The idea is automatically forwarded to events for consultation and decision-making."
+    },
+    {
+      "title": "Share",
+      "text": "Ideas are advertised and shared in other social networks. If you like the idea, you can clone the idea."
+    },
+    {
+      "title": "Reduce Complexity",
+      "text": "New supporters strengthen the relevance. More room for the idea, less room for the bureaucracy."
+    }
+  ],
+
+  "groupArguments": [
+    {
+      "title": "Organize",
+      "text": "Each structure has its own 'space'. An elected team of administrators manages the Space. A wiki provides an overview of elected officials, subgroups and core political content."
+    },
+    {
+      "title": "Discuss",
+      "text": "Each Space contains a stream, in which the discussion takes place together. Tools for project management and an event tool enable more power in the election campaign!"
+    },
+    {
+      "title": "Inform",
+      "text": "All members are automatically informed about news."
+    }
+  ],
+
+  "eventArguments": [
+    {
+      "title": "Decide",
+      "text": "Our system automates events in the background and frees up time for the essential: shaping politics and making decisions!"
+    },
+    {
+      "title": "Coordinate",
+      "text": "Our management system for events creates an automated timeline. Topics are integrated (e.g. elections, ideas etc.), debates are coordinated."
+    },
+    {
+      "title": "Update",
+      "text": "Logs, ToDo lists and request forwarding are started. Decisions are available worldwide in real time. Politics becomes faster and more comprehensible."
+    }
+  ],
+
+  "searchArguments": [
+    {
+      "title": "Include",
+      "text": "Our system creates a decentralized access to all information about political ideas, focal points of politicians, proposals, events, tasks and divisions - at any time and any place in the world!"
+    },
+    {
+      "title": "Find",
+      "text": "For information to deliver added value, the right information must be available at the right time. We provide an intelligent search system for this purpose."
+    },
+    {
+      "title": "Use",
+      "text": "State of the art searching enables better decisions and a knowledge advantage for better campaigns and better election campaigns."
+    }
+  ],
+
+  "communicationArguments": [
+    {
+      "title": "Chat",
+      "text": "Modern chats enable modern communication. Cross-platform integration enables the integration of classic email communication."
+    },
+    {
+      "title": "Integrate",
+      "text": "Our streams involve all members in discussions - regardless of whether they put children to bed or work the night shift. Streams are the heart of our internal communication. In the future, disabled people can join events via video chats."
+    },
+    {
+      "title": "Renew",
+      "text": "Modern communication tools enable modern working methods and thus the integration of young and new members!"
+    }
+  ],
+
+  "dataArguments": [
+    {
+      "title": "Trustful",
+      "text": "The app only needs information that is already known: Where you live, where you are politically active and which topics you are interested in! No additional information is collected or evaluated."
+    },
+    {
+      "title": "Global & barrier free",
+      "text": "Our network is multilingual, can be read aloud by the browser and is therefore globally and barrier-free accessible."
+    },
+    {
+      "title": "Universal",
+      "text": "The app itself is available as a progressive web app, platform-independent in the browser as well as in app stores, e.g. in the Google Playstore. Thus, all functions are independent of the technical equipment."
+    }
+  ],
+
+  "ideasHeadline": "Ideas & motions",
+  "groupsHeadline": "Groups",
+  "eventsHeadline": "Events",
+  "searchHeadline": "Smart Search",
+  "communicationHeadline": "Communication",
+  "dataHeadline": "Data & accessibility",
+
+  "menuLoesungTabList": [
+    {
+      "tabName": "Ideas",
+      "tabLink": "#ideen"
+    },
+    {
+      "tabName": "Groups",
+      "tabLink": "#gruppen"
+    },
+    {
+      "tabName": "Events",
+      "tabLink": "#events"
+    },
+    {
+      "tabName": "Smart Search",
+      "tabLink": "#search"
+    },
+    {
+      "tabName": "Communication",
+      "tabLink": "#kommunikation"
+    },
+    {
+      "tabName": "Data & accessibility",
+      "tabLink": "#daten"
+    }
+  ],
+
+  "menuTabList": [
+    {
+      "tabName": "HOME",
+      "tabLink": "#"
+    },
+    {
+      "tabName": "SOLUTIONS",
+      "tabLink": "#loesungen"
+    },
+    {
+      "tabName": "PROTOTYPE",
+      "tabLink": "#prototyp"
+    },
+    {
+      "tabName": "SUPPORT",
+      "tabLink": "#support"
+    },
+    {
+      "tabName": "CONTACT",
+      "tabLink": "#kontakt"
+    },
+    {
+      "tabName": "TEAM",
+      "tabLink": "#team"
+    },
+    {
+      "tabName": "FAQ",
+      "tabLink": "#faq"
+    },
+    {
+      "tabName": "IMPRINT",
+      "tabLink": "#impressum"
+    }
+  ],
+
+  "more": "MORE",
+  "switchLanguage": "Switch language",
+
+  "prototype": {
+    "prototypeHeadline": "Prototype",
+    "visualizeHeadline": "Visualize",
+    "visualizeText-1": "To talk about technology that is not there is very abstract.",
+    "visualizeText-2": "We want to visualize and make tangible the ideas of how politics can be improved through technology in a global and digital world.",
+
+    "discussHeadline": "Discuss",
+    "discussText": "The prototype is a basis for a discussion and at the same time an invitation: To participate and to shape the tools of tomorrow's politics!",
+
+    "testHeadline": "Test",
+    "testText-1": "We want to release a beta version for testing by March 2021.",
+    "testText-2": "Until then, click on a button in the visual prototype to test our ideas!"
+  },
+
+  "newsLetter": {
+    "newsletterInfo": "Curious about news? Stay up to date with our newsletter.",
+    "emailError": "Please enter a valid email",
+    "subscribe": "SUBSCRIBE"
+  },
+
+  "support": {
+    "supportHeadline": "Support us!",
+    "gitHub": "Developer? Visit us on GitHub"
+  },
+
+  "highLight": "We can always use support!",
+
+  "cards": [
+    {
+      "cardTitle": "Design with us!",
+      "cardText": "Let your imagination run wild when designing prototypes! Use your creativity, improve our user interface and create a smoother user experience!"
+    },
+    {
+      "cardTitle": "Program with us!",
+      "cardText": "Program a global tool for politicians and people interested in politics worldwide! We would like to have you in our team, if you feel like developing a modern frontend application, designing powerful backends or optimizing search functions!"
+    },
+    {
+      "cardTitle": "Talk about us!",
+      "cardText": "Tell your friends, relatives, work colleagues and all people you think would find us cool!"
+    },
+    {
+      "cardTitle": "Donate to us!",
+      "cardText": "Donate a one-time or monthly contribution to help the project reach its goal!"
+    }
+  ],
+
+  "contact": {
+    "contactHeadline": "Questions? Interest?",
+    "visitUsSocialMedia": "Then visit us in social media",
+    "messageUs": "Or send us a message"
+  },
+
+  "contactForm": {
+    "firstName": "First name",
+    "firstNameError": "Please enter a first name",
+
+    "lastName": "Last name",
+    "lastNameError": "Please enter a last name",
+
+    "email": "Email",
+    "emailError": "Please enter an email",
+
+    "chooseTopic": "Choose a topic",
+    "chooseTopicError": "Please choose a topic",
+
+    "subject": "Subject",
+    "subjectError": "Please enter a subject",
+
+    "message": "Message",
+    "messageError": "Please enter a message",
+
+    "send": "SEND"
+  },
+
+  "topics": [
+    "Questions on the idea",
+    "Talk about us",
+    "Donations",
+    "Design",
+    "Programming",
+    "Other"
+  ],
+
+  "teamMembers": [
+    {
+      "name": "Tobias Hassebrock",
+      "image": "../assets/images/profile-small.jpg",
+      "motivationArguments": [
+        "I am convinced that global challenges such as climate change or the corona crisis also need global solutions.",
+        "At the same time, politics must solve local problems. But local problems usually occur more than once in the world.",
+        "Both types of problems can be better solved with a networked platform. That is our goal!"
+      ],
+      "educationArguments": [
+        "Bachelor Political Science",
+        "Bachelor Economics",
+        "Basics in Webdevelopment"
+      ]
+    }
+  ],
+
+  "teamMemberComponent": {
+    "motivationEducation": "Motivation & Education",
+    "education": "Education"
+  },
+
+  "imprint": {
+    "imprint": "Imprint",
+    "operator": "Operator of this Website",
+    "content": "Responsible for content",
+    "dataSecurity": "Data protection officer",
+    "adressOperator": "(Address of operator)"
+  },
+
+  "copy": "copy",
+
+  "subscribeDialog": {
+    "subscribeHeadline": "Welcome to our newsletter service!",
+    "subscribeMessage": "We are happy to have you with us. If you have any questions or suggestions, please do not hesitate to contact us! Our newsletter might end up in spam. Please mark it as 'Not Spam'."
+  },
+
+  "messageDialog": {
+    "messageDialogHeadline": "Thanks for your message!",
+    "soonAsPossible": "We will contact you as soon as possible!",
+    "topic": "Topic",
+    "email": "Contact mail",
+    "subject": "Subject",
+    "message": "Message"
+  }
+
+}

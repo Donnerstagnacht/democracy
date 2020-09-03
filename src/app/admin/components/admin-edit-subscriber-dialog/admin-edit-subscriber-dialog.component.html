@@ -1,28 +1,29 @@
-<!-- Modal Subsribe Edit -->
-<mat-dialog-content>
-  <form [formGroup]="editEmailForm">
-    <h4>Die neue Email lautet</h4>
-    <mat-form-field class="full-width" appearance="standard">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="editEmail">
-      <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('editEmail', 'email') && editEmailForm.value.editEmail!==''">done</mat-icon>
-      <mat-error *ngIf="errorHandling('editEmail', 'email')">Bitte eine Email eingeben.</mat-error>
-    </mat-form-field>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions class="flex-row">
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="edit()"
-    [mat-dialog-close]="subscriber"
-    type="submit"
-    [disabled]="!editEmailForm.valid"
-    >SPEICHERN
-  </button>
-  <button
-    mat-button
-    [mat-dialog-close]=""
-    >ABBRECHEN
-  </button>
-</mat-dialog-actions>
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.editEmailDialog'">
+  <mat-dialog-content>
+    <form [formGroup]="editEmailForm">
+      <h4>{{t('editQuestion')}}</h4>
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="editEmail">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('editEmail', 'email') && editEmailForm.value.editEmail!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('editEmail', 'email')">{{t('emailError')}}</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions class="flex-row">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="edit()"
+      [mat-dialog-close]="subscriber"
+      type="submit"
+      [disabled]="!editEmailForm.valid"
+      >{{t('save')}}
+    </button>
+    <button
+      mat-button
+      [mat-dialog-close]=""
+      >{{t('cancel')}}
+    </button>
+  </mat-dialog-actions>
+</ng-container>

@@ -1,43 +1,64 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <mat-form-field class="full-width" appearance="standard">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="email">
-    <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && loginForm.value.email!==''">done</mat-icon>
-    <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine gültige Email eingeben</mat-error>
-  </mat-form-field>
+<ng-container *transloco="let t; scope: 'authentication', read: 'authentication.loginForm'">
+  <div class="container">
+    <div class="row">
+      <div class="col m3 l4">
+      </div>
+      <div class="col s12 m6 l4">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>{{t('email')}}</mat-label>
+            <input matInput formControlName="email">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && loginForm.value.email!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
+          </mat-form-field>
 
-  <mat-form-field class="full-width" appearance="standard">
-    <mat-label>Passwort</mat-label>
-    <input matInput formControlName="password" type="password">
-    <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('password', 'required') && !errorHandling('password', 'minlength') && loginForm.value.passwprd!==''">done</mat-icon>
-    <mat-error *ngIf="errorHandling('password', 'minlength') || errorHandling('password', 'required')">Bitte ein Passwort mit mindestens 6 Zeichen eingeben</mat-error>
-  </mat-form-field>
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>{{t('password')}}</mat-label>
+            <input matInput formControlName="password" type="password">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('password', 'required') && !errorHandling('password', 'minlength') && loginForm.value.passwprd!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling('password', 'minlength') || errorHandling('password', 'required')">{{t('passwordError')}}</mat-error>
+          </mat-form-field>
 
-  <div class="flex-row" *ngIf="loginMode">
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!loginForm.valid"
-      >LOGIN
-    </button>
-    <button
-      mat-flat-button
-      (click)="changeLoginMode()"
-      >REGISTER FIRST
-    </button>
+          <div class="flex-row" *ngIf="loginMode">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="!loginForm.valid"
+              >{{t('login')}}
+            </button>
+            <button
+              mat-flat-button
+              (click)="changeLoginMode()"
+              >{{t('registerFirst')}}
+            </button>
+          </div>
+          <div class="flex-row" *ngIf="!loginMode">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="!loginForm.valid"
+            >{{t('register')}}</button>
+            <button
+              mat-flat-button
+              (click)="changeLoginMode()"
+              >{{t('login')}}
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col l4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col m3 l2">
+      </div>
+      <div class="col s12 m12 l8">
+        <app-switch-language class="flex-row"></app-switch-language>
+      </div>
+      <div class="col l2">
+      </div>
+    </div>
   </div>
-  <div class="flex-row" *ngIf="!loginMode">
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!loginForm.valid"
-    >REGISTER</button>
-    <button
-      mat-flat-button
-      (click)="changeLoginMode()"
-      >LOGIN
-    </button>
-  </div>
-</form>
+</ng-container>

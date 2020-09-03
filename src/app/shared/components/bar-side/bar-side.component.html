@@ -1,13 +1,14 @@
 <nav class="z-depth-3 col hide-on-med-and-down side-nav white">
   <div class="valign-wrapper nav-wrapper">
     <ul>
-      <li class="full-width" *ngFor="let menuTab of menuTablList">
+      <li class="full-width" *ngFor="let menuTab of menuTablList$ | async">
         <a *ngIf="menuTab.tabLink" class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
        <!-- <a *ngIf="menuTab.tabRouterLink" class="black-text" [routerLink]="[menuTab.tabRouterLink]">{{menuTab.tabName}}</a>-->
       </li>
       <li class="full-width">
         <a *ngIf="logoutButton" class="black-text" (click)="logout()">LOGOUT</a>
       </li>
+      <app-switch-language></app-switch-language>
     </ul>
   </div>
 </nav>

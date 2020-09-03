@@ -1,44 +1,55 @@
-<div class="container">
-  <div class="row">
-    <div class="col l2">
-    </div>
-    <div class="col s12 m12 l8">
-      <h5 class="center margin-bot">Möchtest du dich wirklich vom Newsletter abmelden?</h5>
-      <div class="row">
- <!--       <div class="flex-row col s12">
+<ng-container *transloco="let t; scope: 'admin', read: 'admin.unsubscribeForm'">
+  <div class="container">
+    <div class="row">
+      <div class="col l2">
+      </div>
+      <div class="col s12 m12 l8">
+        <h5 class="center margin-bot">{{t('unsubscribeQuestion')}}</h5>
+        <div class="row">
+          <!--       <div class="flex-row col s12">
 
-          <button
-            class="waves-effect waves-light btn red lighten-3 black-text"
-            (click)="unsubscribe(id)">JA
-          </button>
-          <button
-            type="button"
-            [routerLink]="''"
-            class="waves-effect waves-light btn grey lighten-3 black-text"
-            >NEIN
-          </button>
-        </div>-->
-
-        <form [formGroup]="unsubscribeForm" (ngSubmit)="unsubscribe()">
-          <mat-form-field class="full-width" appearance="standard">
-            <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
-            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && unsubscribeForm.value.email!==''">done</mat-icon>
-            <mat-error *ngIf="errorHandling('email', 'email')">Bitte eine Email eingeben.</mat-error>
-          </mat-form-field>
-          <div class="center">
             <button
-              id="unsubscribeButton"
-              mat-raised-button
-              color="primary"
-              type="submit"
-              [disabled]="!unsubscribeForm.valid"
-            >ABMELDEN</button>
-          </div>
-        </form>
+              class="waves-effect waves-light btn red lighten-3 black-text"
+              (click)="unsubscribe(id)">JA
+            </button>
+            <button
+              type="button"
+              [routerLink]="''"
+              class="waves-effect waves-light btn grey lighten-3 black-text"
+              >NEIN
+            </button>
+          </div>-->
+
+          <form [formGroup]="unsubscribeForm" (ngSubmit)="unsubscribe()">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>{{t('email')}}</mat-label>
+              <input matInput formControlName="email">
+              <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && unsubscribeForm.value.email!==''">done</mat-icon>
+              <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
+            </mat-form-field>
+            <div class="center">
+              <button
+                id="unsubscribeButton"
+                mat-raised-button
+                color="primary"
+                type="submit"
+                [disabled]="!unsubscribeForm.valid"
+              >{{t('unsubscribeButton')}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col l2">
       </div>
     </div>
-    <div class="col l2">
+    <div class="row">
+      <div class="col l2">
+      </div>
+      <div class="col s12 m12 l8">
+        <app-switch-language class="flex-row"></app-switch-language>
+      </div>
+      <div class="col l2">
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

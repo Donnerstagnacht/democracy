@@ -2,12 +2,13 @@
   <div id="bot-nav" class="overlay valign-wrapper">
     <div class="overlay-content">
       <ul>
-        <li class="curtain-hover" *ngFor=" let last = last; let menuTab of menuTabList | slice:3 ">
+        <li class="curtain-hover" *ngFor=" let last = last; let menuTab of menuTabList$ | async | slice:3 ">
           <a (click)="closeNav()" class="black-text" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
         </li>
         <li class="curtain-hover" *ngIf="logoutButton">
           <a (click)="closeNav(); logout()" class="black-text">LOGOUT</a>
         </li>
+        <app-switch-language></app-switch-language>
       </ul>
     </div>
   </div>

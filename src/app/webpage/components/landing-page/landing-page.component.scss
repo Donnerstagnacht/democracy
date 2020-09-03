@@ -6,6 +6,10 @@
   background-color: transparent;
 }
 
+.margin-top {
+  margin-top: 32px;
+}
+
 .iphone-x {
   text-align: center;
   margin: 16px auto 32px auto;
@@ -16,21 +20,11 @@
     0px 0px 0px 20px #111;
 }
 
-/* Animation  typewriter*/
-@keyframes animated-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-.typewriter1 {
-  font-family: "Raleway", sans-serif;
+.subheading {
   font-weight: 200;
-  font-size: 2em;
+  font-size: 1.5em;
   margin: 0.4em 0;
+  font-family: monospace;
 }
 
 @media screen and (max-width: 600px) {
@@ -38,6 +32,14 @@
     margin-top: 0px;
     margin-bottom: 30px;
     min-height: 350px!important;
+  }
+
+  .flex-container {
+    display: block;
+  }
+
+  .margin-top {
+    margin-top: 0px;
   }
 }
 

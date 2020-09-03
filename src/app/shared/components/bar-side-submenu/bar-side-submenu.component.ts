@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MenuTab } from '../../models/menuTab';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bar-side-submenu',
@@ -7,7 +8,7 @@ import { MenuTab } from '../../models/menuTab';
   styleUrls: ['./bar-side-submenu.component.scss']
 })
 export class BarSideSubmenuComponent implements OnInit {
-  @Input() menuTabList: MenuTab[];
+  @Input() menuTabList$: Observable<MenuTab[]>;
   @Input() stickyStart: number;
   @Input() stickyEnd: number;
   sticky: boolean;
@@ -17,7 +18,8 @@ export class BarSideSubmenuComponent implements OnInit {
    }
 
   ngOnInit(): void {
-      this.toggleSubMenu();
+    this.menuTabList$.subscribe();
+    this.toggleSubMenu();
   }
 
   @HostListener('window:scroll', ['$event']) onScrollEvent($event) {

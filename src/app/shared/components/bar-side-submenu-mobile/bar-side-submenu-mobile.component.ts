@@ -1,5 +1,6 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { MenuTab } from '../../models/menuTab';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-bar-side-submenu-mobile',
@@ -7,7 +8,7 @@ import { MenuTab } from '../../models/menuTab';
   styleUrls: ['./bar-side-submenu-mobile.component.scss']
 })
 export class BarSideSubmenuMobileComponent implements OnInit {
-  @Input() menuTabList: MenuTab[];
+  @Input() menuTabList$: Observable<MenuTab[]>;
   @Input() stickyStart: number;
   @Input() stickyEnd: number;
   sticky: boolean;
@@ -17,6 +18,7 @@ export class BarSideSubmenuMobileComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.menuTabList$.subscribe();
     this.toggleSubMenuMobile();
   }
 
