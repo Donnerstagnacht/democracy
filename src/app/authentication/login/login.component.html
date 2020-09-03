@@ -27,19 +27,19 @@
               [disabled]="!loginForm.valid"
               >{{t('login')}}
             </button>
-            <button
+         <!--   <button
               mat-flat-button
               (click)="changeLoginMode()"
               >{{t('registerFirst')}}
-            </button>
+            </button>-->
           </div>
           <div class="flex-row" *ngIf="!loginMode">
-            <button
+      <!--      <button
               mat-raised-button
               color="primary"
               type="submit"
               [disabled]="!loginForm.valid"
-            >{{t('register')}}</button>
+            >{{t('register')}}</button>-->
             <button
               mat-flat-button
               (click)="changeLoginMode()"

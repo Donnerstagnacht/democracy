@@ -183,7 +183,9 @@
         </ng-container>
       </div>
       <div id="{{clickDummyID}}" class="center">
-        <h4 class="inline-block padding-right-16">Klick Dummy</h4>
+        <ng-container *transloco="let t; scope: 'landing', read: 'landing.newsLetter'">
+          <h4 class="inline-block padding-right-16">{{t('clickDummy')}}</h4>
+        </ng-container>
         <app-button-share class="inline-block padding-left-16" [link]="link + '#' + clickDummyID"></app-button-share>
       </div>
       <div class="center margin-top">

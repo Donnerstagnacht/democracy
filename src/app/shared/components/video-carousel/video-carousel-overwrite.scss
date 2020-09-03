@@ -3,9 +3,11 @@
 
 .carousel .indicators .indicator-item {
   // bbackground-color: rgba(0, 0, 0, 0.12)!important;
-  background-color: #ffffff;
+  background-color: mat-color($left-life-primary, 600);
+  // background-color: #ffffff;
  }
 
  .carousel .indicators .indicator-item.active {
   background-color: mat-color($left-life-primary, 900)!important;
+  // background-color: black;
 }
