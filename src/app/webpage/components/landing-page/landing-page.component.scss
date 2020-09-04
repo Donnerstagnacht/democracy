@@ -1,15 +1,16 @@
-.margin-top {
-  margin-top: 32px;
+.padding-top {
+  padding-top: 32px;
 }
 
 .iphone-x {
   text-align: center;
   margin: 16px auto 32px auto;
-  width: 216px;
+  // 9:20.5 aka 360x820
+  width: 205.463px;
   height: 468px;
-  border-radius: 40px;
+  border-radius: 20px;
   box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919,
-    0px 0px 0px 20px #111;
+    0px 0px 0px 9px #111;
 }
 
 .subheading {
@@ -17,6 +18,10 @@
   font-size: 1.5em;
   margin: 0.4em 0;
   font-family: monospace;
+}
+
+.phoneContainer {
+  overflow: hidden;
 }
 
 @media screen and (max-width: 600px) {

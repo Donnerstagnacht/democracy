@@ -38,7 +38,7 @@ export class LandingPageComponent implements OnInit {
   hideElement(): void {
     this.counter++;
     if (this.counter > 13) {
-      this.counter = this.counter - 13;
+      this.counter = 1;
     }
   }
 
