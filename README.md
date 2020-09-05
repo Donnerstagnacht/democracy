@@ -9,11 +9,12 @@ The goal of this project is to build an application which supports political par
 5. [MaterializeCSS](https://materializecss.com/)
 6. [SendGrid](https://sendgrid.com/)
 7. [Transloco](https://github.com/ngneat/transloco)
+8. [Animate](https://github.com/animate-css/animate.css)
 
 # Other included libraries
-8. [jQuery](https://jquery.com/)
-9. [slick](https://kenwheeler.github.io/slick/)
-10. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
+9. [jQuery](https://jquery.com/)
+10. [slick](https://kenwheeler.github.io/slick/)
+11. [ngx-clipboard](https://github.com/maxisam/ngx-clipboard)
 
 # Contact
 If you would like to support this project, see [Contributing Guide](docs/tutorials/contributing.md) or write me an email: <a href="mailto:tobias.hassebrock@gmail.com">tobias.hassebrock@gmail.com</a>
