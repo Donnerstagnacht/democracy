@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { EmailSubscriberID, EmailSubscriber } from '../models/emailSubscriber';
-import { map } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -61,13 +61,22 @@ export class SubscriberService {
 
   unsubscribe(email: string): void {
     this.subscribersCollection = this.firestore.collection('subscribers', ref => ref.where('email', '==', email).limit(1));
-    this.subscribersCollection.snapshotChanges().pipe(
-      map((actions) => actions.map( a => {
-        const data = a.payload.doc.data() as EmailSubscriber;
-        const id = a.payload.doc.id;
-        return {id, ...data};
+
+    // tslint:disable-next-line:max-line-length
+    const documentChangeActionEmailSubscriber: Observable<DocumentChangeAction<EmailSubscriber>[]> = this.subscribersCollection.snapshotChanges();
+
+    const unsubscribeEmailSubscriberID$: Observable<EmailSubscriberID[]> = documentChangeActionEmailSubscriber.pipe(
+      map((documentChangeActionArray) => documentChangeActionArray.map( documentChangeAction => {
+        const emailUnsubscribeData: EmailSubscriber = documentChangeAction.payload.doc.data();
+        const ida: string = documentChangeAction.payload.doc.id;
+        const emailSubscriberID: EmailSubscriberID = {id: ida, email: emailUnsubscribeData.email};
+        return emailSubscriberID;
       }))
-    ).subscribe(subscribers => {
+    );
+
+    unsubscribeEmailSubscriberID$
+    .pipe(take(1))
+    .subscribe(subscribers => {
       if (subscribers.length >= 1) {
         this.deleteSubscriber(subscribers[0]);
       }

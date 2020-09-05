@@ -3,16 +3,17 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
 		match /subscribers/{subscriberId} {
-      allow read: if isSignedIn();
+      allow read: if true;
       allow update: if isSignedIn();
-      allow delete;
-      allow create;
+      allow delete: if true;
+      allow create: if true;
     }
 
     match /messagesWebpage/{messageId} {
     	allow read: if isSignedIn();
+      allow update: if isSignedIn();
       allow delete: if isSignedIn();
-      allow create;
+      allow create: if true;
     }
   }
 
