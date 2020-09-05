@@ -22,21 +22,21 @@
               </ng-container>
         </div>
         <div class="col s12 m6">
-          <div class="center margin-top">
-            <img *ngIf="counter===1" class="iphone-x" src="../assets/images/group-wiki.png" alt="group-wiki">
-            <img *ngIf="counter===2" class="iphone-x" src="../assets/images/group-stream.png" alt="group-stream">
-            <img *ngIf="counter===3" class="iphone-x" src="../assets/images/group-tasks.png" alt="group-tasks">
-            <img *ngIf="counter===4" class="iphone-x" src="../assets/images/group-event.png" alt="group-event">
-            <img *ngIf="counter===5" class="iphone-x" src="../assets/images/group-events.png" alt="group-events">
-            <img *ngIf="counter===6" class="iphone-x" src="../assets/images/group-event.png" alt="group-event">
-            <img *ngIf="counter===7" class="iphone-x" src="../assets/images/group-event-2.png" alt="group-event-2">
-            <img *ngIf="counter===8"class="iphone-x" src="../assets/images/group-ideas.png" alt="group-ideas">
-            <img *ngIf="counter===9" class="iphone-x" src="../assets/images/antrag-1.png" alt="antrag-1">
-            <img *ngIf="counter===10" class="iphone-x" src="../assets/images/antrag-2.png" alt="antrag-2">
-            <img *ngIf="counter===11" class="iphone-x" src="../assets/images/chat.png" alt="chat">
-            <img *ngIf="counter===12" class="iphone-x" src="../assets/images/notifications.png" alt="notifications">
-            <img *ngIf="counter===13" class="iphone-x" src="../assets/images/search-ideas.png" alt="search-ideas">
-            <img *ngIf="counter===14" class="iphone-x" src="../assets/images/search-persons.png" alt="search-person">
+          <div class="center padding-top phoneContainer">
+            <img [ngStyle]="{'display': counter===1 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-wiki.png" alt="group-wiki">
+            <img [ngStyle]="{'display': counter===2 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-stream.png" alt="group-stream">
+            <img [ngStyle]="{'display': counter===3 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-tasks.png" alt="group-tasks">
+            <img [ngStyle]="{'display': counter===4 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-event.png" alt="group-event">
+            <img [ngStyle]="{'display': counter===5 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-events.png" alt="group-events">
+            <img [ngStyle]="{'display': counter===6 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-event.png" alt="group-event">
+            <img [ngStyle]="{'display': counter===7 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-event-2.png" alt="group-event-2">
+            <img [ngStyle]="{'display': counter===8 ? 'block' : 'none' }"class="iphone-x animate__animated animate__slideInRight" src="../assets/images/group-ideas.png" alt="group-ideas">
+            <img [ngStyle]="{'display': counter===9 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/antrag-1.png" alt="antrag-1">
+            <img [ngStyle]="{'display': counter===10 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/antrag-2.png" alt="antrag-2">
+            <img [ngStyle]="{'display': counter===11 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/chat.png" alt="chat">
+            <img [ngStyle]="{'display': counter===12 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/notifications.png" alt="notifications">
+            <img [ngStyle]="{'display': counter===13 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/search-ideas.png" alt="search-ideas">
+            <img [ngStyle]="{'display': counter===14 ? 'block' : 'none' }" class="iphone-x animate__animated animate__slideInRight" src="../assets/images/search-persons.png" alt="search-person">
           </div>
         </div>
       </div>
