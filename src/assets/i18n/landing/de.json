@@ -49,7 +49,7 @@
     },
     {
       "title": "Koordinieren",
-      "text": "Unser Managementsystem für Events erstellt eine automatisierte Timeline. Themen werden integriert (z.B. Wahlen, Ideen usw.), Debatten koordiniert."
+      "text": "Unser Managementsystem für Events (z.B. Parteitage) erstellt eine automatisierte Timeline. Themen werden integriert (z.B. Wahlen, Ideen usw.), Debatten koordiniert."
     },
     {
       "title": "Aktualisieren",
@@ -184,7 +184,7 @@
 
     "testHeadline": "Testen",
     "testText-1": "Schon im März 2021 wollen wir eine Beta Version zum Testen veröffentlichen.",
-    "testText-2": "Bis dahin, click auf einen Button im visuellen Prototypen, um unsere Ideen zu testen!"
+    "testText-2": "Bis dahin, klick auf einen Button im visuellen Prototypen, um unsere Ideen zu testen!"
   },
 
   "newsLetter": {
