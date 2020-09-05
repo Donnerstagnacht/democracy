@@ -9,7 +9,7 @@ The goal of this project is to build an application which supports political par
 5. [MaterializeCSS](https://materializecss.com/)
 6. [SendGrid](https://sendgrid.com/)
 7. [Transloco](https://github.com/ngneat/transloco)
-8. [Animate](https://github.com/animate-css/animate.css)
+8. [AnimateCSS](https://github.com/animate-css/animate.css)
 
 # Other included libraries
 9. [jQuery](https://jquery.com/)
