@@ -37,6 +37,22 @@ p {
   background-color:  mat-color($left-life-acceptance);
 }
 
+.no-margin-top {
+  margin-top: 0px!important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0px!important;
+}
+
+.padding-left {
+  padding-left: 8px;
+}
+
+.padding-right {
+  padding-right: 8px;
+}
+
 /** * Menu HOver colour */
 /* ul > li .active, */
 ul > li .active, nav ul a:hover, .curtain-hover:hover  {

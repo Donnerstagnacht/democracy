@@ -1,1 +1,134 @@
-<p>profile-edit works!</p>
+<div class="row">
+  <div class="col l2">
+  </div>
+  <div class="col s12 m12 l8">
+    <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()">
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Display Name</mat-label>
+        <input matInput formControlName="displayName">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateProfileForm, 'displayName', 'required') && updateProfileForm.value.displayName==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling(this.updateProfileForm, 'displayName', 'required')">Bitte einen Namen eingeben</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Local Organisation</mat-label>
+        <input matInput formControlName="localOrganisation">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateProfileForm, 'localOrganisation', 'required') && updateProfileForm.value.localOrganisation!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling(this.updateProfileForm, 'localOrganisation', 'required')">Bitte deine lokale Organisation eingeben</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Regional Organisation</mat-label>
+        <input matInput formControlName="regionalOrganisation">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateProfileForm, 'regionalOrganisation', 'required') && updateProfileForm.value.regionalOrganisation!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling(this.updateProfileForm, 'regionalOrganisation', 'required')">Bitte deine regionale Organisation eingeben</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>National Organisation</mat-label>
+        <input matInput formControlName="nationalOrganisation">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateProfileForm, 'nationalOrganisation', 'required') && updateProfileForm.value.nationalOrganisation!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling(this.updateProfileForm, 'nationalOrganisation', 'required')">Bitte deine nationale Organisation eingeben</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>Transnational Organisation</mat-label>
+        <input matInput formControlName="transnationalOrganisation">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateProfileForm, 'transnationalOrganisation', 'required') && updateProfileForm.value.transnationalOrganisation!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling(this.updateProfileForm, 'transnationalOrganisation', 'required')">Bitte deine übernationale Organisation eingeben</mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <div class="flex-row col s12">
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="updateProfile()"
+            [disabled]="updateProfileForm.valid">CHANGE
+          </button>
+          <button
+            mat-button
+            type="button"
+            >CANCEL
+          </button>
+        </div>
+      </div>
+    </form>
+    <p *ngIf="profileUid">uid: {{profileUid}}</p>
+
+    <div class="card">
+      <div class="card-content">
+        <app-store-images></app-store-images>
+      </div>
+    </div>
+    <div class="card">
+
+      <div class="card-content">
+        <h5 class="center">Danger Zone</h5>
+        <p>Änderungen in diesem Bereich können den Zugang zum Account unwiederuflich verändern.</p>
+        <form [formGroup]="updateEmailForm">
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>Email ändern</mat-label>
+            <input matInput formControlName="email">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updateEmailForm, 'email', 'required') && !errorHandling(this.updateEmailForm, 'email', 'email') && updateEmailForm.value.email!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling(this.updateEmailForm, 'email', 'required') || errorHandling(this.updateEmailForm, 'email', 'email')">Bitte ein gültige Email eingeben</mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="flex-row col s12">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="updateEmail()"
+                [disabled]="!updateEmailForm.valid">EMAIL ÄNDERN
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form [formGroup]="updatePasswordForm">
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>Password ändern</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.updatePasswordForm, 'password', 'required') && !errorHandling(this.updatePasswordForm, 'password', 'minlength') && updatePasswordForm.value.password!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling(this.updatePasswordForm, 'password', 'minlength') || errorHandling(this.updatePasswordForm, 'password', 'required')">Bitte ein gültiges Password eingeben</mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="flex-row col s12">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="updatePassword()"
+                [disabled]="!updatePasswordForm.valid">PASSWORD ÄNDERN
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <form [formGroup]="deleteAccountForm">
+          <mat-form-field class="full-width" appearance="standard">
+            <mat-label>Account löschen</mat-label>
+            <input matInput formControlName="confirmDelete">
+            <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.deleteAccountForm, 'confirmDelete', 'required') && !errorHandling(this.deleteAccountForm, 'confirmDelete', 'minlength') && deleteAccountForm.value.confirmDelete!==''">done</mat-icon>
+            <mat-error *ngIf="errorHandling(this.deleteAccountForm, 'confirmDelete', 'minlength') || errorHandling(this.deleteAccountForm, 'confirmDelete', 'required')">Bitte ein gültiges Password eingeben</mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="flex-row col s12">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="deleteAccount()"
+                [disabled]="!deleteAccountForm.valid">ACCOUNT LÖSCHEN
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>

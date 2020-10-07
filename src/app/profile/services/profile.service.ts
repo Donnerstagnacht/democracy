@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class ProfileService {
 
   constructor() { }
+
+  readProfile(): void {}
+
+  updateProfile(): void {}
 }

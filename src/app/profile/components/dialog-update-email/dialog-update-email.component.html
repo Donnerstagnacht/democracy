@@ -1,0 +1,27 @@
+<ng-container *transloco="let t; scope: 'profile', read: 'profile.updateEmailDialog'">
+  <mat-dialog-content>
+    <h4 mat-dialog-title>{{t('updateQuestion')}}</h4>
+    <app-confirm-login (confirmLoginEvent)="confirmUpdateEmail($event)"></app-confirm-login>
+ <!--   <form [formGroup]="confirmUpdateEmailForm">
+      <mat-form-field class="full-width" appearance="standard">
+        <mat-label>{{t('subject')}}</mat-label>
+        <input matInput formControlName="confirmation">
+        <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('confirmation', 'required') && confirmUpdateEmailForm.value.subject!==''">done</mat-icon>
+        <mat-error *ngIf="errorHandling('confirmation', 'required')">{{t('subjectError')}}</mat-error>
+      </mat-form-field>
+    </form>-->
+  </mat-dialog-content>
+ <!-- <mat-dialog-actions class="flex-row">
+    <button
+      mat-raised-button
+      color="primary"
+      [mat-dialog-close]="confirmUpdateEmail()"
+      >{{t('yes')}}
+    </button>
+    <button
+      mat-button
+      [mat-dialog-close]="false"
+      >{{t('no')}}
+    </button>
+  </mat-dialog-actions>-->
+</ng-container>

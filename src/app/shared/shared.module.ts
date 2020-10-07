@@ -31,6 +31,8 @@ import { BarSideSubmenuTabletComponent } from './components/bar-side-submenu-tab
 import { TranslocoModule } from '@ngneat/transloco';
 import { SwitchLanguageComponent } from './components/switch-language/switch-language.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { TestComponent } from './components/test/test.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BarSideSubmenuComponent,
     BarSideSubmenuMobileComponent,
     BarSideSubmenuTabletComponent,
-    SwitchLanguageComponent
+    SwitchLanguageComponent,
+    TestComponent,
+    StatisticsComponent
   ],
   imports: [
     CommonModule,
@@ -91,6 +95,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BarSideSubmenuMobileComponent,
     BarSideSubmenuTabletComponent,
     SwitchLanguageComponent,
+    TestComponent,
+    StatisticsComponent,
 
     MatCardModule,
     MatIconModule,

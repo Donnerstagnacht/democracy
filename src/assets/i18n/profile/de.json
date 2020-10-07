@@ -1,0 +1,13 @@
+{
+  "deleteAccountDialog": {
+    "yes": "JA",
+    "no": "NEIN",
+    "deleteQuestion": "Möchtest du den Account wirklich löschen?"
+  },
+
+  "updatePasswordDialog": {
+    "yes": "JA",
+    "no": "NEIN",
+    "updateQuestion": "Möchtest du das Pass??"
+  }
+}

@@ -4,21 +4,38 @@ service cloud.firestore {
 
 		match /subscribers/{subscriberId} {
       allow read: if true;
-      allow update: if isSignedIn();
+      allow update: if isAdmin();
       allow delete: if true;
       allow create: if true;
+
+      function isAdmin() {
+    		return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true
+  		}
     }
 
     match /messagesWebpage/{messageId} {
+    	allow read: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+      allow create: if true;
+
+      function isAdmin() {
+        return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true
+      }
+    }
+
+  	match /users/{userId} {
     	allow read: if isSignedIn();
       allow update: if isSignedIn();
       allow delete: if isSignedIn();
       allow create: if true;
     }
+
+
   }
 
   function isSignedIn() {
       return request.auth != null;
-    }
+  }
 
 }

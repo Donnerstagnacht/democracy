@@ -1,0 +1,33 @@
+<ng-container *transloco="let t; scope: 'authentication', read: 'authentication.loginForm'">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <mat-form-field class="full-width" appearance="standard">
+      <mat-label>{{t('email')}}</mat-label>
+      <input matInput formControlName="email">
+      <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('email', 'email') && loginForm.value.email!==''">done</mat-icon>
+      <mat-error *ngIf="errorHandling('email', 'email')">{{t('emailError')}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="standard">
+      <mat-label>{{t('password')}}</mat-label>
+      <input matInput formControlName="password" type="password">
+      <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling('password', 'required') && !errorHandling('password', 'minlength') && loginForm.value.passwprd!==''">done</mat-icon>
+      <mat-error *ngIf="errorHandling('password', 'minlength') || errorHandling('password', 'required')">{{t('passwordError')}}</mat-error>
+    </mat-form-field>
+
+    <div class="flex-row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!loginForm.valid"
+        >{{t('login')}} & CONFIRM
+      </button>
+      <button
+      mat-button
+      type="text"
+      (click)="cancelConfirmationProcess()"
+      >CANCEL
+    </button>
+    </div>
+  </form>
+  </ng-container>
