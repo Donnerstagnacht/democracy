@@ -1,1 +1,42 @@
 <p>store-images works!</p>
+<div
+  class="dropzone"
+  appDropzone
+  (hovered)="toggleHover($event)"
+  (dropped)="startUpload($event)"
+  [class.hovering]="isHoovering"
+>
+  <h3>Profile image Drop Zone</h3>
+  <p>Drag and Drop a  File here</p>
+  <div class="file">
+    <label></label>
+    <input
+      type="file"
+      (change)="startUpload($event.target.files)">
+
+  </div>
+</div>
+
+<div *ngIf="uploadPercentage | async as pct">
+  <p>{{pct}}</p>>
+
+</div>
+
+<input type="file" (change)="fileChangeEvent($event)" />
+
+<div class="div">
+  <image-cropper
+  [imageChangedEvent]="imageChangedEvent"
+  [maintainAspectRatio]="true"
+  [aspectRatio]="4 / 3"
+  format="png"
+  (imageCropped)="imageCropped($event)"
+  (imageLoaded)="imageLoaded()"
+  (cropperReady)="cropperReady()"
+  (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+</div>
+
+<div class="div">
+  <img [src]="croppedImage" />
+</div>

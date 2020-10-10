@@ -1,52 +1,59 @@
 <div class="container">
-<div class="row">
-  <div class="col l2">
-  </div>
-  <div *ngIf="profileData$ | async as profileData" class="col s12 m12 l8 card">
-    <div class="flex-row">
-      <div class="valign-wrapper">
-        <div class="max-height round padding-right">
-          <img  class="profile-image round" height="50px" src="{{profileData.profileImage}}">
+  <div class="row">
+    <div class="col l2">
+    </div>
+    <div class="col s12 m12 l8">
+      <div *ngIf="profileData$ | async as profileData" class="card">
+        <div class="flex-row">
+          <div class="valign-wrapper">
+            <div class="max-height round padding-right">
+              <img  class="profile-image round" height="50px" src="{{profileData.profileImage}}">
+            </div>
+            <div class="padding-left">
+              <p class="card-title no-margin-bottom">{{profileData.displayName}}</p>
+              <p class="no-margin-top">{{profileData.localOrganisation}} - {{profileData.regionalOrganisation}} - {{profileData.nationalOrganisation}}</p>
+            </div>
+          </div>
         </div>
-        <div class="padding-left">
-          <p class="card-title no-margin-bottom">{{profileData.displayName}}</p>
-          <p class="no-margin-top">{{profileData.localOrganisation}} - {{profileData.regionalOrganisation}} - {{profileData.nationalOrganisation}}</p>
+        <div class="flex-row">
+          <app-statistics
+            [number]="profileData.followerTotal"
+            [label]="'Follower'">
+          </app-statistics>
+          <app-statistics
+            [number]="profileData.followingTotal"
+            [label]="'Following'">
+          </app-statistics>
+          <app-statistics
+            [number]="profileData.postsTotal"
+            [label]="'Posts'">
+          </app-statistics>
+          <app-statistics
+            [number]="profileData.ideasTotal"
+            [label]="'Ideas'">
+          </app-statistics>
+        </div>
+
+        <div class="center margin-bot-16">
+          <p class="hashtags" *ngFor="let hashtag of profileData.hashtags">#{{hashtag}} </p>
+        </div>
+
+        <div class="center margin-bot-16">
+          <button *ngIf="!editMode" mat-raised-button color="primary" >Follow</button>
+          <button routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >Edit</button>
         </div>
       </div>
     </div>
-
-
-
-    <div class="flex-row">
-      <app-statistics
-        [number]="profileData.followerTotal"
-        [label]="'Follower'">
-      </app-statistics>
-      <app-statistics
-        [number]="profileData.followingTotal"
-        [label]="'Following'">
-      </app-statistics>
-      <app-statistics
-        [number]="profileData.postsTotal"
-        [label]="'Posts'">
-      </app-statistics>
-      <app-statistics
-        [number]="profileData.ideasTotal"
-        [label]="'Ideas'">
-      </app-statistics>
-    </div>
-
-    <div class="center margin-bot-16">
-      <p class="hashtags" *ngFor="let hashtag of profileData.hashtags">#{{hashtag}} </p>
-    </div>
-
-    <div class="center margin-bot-16">
-      <button *ngIf="!editMode" mat-raised-button color="primary" >Follow</button>
-      <button routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >Edit</button>
+    <div class="col l2">
     </div>
   </div>
-  <button (click)="deleteUser()">Delete User</button>
-  <div class="col l2">
-  </div>
-</div>
+  <div class="row">
+    <div class="col l2">
+    </div>
+    <div class="col s12 m12 l8">
+      <app-store-images></app-store-images>
+      <button (click)="deleteUser()">Delete User</button>
+    </div>
+    <div class="col l2">
+    </div>
 </div>

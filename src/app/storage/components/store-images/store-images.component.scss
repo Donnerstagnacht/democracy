@@ -1,0 +1,18 @@
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+.hovering {
+  background-color: red;
+}
+
+.dropzone {
+  width: 300px;
+  height: 100px;
+  background-color: blue;
+}
+
+.div {
+  width: 300px;
+  height: 200px;
+}

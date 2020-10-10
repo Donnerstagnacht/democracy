@@ -1,0 +1,26 @@
+<div class="flex-row margin-16">
+  <button mat-raised-button color="primary" (click)="openInput()">Edit Profile Image</button>
+  <input id="uploadButton" hidden mat-raised-button color="primary" type="file" (change)="fileChangeEvent($event)"/>
+</div>
+
+<div class="flex-row max-height">
+  <image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    [cropperStaticWidth]="200"
+    [cropperStaticHeight]="200"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (imageLoaded)="imageLoaded()"
+    (cropperReady)="cropperReady()"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+</div>
+
+<div class="flex-row">
+  <img class="max-width" [src]="croppedImage"/>
+</div>
+
+<div class="flex-row margin-16">
+  <button [disabled]="uploadPossible" mat-raised-button color="primary" (click)="startUpload()">Upload</button>
+</div>

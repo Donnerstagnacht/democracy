@@ -102,6 +102,13 @@ export class AuthService {
     userDocRef.update(updateData);
   }
 
+  updateProfileImage(path: string): void {
+    this.getUserId().subscribe((userId: string) => {
+      const userDocRef: AngularFirestoreDocument<Profile> = this.firestore.doc(`users/${userId}`);
+      userDocRef.update({profileImage: path});
+    });
+  }
+
   // throws error: Cannot read property 'delete' of null at SafeSubscriber.
   deleteUser(): void {
     this.auth.authState.subscribe(currentUser => {
