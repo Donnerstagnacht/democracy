@@ -1,0 +1,34 @@
+<app-bar-bot-login></app-bar-bot-login>
+<app-bar-top-login></app-bar-top-login>
+<app-bar-side-login></app-bar-side-login>
+<div class="container">
+  <div class="row">
+    <div class="col l2">
+    </div>
+    <div class="col s12 m12 l8">
+      <div class="card">
+        <div class="card-content">
+          <form [formGroup]="searchUserForm" (ngSubmit)="searchUser()">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Search Term</mat-label>
+              <input matInput formControlName="searchTerm">
+              <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.searchUserForm, 'searchTerm', 'required') && searchUserForm.value.displayName==''">done</mat-icon>
+              <mat-error *ngIf="errorHandling(this.searchUserForm, 'searchTerm', 'required')">Bitte einen Searchterm eingeben</mat-error>
+            </mat-form-field>
+            <div class="flex-row">
+              <button
+                mat-raised-button
+                color="primary"
+                type="submit"
+                (click)="searchUser()"
+                [disabled]="!searchUserForm.valid">SEARCH
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col l2">
+    </div>
+  </div>
+</div>
