@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppSideBarComponent } from './app-side-bar.component';
+import { BarBotLoginComponent } from './bar-bot-login.component';
 
-describe('AppSideBarComponent', () => {
-  let component: AppSideBarComponent;
-  let fixture: ComponentFixture<AppSideBarComponent>;
+describe('BarBotLoginComponent', () => {
+  let component: BarBotLoginComponent;
+  let fixture: ComponentFixture<BarBotLoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppSideBarComponent ]
+      declarations: [ BarBotLoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppSideBarComponent);
+    fixture = TestBed.createComponent(BarBotLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

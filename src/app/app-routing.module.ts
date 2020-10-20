@@ -11,6 +11,10 @@ import { NoAdminPermissionComponent } from './authentication/no-admin-permission
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () => import('./timeline/timeline.module').then(module => module.TimelineModule)
+  },
+  {
     path: 'home',
     // component: WebpageComponent
     loadChildren: () => import('./webpage/webpage.module').then(module => module.WebpageModule)
@@ -34,6 +38,10 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then(module => module.SearchModule)
   },
   {
     path: '**',

@@ -1,3 +1,6 @@
+<app-bar-bot-login></app-bar-bot-login>
+<app-bar-top-login></app-bar-top-login>
+<app-bar-side-login></app-bar-side-login>
 <div class="container">
   <div class="row">
     <div class="col l2">
@@ -34,13 +37,13 @@
           </app-statistics>
         </div>
 
-        <div class="center margin-bot-16">
+        <div class="center margin-bot-16 ">
           <p class="hashtags" *ngFor="let hashtag of profileData.hashtags">#{{hashtag}} </p>
         </div>
 
-        <div class="center margin-bot-16">
-          <button *ngIf="!editMode" mat-raised-button color="primary" >Follow</button>
-          <button routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >Edit</button>
+        <div class="center">
+          <button class="margin-bot-16" *ngIf="!editMode" mat-raised-button color="primary" >Follow</button>
+          <button class="margin-bot-16" routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >Edit</button>
         </div>
       </div>
     </div>
@@ -51,8 +54,6 @@
     <div class="col l2">
     </div>
     <div class="col s12 m12 l8">
-      <app-store-images></app-store-images>
-      <button (click)="deleteUser()">Delete User</button>
     </div>
     <div class="col l2">
     </div>

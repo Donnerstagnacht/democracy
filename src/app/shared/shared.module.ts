@@ -33,6 +33,10 @@ import { SwitchLanguageComponent } from './components/switch-language/switch-lan
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TestComponent } from './components/test/test.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { BarBotLoginComponent } from './components/bar-bot-login/bar-bot-login.component';
+import { BarSideLoginComponent } from './components/bar-side-login/bar-side-login.component';
+import { BarTopLoginComponent } from './components/bar-top-login/bar-top-login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,10 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     BarSideSubmenuTabletComponent,
     SwitchLanguageComponent,
     TestComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    BarBotLoginComponent,
+    BarSideLoginComponent,
+    BarTopLoginComponent,
   ],
   imports: [
     CommonModule,
@@ -74,7 +81,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 
     TranslocoModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: [
     MatMenuModule,
@@ -97,6 +105,9 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     SwitchLanguageComponent,
     TestComponent,
     StatisticsComponent,
+    BarBotLoginComponent,
+    BarSideLoginComponent,
+    BarTopLoginComponent,
 
     MatCardModule,
     MatIconModule,

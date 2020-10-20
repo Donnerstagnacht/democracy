@@ -35,31 +35,6 @@ export class StoreImagesService {
         this.authService.updateProfileImage(url);
       });
     });
-/*
-    console.log('test1');
-    this.task.snapshotChanges().subscribe(
-      (snap) => {
-        console.log('test2');
-        if (snap.bytesTransferred === snap.totalBytes) {
-        console.log('test3');
-        this.angularFirestore.collection('test').add({path});
-        // this.authService.updateProfileImage(path);
 
-        const ref = this.angularFireStorage.storage.ref(path);
-        const downloadUrl = ref.getDownloadURL();
-        console.log('url', downloadUrl);
-        downloadUrl.then((url) => {
-          console.log('innerUrl', url);
-          this.authService.updateProfileImage(url);
-
-        }
-        );
-
-
-        console.log('test4');
-        return snap;
-       }
-      }
-    );*/
   }
 }
