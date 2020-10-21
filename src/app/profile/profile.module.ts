@@ -12,7 +12,6 @@ import { DialogUpdatePasswordComponent } from './components/dialog-update-passwo
 import { ConfirmLoginComponent } from './components/confirm-login/confirm-login.component';
 import { StorageModule } from '../storage/storage.module';
 
-
 @NgModule({
   declarations: [
     ProfileComponent,

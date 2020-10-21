@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { Profile } from 'src/app/profile/models/profile';
 import { GeneralFormsService } from 'src/app/shared/services/general-forms.service';
 import { SearchService } from '../../services/search.service';
 
@@ -9,6 +11,8 @@ import { SearchService } from '../../services/search.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  userSearchResults: Observable<Profile[]>;
+
   searchUserForm = this.fb.group({
     searchTerm: ['', [Validators.required]]
   });
@@ -25,7 +29,10 @@ export class SearchComponent implements OnInit {
   searchUser() {
     const searchTerm = this.searchUserForm.value.searchTerm;
     console.log('searching for', searchTerm);
-    this.searchService.searchUser(searchTerm);
+    this.userSearchResults = this.searchService.searchUser(searchTerm);
+    this.userSearchResults.subscribe(() => {
+      console.log(this.userSearchResults);
+    });
   }
 
   errorHandling(form: FormGroup, control: string, error: string): boolean {
