@@ -17,14 +17,14 @@ export class StoreImagesService {
     private authService: AuthService
   ) { }
 
-  startBlobUpload(event: Blob): void {
+  // return Observable<string> -> the url
+  startBlobUpload(event: Blob, folderPath: string): void {
     const file = event;
 
     if (file.type.split('/')[0] !== 'image') {
       console.error('unsupported file type');
     }
-
-    const path = `test/${new Date().getTime()}`;
+    const path = `${folderPath}/${new Date().getTime()}`;
     this.task = this.angularFireStorage.upload(path, file);
 
     this.uploadPercentage = this.task.percentageChanges();
@@ -33,8 +33,8 @@ export class StoreImagesService {
       this.angularFireStorage.ref(path).getDownloadURL().subscribe((url) => {
         console.log('promiseURL', url);
         this.authService.updateProfileImage(url);
+        // this.createPost.updatePostImage(url);
       });
     });
-
   }
 }

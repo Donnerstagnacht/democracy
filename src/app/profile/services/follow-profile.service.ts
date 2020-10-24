@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AuthService } from 'src/app/authentication/auth.service';
-import { Profile } from '../models/profile';
 import * as firebase from 'firebase/app';
-import { WriteBatch } from '@google-cloud/firestore';
 import { DocumentReference } from '@firebase/firestore-types';
 import { Observable } from 'rxjs';
 
@@ -15,7 +13,6 @@ export class FollowProfileService {
 
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthService
   ) { }
 
   isAlreadyFollowing(loggedInUserId: string, visitedUserId: string): Observable<any> {

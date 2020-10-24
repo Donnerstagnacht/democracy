@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { base64ToFile, ImageCroppedEvent } from 'ngx-image-cropper';
 import { StoreImagesService } from '../services/store-images.service';
 
@@ -8,6 +8,7 @@ import { StoreImagesService } from '../services/store-images.service';
   styleUrls: ['./image-cropper.component.scss']
 })
 export class ImageCropperComponent implements OnInit {
+  @Input() folderPath: string;
   imageChangedEvent: any = '';
   croppedImage: any = '';
   file: Blob;
@@ -47,7 +48,7 @@ export class ImageCropperComponent implements OnInit {
   }
 
   startUpload(): void {
-    this.storeImageService.startBlobUpload(this.file);
+    this.storeImageService.startBlobUpload(this.file, this.folderPath);
     // this.storeImageService.startCropperUpload(this.croppedImage);
   }
 }

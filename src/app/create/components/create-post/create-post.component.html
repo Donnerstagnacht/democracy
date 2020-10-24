@@ -1,0 +1,47 @@
+<app-bar-bot-login></app-bar-bot-login>
+<app-bar-top-login></app-bar-top-login>
+<app-bar-side-login></app-bar-side-login>
+<div class="container">
+  <div class="row">
+    <div class="col l2">
+    </div>
+    <div class="col s12 m12 l8">
+      <div class="card">
+        <div class="card-content">
+          <form [formGroup]="createPostForm" (ngSubmit)="createPost()">
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Add Title</mat-label>
+              <input matInput formControlName="title">
+              <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.createPostForm, 'title', 'required') && createPostForm.value.title!==''">done</mat-icon>
+              <mat-error *ngIf="errorHandling(this.createPostForm, 'title', 'required')">Bitte einen Titel eingeben</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="standard">
+              <mat-label>Add Text</mat-label>
+              <textarea  matInput cdkTextareaAutosize formControlName="text"></textarea>
+              <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.createPostForm, 'text', 'required') && createPostForm.value.text!==''">done</mat-icon>
+              <mat-error *ngIf="errorHandling(this.createPostForm, 'text', 'required')">Bitte einen Text eingeben</mat-error>
+            </mat-form-field>
+
+            <div class="row">
+              <div class="flex-row col s12">
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="submit"
+                  (click)="createPost()"
+                  [disabled]="!createPostForm.valid">CREATE
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <app-image-cropper [folderPath]="'post'"></app-image-cropper>
+
+    </div>
+    <div class="col l2">
+    </div>
+  </div>
+</div>

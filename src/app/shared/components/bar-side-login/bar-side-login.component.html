@@ -6,6 +6,9 @@
         <a *ngIf="menuTab.tabRouterLink" class="black-text" [routerLink]="[menuTab.tabRouterLink]">{{menuTab.tabName}}</a>
       </li>-->
       <li class="flex-row full-width">
+        <i [routerLink]="['/create']" class="fas fa-plus-square hover black-text padding"></i>
+      </li>
+      <li class="flex-row full-width">
         <i [routerLink]="['/profile']" class="fas fa-user hover black-text padding"></i>
       </li>
       <li class="flex-row full-width">

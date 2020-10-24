@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin/components/admin/admin.component';
-import { WebpageComponent } from './webpage/components/webpage/webpage.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { LoginComponent } from './authentication/login/login.component';
-import { AdminNewsletterComponent } from './admin/components/admin-newsletter/admin-newsletter.component';
-import { AdminUnsubscribeComponent } from './admin/components/admin-unsubscribe/admin-unsubscribe.component';
 import { PasswordResetComponent } from './authentication/password-reset/password-reset.component';
 import { NoAdminPermissionComponent } from './authentication/no-admin-permission/no-admin-permission.component';
 
@@ -22,6 +18,10 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then(module => module.CreateModule)
   },
   {
     path: 'login',
