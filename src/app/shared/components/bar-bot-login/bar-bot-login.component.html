@@ -6,6 +6,9 @@
     <li>
       <i [routerLink]="['/search']" class="fas fa-search hover black-text padding"></i>
     </li>
+    <li>
+      <i (click)="logout()" class="fas fa-sign-out-alt hover black-text padding"></i>
+    </li>
  <!--   <li *ngFor="let menuTab of menuTabList$ | async | slice:0:3">
       <a class="black-text padding" (click)="closeNav()" href="{{menuTab.tabLink}}">{{menuTab.tabName}}</a>
     </li>

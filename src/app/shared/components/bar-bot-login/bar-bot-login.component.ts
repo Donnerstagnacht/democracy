@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/authentication/auth.service';
 
 @Component({
   selector: 'app-bar-bot-login',
@@ -8,9 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BarBotLoginComponent implements OnInit {
   @Input() logoutButton: boolean;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this.authService.logoutUser();
   }
 
 }

@@ -35,8 +35,8 @@
   <div class="row">
     <div class="col l2">
     </div>
-    <div class="col s12 m12 l8" *ngFor="let user of userSearchResults | async">
-      <app-results-user [user]="user"></app-results-user>
+    <div class="col s12 m12 l8">
+      <app-results-user  *ngFor="let user of userSearchResults | async" [user]="user"></app-results-user>
     </div>
     <div class="col l2">
     </div>

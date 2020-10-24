@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="col s12 m6">
-    <div class="card" [routerLink]="['/profile', user.uid]">
-      <div class="card-image">
-        <p>{{user.uid}}</p>
-        <img src="{{user.profileImage}}">
-        <span class="card-title">{{user.displayName}}</span>
-      </div>
-      <div class="card-content" *ngFor="let hashtag of user.hashtags">
-        <p>#{{hashtag}}</p>
-      </div>
+<div class="col s12 m6 l6">
+  <div class="card" [routerLink]="['/profile', user.uid]">
+    <div class="card-image">
+      <p>{{user.uid}}</p>
+      <img src="{{user.profileImage}}">
+      <span class="card-title">{{user.displayName}}</span>
+    </div>
+    <div class="card-content" *ngFor="let hashtag of user.hashtags">
+      <p>#{{hashtag}}</p>
     </div>
   </div>
 </div>

@@ -11,8 +11,8 @@
       <li class="flex-row full-width">
         <i [routerLink]="['/search']" class="fas fa-search hover black-text padding"></i>
       </li>
-      <li class="full-width">
-        <a *ngIf="logoutButton" class="black-text" (click)="logout()">LOGOUT</a>
+      <li class="flex-row full-width">
+        <i (click)="logout()" class="fas fa-sign-out-alt hover black-text padding"></i>
       </li>
       <app-switch-language></app-switch-language>
     </ul>
