@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -16,6 +17,7 @@ export class ProfileComponent implements OnInit {
   profileData$: Observable<Profile>;
   editMode: boolean;
   loggedInUserId$: Observable<string>;
+  alreadyFollowing: boolean;
 
   constructor(
     private authService: AuthService,
@@ -30,19 +32,44 @@ export class ProfileComponent implements OnInit {
       if (id) {
         this.profileData$ = this.authService.readProfile(id);
         this.loggedInUserId$ = this.authService.getUserId();
-        this.loggedInUserId$.subscribe(uid => {
-          if (id === uid) {
-            this.editMode = true;
-          } else {
-            this.editMode = false;
-          }
-        });
+        this.isVisitedUserEqualToLoggedInUser(id);
+
+        this.isAlreadyFollowing(id);
       } else {
         this.profileData$ = this.authService.readLoggedInUserProfile();
         this.editMode = true;
       }
     });
-    this.editMode = true;
+  }
+
+  isVisitedUserEqualToLoggedInUser(id: string): void {
+    this.loggedInUserId$.subscribe(uid => {
+      if (id === uid) {
+        this.editMode = true;
+      } else {
+        this.editMode = false;
+      }
+    });
+  }
+
+  isAlreadyFollowing(id: string): void {
+    this.loggedInUserId$.pipe(take(1)).subscribe(loggedInUserId => {
+      console.log(loggedInUserId);
+      this.profileData$.pipe(take(1)).subscribe(profileData => {
+        console.log('test');
+        const visitedUserId = profileData.uid;
+        this.followProfileService.isAlreadyFollowing(loggedInUserId, visitedUserId).subscribe(document => {
+          if (document) {
+            console.log('true');
+            console.log(document);
+            this.alreadyFollowing = true;
+          } else {
+            console.log('false');
+            this.alreadyFollowing = false;
+          }
+        });
+      });
+    });
   }
 
   follow(): void {
@@ -58,10 +85,13 @@ export class ProfileComponent implements OnInit {
   }
 
   unFollow(): void {
-    this.followProfileService.unFollow();
-  }
-
-  deleteUser(): void {
-    this.authService.deleteUser();
+    this.loggedInUserId$.pipe(take(1)).subscribe(loggedInUserId => {
+      console.log(loggedInUserId);
+      this.profileData$.pipe(take(1)).subscribe(profileData => {
+        console.log('test');
+        const visitedUserId = profileData.uid;
+        this.followProfileService.unFollow(loggedInUserId, visitedUserId);
+      });
+    });
   }
 }

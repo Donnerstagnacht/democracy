@@ -42,8 +42,9 @@
         </div>
 
         <div class="center">
-          <button class="margin-bot-16" (click)="follow()" *ngIf="!editMode" mat-raised-button color="primary" >Follow</button>
-          <button class="margin-bot-16" routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >Edit</button>
+          <button class="margin-bot-16" (click)="follow()" *ngIf="!editMode && !alreadyFollowing" mat-raised-button color="primary" >FOLLOW</button>
+          <button class="margin-bot-16" (click)="unFollow()" *ngIf="!editMode && alreadyFollowing" mat-raised-button color="primary" >UNFOLLOW</button>
+          <button class="margin-bot-16" routerLink="/profile/edit" *ngIf="editMode" mat-raised-button color="primary" >EDIT</button>
         </div>
       </div>
     </div>

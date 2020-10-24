@@ -4,6 +4,9 @@ import { AuthService } from 'src/app/authentication/auth.service';
 import { Profile } from '../models/profile';
 import * as firebase from 'firebase/app';
 import { WriteBatch } from '@google-cloud/firestore';
+import { DocumentReference } from '@firebase/firestore-types';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,60 +18,71 @@ export class FollowProfileService {
     private authService: AuthService
   ) { }
 
-  follow(loggedInUserId: string, visitedUserId: string): void {
-    console.log(loggedInUserId);
-    console.log(visitedUserId);
-    const batch = this.firestore.firestore.batch();
-    this.createFollowing(loggedInUserId, visitedUserId);
-    this.incrementFollowing(loggedInUserId);
-    this.createFollower(loggedInUserId, visitedUserId);
-    this.incrementFollower(visitedUserId);
+  isAlreadyFollowing(loggedInUserId: string, visitedUserId: string): Observable<any> {
+    const followerRef: AngularFirestoreDocument<any> = this.firestore
+    .collection('users')
+    .doc(loggedInUserId)
+    .collection('following')
+    .doc(visitedUserId);
 
-    // batch.set(this.createFollowing(loggedInUserId, visitedUserId));
+    return followerRef.valueChanges();
   }
 
-  unFollow(): void {}
+  follow(loggedInUserId: string, visitedUserId: string): void {
+    const batch = this.firestore.firestore.batch();
+    const increment = firebase.firestore.FieldValue.increment(1);
+    batch.set(this.createFollowingDoc(loggedInUserId, visitedUserId), {following: visitedUserId});
+    batch.update(this.incrementFollowing(loggedInUserId), { followingTotal: increment });
+    batch.set(this.createFollowerDoc(loggedInUserId, visitedUserId), {follower: loggedInUserId});
+    batch.update(this.incrementFollower(visitedUserId), { followerTotal: increment });
+    batch.commit();
+  }
 
-  createFollowing(loggedInUserId: string, visitedUserId: string): any {
-    const userDocRef: AngularFirestoreDocument<any> = this.firestore
+  unFollow(loggedInUserId: string, visitedUserId: string): void {
+    console.log(loggedInUserId);
+    const batch = this.firestore.firestore.batch();
+    const decrement = firebase.firestore.FieldValue.increment(-1);
+    batch.delete(this.createFollowingDoc(loggedInUserId, visitedUserId));
+    batch.update(this.incrementFollowing(loggedInUserId), { followingTotal: decrement });
+    batch.delete(this.createFollowerDoc(loggedInUserId, visitedUserId));
+    batch.update(this.incrementFollower(visitedUserId), { followerTotal: decrement });
+    batch.commit();
+  }
+
+  createFollowingDoc(loggedInUserId: string, visitedUserId: string): DocumentReference<any> {
+    const userDocRef: DocumentReference<any> = this.firestore
       .collection('users')
       .doc(loggedInUserId)
       .collection('following')
-      .doc(visitedUserId);
-    const newFollower = {
-      follows: visitedUserId
-    };
-    // userDocRef.set(newFollower);
-    return {userDocRef, newFollower};
-
+      .doc(visitedUserId)
+      .ref;
+    return userDocRef;
   }
 
-  incrementFollowing(loggedInUserId: string): void {
-    const followingCounterRef: AngularFirestoreDocument<Profile> = this.firestore
+  incrementFollowing(loggedInUserId: string): DocumentReference<any> {
+    const followingCounterRef: DocumentReference<any> = this.firestore
       .collection('users')
-      .doc(loggedInUserId);
-    const increment = firebase.firestore.FieldValue.increment(1);
-    followingCounterRef.update({ followingTotal: increment });
+      .doc(loggedInUserId)
+      .ref;
+    return followingCounterRef;
   }
 
-  createFollower(loggedInUserId: string, visitedUserId: string): void {
-    const userDocRef: AngularFirestoreDocument<any> = this.firestore
+  createFollowerDoc(loggedInUserId: string, visitedUserId: string): DocumentReference<any> {
+    const userDocRef: DocumentReference<any> = this.firestore
       .collection('users')
       .doc(visitedUserId)
       .collection('follower')
-      .doc(loggedInUserId);
-    const newFollower = {
-      following: loggedInUserId
-    };
-    userDocRef.set(newFollower);
+      .doc(loggedInUserId)
+      .ref;
+    return userDocRef;
   }
 
-  incrementFollower(visitedUserId: string): void {
-    const followingCounterRef: AngularFirestoreDocument<Profile> = this.firestore
+  incrementFollower(visitedUserId: string): DocumentReference<any> {
+    const followingCounterRef: DocumentReference<any> = this.firestore
     .collection('users')
-    .doc(visitedUserId);
-    const increment = firebase.firestore.FieldValue.increment(1);
-    followingCounterRef.update({ followerTotal: increment });
+    .doc(visitedUserId)
+    .ref;
+    return followingCounterRef;
   }
 
   deleteFollowing(): void {}
