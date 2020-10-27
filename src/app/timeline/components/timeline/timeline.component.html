@@ -5,7 +5,9 @@
   <div class="col l2">
   </div>
   <div class="col s12 m12 l8">
-    <p>Timeline</p>
+    <div *ngFor="let post of posts$ | async">
+      <app-profile-post [post]="post"></app-profile-post>
+    </div>
   </div>
   <div class="col l2">
   </div>
