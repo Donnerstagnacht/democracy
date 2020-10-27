@@ -128,4 +128,8 @@ export class ProfileEditComponent implements OnInit {
     });
   }
 
+  handleImageUpload(url: string) {
+    this.authService.updateProfileImage(url);
+  }
+
 }

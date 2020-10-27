@@ -99,13 +99,18 @@ export class AuthService {
     }
     ): void {
     const userDocRef: AngularFirestoreDocument<Profile> = this.firestore.doc(`users/${userId}`);
-    userDocRef.update(updateData);
+    userDocRef.update(updateData).then(() => {
+      this.router.navigate(['profile']);
+    });
   }
 
   updateProfileImage(path: string): void {
     this.getUserId().subscribe((userId: string) => {
       const userDocRef: AngularFirestoreDocument<Profile> = this.firestore.doc(`users/${userId}`);
-      userDocRef.update({profileImage: path});
+      userDocRef.update({profileImage: path}).then(() => {
+        this.router.navigate(['profile']);
+      }
+      );
     });
   }
 

@@ -23,22 +23,26 @@
               <mat-error *ngIf="errorHandling(this.createPostForm, 'text', 'required')">Bitte einen Text eingeben</mat-error>
             </mat-form-field>
 
+
+
             <div class="row">
               <div class="flex-row col s12">
                 <button
                   mat-raised-button
                   color="primary"
                   type="submit"
-                  (click)="createPost()"
-                  [disabled]="!createPostForm.valid">CREATE
+                  [disabled]="!createPostForm.valid || postImageUrl == undefined">CREATE
                 </button>
               </div>
             </div>
           </form>
+
+          <app-image-cropper (uploadUrl)="handleImageUpload($event)" [folderPath]="'post'"></app-image-cropper>
+
         </div>
       </div>
 
-      <app-image-cropper [folderPath]="'post'"></app-image-cropper>
+
 
     </div>
     <div class="col l2">

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CreatePost } from 'src/app/shared/models/createPost';
 import { Profile } from '../models/profile';
 
 @Injectable({
@@ -37,4 +38,11 @@ export class ProfileService {
   }
 
   updateProfile(): void {}
+
+  readProfilePosts(id: string): AngularFirestoreCollection<CreatePost> {
+    const postCollection = this.firestore.collection<CreatePost>('posts', ref => {
+      return ref.where('author', '==', id);
+    });
+    return postCollection;
+  }
 }

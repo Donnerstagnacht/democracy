@@ -61,7 +61,7 @@
     </div>
     <p *ngIf="profileUid">uid: {{profileUid}}</p>
 
-    <app-image-cropper [folderPath]="'profile'"></app-image-cropper>
+    <app-image-cropper (uploadUrl)="handleImageUpload($event)" [folderPath]="'profile'"></app-image-cropper>
 
     <div class="card">
       <div class="card-content">

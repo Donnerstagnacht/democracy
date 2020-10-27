@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-image">
+    <img src="{{post.postImageUrl}}">
+    <span class="card-title">{{post.title}}</span>
+  </div>
+  <div class="card-action">
+    <div class="flex-row">
+      <div class="center" (click)="toggleLike()">
+        <h6 class="no-margin-bot">{{post.likesTotal}}</h6>
+        <i [ngClass]="{'red-text':alreadyLiked$ | async}" class="fas fa-heart hover padding"></i>
+      </div>
+      <div class="center" (click)="toggleComments()">
+        <h6 class="no-margin-bot">{{post.commentsTotal}}</h6>
+        <i class="fas fa-comment hover black-text padding"></i>
+      </div>
+      <div class="center" (click)="toggleText()">
+        <h6 class="no-margin-bot">TEXT</h6>
+        <i *ngIf="!showTextStatus" class="fas fa-angle-down hover black-text padding"></i>
+        <i *ngIf="showTextStatus" class="fas fa-angle-up hover black-text padding"></i>
+      </div>
+    </div>
+  </div>
+  <div class="card-content" *ngIf="showTextStatus">
+    <p>{{post.text}}</p>
+    <p>{{post.id}}</p>
+  </div>
+  <div class="card-content" *ngIf="showCommentStatus">
+    <div *ngFor="let comment of comments$ | async">
+      <app-comments [comment]="comment"></app-comments>
+    </div>
+    <app-add-comment (comment)="createComment($event)"></app-add-comment>
+  </div>
+</div>

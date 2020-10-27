@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap, take } from 'rxjs/operators';
 import { AuthService } from 'src/app/authentication/auth.service';
+import { CreatePost, PostID } from 'src/app/shared/models/createPost';
 import { Profile } from '../../models/profile';
 import { FollowProfileService } from '../../services/follow-profile.service';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,12 +20,15 @@ export class ProfileComponent implements OnInit {
   editMode: boolean;
   loggedInUserId$: Observable<string>;
   alreadyFollowing: boolean;
+  profilePosts$: Observable<PostID[]>;
 
   constructor(
     private authService: AuthService,
     private angularFireStorage: AngularFireStorage,
     private route: ActivatedRoute,
-    private followProfileService: FollowProfileService
+    private followProfileService: FollowProfileService,
+    private profileService: ProfileService,
+    private firestore: AngularFirestore
     ) { }
 
   ngOnInit(): void {
@@ -33,10 +38,13 @@ export class ProfileComponent implements OnInit {
         this.profileData$ = this.authService.readProfile(id);
         this.loggedInUserId$ = this.authService.getUserId();
         this.isVisitedUserEqualToLoggedInUser(id);
-
+        this.readProfilePosts(id);
         this.isAlreadyFollowing(id);
       } else {
         this.profileData$ = this.authService.readLoggedInUserProfile();
+        this.profileData$.subscribe(profileData => {
+          this.readProfilePosts(profileData.uid);
+        });
         this.editMode = true;
       }
     });
@@ -93,5 +101,18 @@ export class ProfileComponent implements OnInit {
         this.followProfileService.unFollow(loggedInUserId, visitedUserId);
       });
     });
+  }
+
+  readProfilePosts(uid: string): void {
+    const postCollection = this.firestore.collection<CreatePost>('posts', ref => {
+      return ref.where('author', '==', uid);
+    });
+    this.profilePosts$ = postCollection.snapshotChanges().pipe(
+    map((actions) => actions.map(a => {
+          const data = a.payload.doc.data() as CreatePost;
+          const id = a.payload.doc.id;
+          return {id, ...data};
+        }))
+    );
   }
 }

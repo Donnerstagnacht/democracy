@@ -1,0 +1,19 @@
+<form [formGroup]="createCommentForm" (ngSubmit)="createComment()">
+  <mat-form-field class="full-width" appearance="standard">
+    <mat-label>Add Comment</mat-label>
+    <input matInput formControlName="comment">
+    <mat-icon class="accept-icon" matSuffix *ngIf="!errorHandling(this.createCommentForm, 'comment', 'required') && createCommentForm.value.comment!==''">done</mat-icon>
+    <mat-error *ngIf="errorHandling(this.createCommentForm, 'comment', 'required')">Bitte ein Kommentar eingeben</mat-error>
+  </mat-form-field>
+
+  <div class="row">
+    <div class="flex-row col s12">
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!createCommentForm.valid">CREATE
+      </button>
+    </div>
+  </div>
+</form>

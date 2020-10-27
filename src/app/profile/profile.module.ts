@@ -11,6 +11,7 @@ import { DialogUpdateEmailComponent } from './components/dialog-update-email/dia
 import { DialogUpdatePasswordComponent } from './components/dialog-update-password/dialog-update-password.component';
 import { ConfirmLoginComponent } from './components/confirm-login/confirm-login.component';
 import { StorageModule } from '../storage/storage.module';
+import { PostModule } from '../post/post.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StorageModule } from '../storage/storage.module';
   imports: [
     CommonModule,
     ProfileRoutingModule,
+    PostModule,
     SharedModule,
     ReactiveFormsModule,
     StorageModule
