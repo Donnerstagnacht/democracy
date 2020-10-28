@@ -1,7 +1,7 @@
 import { forEach } from '@angular-devkit/schematics';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable, Subject } from 'rxjs';
+import { forkJoin, Observable, Subject, zip } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthService } from 'src/app/authentication/auth.service';
 import { PostID } from 'src/app/shared/models/createPost';
@@ -16,12 +16,13 @@ export class TimelineService {
     private authService: AuthService
     ) { }
 
-    // Adding Observable<PostID> to an Observable<PostID[]> array not working
+  // Loads all Post new and adds them to timeline array, even the posts have been existing before already
   readPosts(): Observable<PostID[]> {
     const postsOfTimelineSubject: Subject<PostID[]> = new Subject();
+    const postsOfTimeline: Observable<PostID>[] = [];
 
     this.authService.getUserId().subscribe((uid) => {
-
+      console.log(uid);
       const timelineCollectionRef: AngularFirestoreCollection<PostID> = this.firestore
         .collection('users')
         .doc(uid)
@@ -34,24 +35,29 @@ export class TimelineService {
         }))
       );
 
-      let postsOfTimeline: Observable<PostID[]>;
+      // const postsOfTimeline: Observable<PostID>[] = [];
 
       idsOfTimelinePosts.subscribe((ids: string[]) => {
         ids.forEach((postId: string) => {
-        // console.log(postId); (works)
-        const postDocRef: AngularFirestoreDocument<PostID> = this.firestore.doc('posts/' + postId);
+          console.log(postId); // (works)
+          const postDocRef: AngularFirestoreDocument<PostID> = this.firestore.doc('posts/' + postId);
 
-        const loadedPostData: Observable<PostID> = postDocRef.snapshotChanges()
-          .pipe(
-            map((actions) => {
-              const data = actions.payload.data();
-              const id = actions.payload.id;
-              return {id, ...data};
-            })
-          );
-        // loadedPostData.subscribe(data => {console.log('snapshot', data); }); (works)
-
+          const loadedPostData: Observable<PostID> = postDocRef.snapshotChanges()
+            .pipe(
+              map((actions) => {
+                const data = actions.payload.data();
+                const id = actions.payload.id;
+                return {id, ...data};
+              })
+            );
+          postsOfTimeline.push(loadedPostData);
         });
+        zip(...postsOfTimeline).subscribe(
+          (postIDs: PostID[]) => {
+            console.log('postIDs', postIDs);
+            postsOfTimelineSubject.next(postIDs);
+          }
+        );
       });
 
     });

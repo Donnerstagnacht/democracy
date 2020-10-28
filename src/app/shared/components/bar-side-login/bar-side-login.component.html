@@ -6,6 +6,9 @@
         <a *ngIf="menuTab.tabRouterLink" class="black-text" [routerLink]="[menuTab.tabRouterLink]">{{menuTab.tabName}}</a>
       </li>-->
       <li class="flex-row full-width">
+        <img [routerLink]="['']" class="side-logo" src="../../../../assets/images/leftlife-logo.png">
+      </li>
+      <li class="flex-row full-width">
         <i [routerLink]="['/create']" class="fas fa-plus-square hover black-text padding"></i>
       </li>
       <li class="flex-row full-width">

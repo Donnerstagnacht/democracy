@@ -28,7 +28,7 @@ export class CommentService {
     .doc(this.post.id)
     .collection('comments');*/
 
-    const followerRef: DocumentReference<any> = this.firestore
+    const commentRef: DocumentReference<any> = this.firestore
       .collection('posts')
       .doc(postId)
       .collection('comments')
@@ -42,7 +42,7 @@ export class CommentService {
 
     const increment = firebase.firestore.FieldValue.increment(1);
     const batch = this.firestore.firestore.batch();
-    batch.set(followerRef, comment);
+    batch.set(commentRef, comment);
     batch.update(postDocRef, {commentsTotal: increment});
     batch.commit();
     // followerRef.add(comment);
